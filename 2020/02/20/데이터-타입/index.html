@@ -10,16 +10,16 @@
 <title>데이터 타입 - Dev.Mang&#39;s Odd and Ends</title>
 
 
-    <meta name="description" content="1. 타입의 종류데이터 타입에는원시 타입 : 숫자, 문자열, 불리언, undefined, null, Symbol객체 타입 : 객체, 함수, 배열 등이 있다.  숫자 : 64비트의 부동소수점 형식. 모든 수를 실수로 처리 문자열 : 16비트 유니코드 문자 집합 형식  템플릿 리터럴 : 편리한 문자열 처리기능을 제공  불리언 : 논리적 결과를 나타냄. true">
+    <meta name="description" content="1. 타입의 종류데이터 타입에는원시 타입 : 숫자, 문자열, 불리언, undefined, null, Symbol객체 타입 : 객체, 함수, 배열 등이 있다.  숫자 : 64비트의 부동소수점 형식. 모든 수를 실수로 처리  문자열 : 16비트 유니코드 문자 집합 형식템플릿 리터럴 : 편리한 문자열 처리기능을 제공  불리언 : 논리적 결과를 나타냄. true&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="데이터 타입">
 <meta property="og:url" content="https://developer-mang.github.io/2020/02/20/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:description" content="1. 타입의 종류데이터 타입에는원시 타입 : 숫자, 문자열, 불리언, undefined, null, Symbol객체 타입 : 객체, 함수, 배열 등이 있다.  숫자 : 64비트의 부동소수점 형식. 모든 수를 실수로 처리 문자열 : 16비트 유니코드 문자 집합 형식  템플릿 리터럴 : 편리한 문자열 처리기능을 제공  불리언 : 논리적 결과를 나타냄. true">
+<meta property="og:description" content="1. 타입의 종류데이터 타입에는원시 타입 : 숫자, 문자열, 불리언, undefined, null, Symbol객체 타입 : 객체, 함수, 배열 등이 있다.  숫자 : 64비트의 부동소수점 형식. 모든 수를 실수로 처리  문자열 : 16비트 유니코드 문자 집합 형식템플릿 리터럴 : 편리한 문자열 처리기능을 제공  불리언 : 논리적 결과를 나타냄. true&#x2F;">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://developer-mang.github.io/images/og_image.png">
 <meta property="article:published_time" content="2020-02-20T13:57:02.000Z">
-<meta property="article:modified_time" content="2020-02-20T14:25:44.536Z">
+<meta property="article:modified_time" content="2020-02-21T00:49:22.909Z">
 <meta property="article:author" content="Mang">
 <meta property="article:tag" content="컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발">
 <meta name="twitter:card" content="summary">
@@ -118,7 +118,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -143,7 +143,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 lesen (Über 629 Worte)
+                    4분 read (About 629 words)
                 </span>
                 
                 
@@ -156,38 +156,37 @@
             
         </h1>
         <div class="content">
-            <h1 id="1-타입의-종류"><a href="#1-타입의-종류" class="headerlink" title="1. 타입의 종류"></a>1. 타입의 종류</h1><p>데이터 타입에는<br>원시 타입 : 숫자, 문자열, 불리언, undefined, null, Symbol<br>객체 타입 : 객체, 함수, 배열 등<br>이 있다.</p>
+            <h2 id="1-타입의-종류"><a href="#1-타입의-종류" class="headerlink" title="1. 타입의 종류"></a>1. 타입의 종류</h2><p>데이터 타입에는<br>원시 타입 : 숫자, 문자열, 불리언, undefined, null, Symbol<br>객체 타입 : 객체, 함수, 배열 등<br>이 있다.</p>
 <ul>
-<li>숫자 : 64비트의 부동소수점 형식. 모든 수를 실수로 처리</li>
-<li>문자열 : 16비트 유니코드 문자 집합 형식</li>
-</ul>
-<p><em>템플릿 리터럴 : 편리한 문자열 처리기능을 제공</em></p>
-<ul>
-<li>불리언 : 논리적 결과를 나타냄. true/false 만 있음.</li>
-<li>undefined : 명확한 값이 들어있지 않은 변수에 들어있는 값.</li>
-<li>null : 변수 안에 값이 없다는 것을 알려주는 값. </li>
-</ul>
-<p><em>이전에 참조하던 값을 더이상 참조하지 않겠다!</em></p>
-<ul>
+<li><p>숫자 : 64비트의 부동소수점 형식. 모든 수를 실수로 처리</p>
+</li>
+<li><p>문자열 : 16비트 유니코드 문자 집합 형식<br><em>템플릿 리터럴 : 편리한 문자열 처리기능을 제공</em></p>
+</li>
+<li><p>불리언 : 논리적 결과를 나타냄. true/false 만 있음.</p>
+</li>
+<li><p>undefined : 명확한 값이 들어있지 않은 변수에 들어있는 값.</p>
+</li>
+<li><p>null : 변수 안에 값이 없다는 것을 알려주는 값.<br><em>이전에 참조하던 값을 더이상 참조하지 않겠다!</em></p>
+</li>
 <li><p>Symbol : 수시로 변하는 객체에 유일한 프로퍼티 키를 주어서 제어하기 위해 사용되는 Symbol 타입 객체를 명시하는 타입 값.</p>
 </li>
 <li><p>객체 : 위에 있는 원시 타입 값과 다르게 변할 수 있는 값?</p>
 </li>
 </ul>
-<h2 id="템플릿-리터털"><a href="#템플릿-리터털" class="headerlink" title="템플릿 리터털"></a>템플릿 리터털</h2><ul>
+<h3 id="템플릿-리터털"><a href="#템플릿-리터털" class="headerlink" title="템플릿 리터털"></a>템플릿 리터털</h3><ul>
 <li>멀티라인 문자열 : 줄바꿈을 별도의 코드를 사용하지 않고 표현가능하다.</li>
 <li>표현식 삽입 : 표현식이 평가된 값을 <strong>문자열</strong>로 보여준다.</li>
 <li>테그드 템플릿 : 함수에 넣을 프로퍼티를 쉽게 넣을 수 있다.</li>
 </ul>
-<h1 id="2-타입의-필요성"><a href="#2-타입의-필요성" class="headerlink" title="2. 타입의 필요성"></a>2. 타입의 필요성</h1><ul>
+<h2 id="2-타입의-필요성"><a href="#2-타입의-필요성" class="headerlink" title="2. 타입의 필요성"></a>2. 타입의 필요성</h2><ul>
 <li>모든 값은 메모리에 저장 및 참조 가능해야 하기 때문에 값에 할당할 크기를 알아야한다.</li>
 <li>메모리에 2진수로 저장되는데 참조할 때 어떻게 해석하느냐에 따라 결과가 달라지기 때문이다.</li>
 </ul>
-<h1 id="3-동적-타입-언어와-정적-타입-언어"><a href="#3-동적-타입-언어와-정적-타입-언어" class="headerlink" title="3. 동적 타입 언어와 정적 타입 언어"></a>3. 동적 타입 언어와 정적 타입 언어</h1><ul>
+<h2 id="3-동적-타입-언어와-정적-타입-언어"><a href="#3-동적-타입-언어와-정적-타입-언어" class="headerlink" title="3. 동적 타입 언어와 정적 타입 언어"></a>3. 동적 타입 언어와 정적 타입 언어</h2><ul>
 <li>동적 타입 언어 : 자바스크립트처럼 변수를 선언할 때 타입 값을 지정하지 않아 상황에 따라 타입을 바꿀 수 있는 언어</li>
 <li>정적 타입 언어 : c 언어 처럼 변수를 선언할 때 타입을 같이 지정해야하는 언어</li>
 </ul>
-<h2 id="동적-타입-언어"><a href="#동적-타입-언어" class="headerlink" title="동적 타입 언어"></a>동적 타입 언어</h2><p>즉, 변수 선언 단계에서 타입이 결정되는 것이 아니라 변수에 재할당 된 값에 따라 변수의 타입이 결정된다.<br><em>값이 확정으로 할당되기 전까지 타입을 확신할 수 없다.</em><br><em>따라서 주의 사항이 생긴다.</em><br><em>1. 필요한 경우 제한적으로 사용할 것.</em><br><em>2. 변수 유효범위(스코프)를 최대한 좁게 설정할 것.</em><br><em>3. 전역변수는 최대한 피할 것.</em><br><em>4. 상수를 애용할 것.</em><br><em>5. 변수 이름을 시멘틱하게 만들 것.</em></p>
+<h3 id="동적-타입-언어"><a href="#동적-타입-언어" class="headerlink" title="동적 타입 언어"></a>동적 타입 언어</h3><p>즉, 변수 선언 단계에서 타입이 결정되는 것이 아니라 변수에 재할당 된 값에 따라 변수의 타입이 결정된다.<br>  <em>값이 확정으로 할당되기 전까지 타입을 확신할 수 없다.</em><br>  <em>따라서 주의 사항이 생긴다.</em><br>  <em>1. 필요한 경우 제한적으로 사용할 것.</em><br>  <em>2. 변수 유효범위(스코프)를 최대한 좁게 설정할 것.</em><br>  <em>3. 전역변수는 최대한 피할 것.</em><br>  <em>4. 상수를 애용할 것.</em><br>  <em>5. 변수 이름을 시멘틱하게 만들 것.</em></p>
 
         </div>
         
@@ -209,7 +208,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">Gefällt Ihnen der Artikel? Unterstützen Sie den Autor mit</h3>
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
         <div class="buttons is-centered">
             
                 
@@ -311,7 +310,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategorien
+                        Categories
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -336,7 +335,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                Folgen</a>
+                Follow</a>
         </div>
         
         
@@ -426,7 +425,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategorien
+                Categories
             </h3>
             <ul class="menu-list">
             
@@ -450,7 +449,7 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recent
         </h3>
         
         <article class="media">
@@ -536,7 +535,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -597,7 +596,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recent
         </h3>
         
         <article class="media">
@@ -683,7 +682,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -865,7 +864,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -889,7 +888,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -902,10 +901,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
