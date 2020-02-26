@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: 컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리 - Dev.Mang&#39;s Odd and Ends</title>
+<title>Etiqueta: 컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리 - Dev.Mang&#39;s Odd and Ends</title>
 
 
     <meta name="description" content="Every things Mang want to do">
@@ -117,7 +117,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="Buscar" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -133,7 +133,7 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">Tags</a></li>
+            <li><a href="/tags">Etiquetas</a></li>
             <li class="is-active"><a href="#" aria-current="page">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a></li>
         </ul>
         </nav>
@@ -153,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8분 lesen (Über 1163 Worte)
+                    8분 leer (Acerca de 1203 palabras)
                 </span>
                 
                 
@@ -170,42 +170,48 @@
 <ul>
 <li><p>변수와 상수<br>원시 값은 변경이 불가능하다. 하지만 변수 값은 변경이 가능하다. 원시 값은 메모리에 들어가 있는 데이터이고 변수 값은 해당 변수가 갖고 있는 메모리 주소에 들어있는 값을 참조하는 것이기 때문에 변수의 경우는 재할당을 통해 변수 값을 변경 가능하다.<br>그 중 상수라는 개념이 있는데 상수란 재할당을 금지한 변수이다. 상수도 변수의 일종이지만 시스템적으로 재할당을 금지했을 뿐이다. 때문에 한번만 할당이 가능하다.</p>
 </li>
-<li><p>문자열타입 값<br>문자열도 원시 타입의 값이다. 따라서, 한번 선언되 문자열 값은 바꿀 수 없다.</p>
-</li>
-</ul>
-<pre>ex1) 
+<li><p>문자열타입 값<br>문자열도 원시 타입의 값이다. 따라서, 한번 선언되 문자열 값은 바꿀 수 없다.<br>아래 예시를 보자.</p>
+<pre>ex1) 문자열 값 재할당
+
 var str = 'hellow';
 str = 'Hellow';
+
 </pre> 
 
-<p>  위에 예시를 보면 ‘hellow’란 문자열을 만들고 이 문자열 중 첫번째 문자를 대문자로 바꾸고 싶어 ‘Hellow’란 문자열로 재할당하면 h를 H롤 바꾼 것이 아니라 ‘hellow’란 값은 그대로 두고 ‘Hellow’란 값을 다시 만들어서 재할당 한 것이다.</p>
-<p>  추가로, 문자열 타입의 값은 <u>유사 배열 객체</u>이다. 정확히는 배열 객체처럼 사용할 수 있다.<br>  특정 문자를 접근하는 것은 가능하나 변경은 할 수 없다. 다음 예제를 보자</p>
-<pre>ex2)
+<p>위의 예시는 ‘hellow’란 문자열을 만들고 이 문자열 중 첫번째 문자를 대문자로 바꾸고 싶어 ‘Hellow’란 문자열로 재할당하는 코드이다.<br>하지만 실행하면 h를 H롤 바꾼 것이 아니라 ‘hellow’란 값은 그대로 두고 ‘Hellow’란 값을 다시 만들어서 재할당 한 것이다.</p>
+<p>추가로, 문자열 타입의 값은 <u>유사 배열 객체</u>이다. 정확히는 배열 객체처럼 사용할 수 있다.<br>특정 문자를 접근하는 것은 가능하나 변경은 할 수 없다. 다음 예제를 보자</p>
+<pre>ex2) 특정 문자 접근 및 수정
+
 ...
 
 str[0];                       <span style="color:green">// -> H</span>
 str[0] ='h';
 
 console.log(str);             <span style="color:green">// 'Hellow'</span>
+
 </pre>
 
-<p> 주의해야 할 점은 특정 문자를 변경하려고 쓴 문(str[0] = ‘h’;)은 무시되었지만 <u>에러를 출력하지 않는다.</u></p>
+<p>주의해야 할 점은 특정 문자를 변경하려고 쓴 문(str[0] = ‘h’;)은 무시되었지만 <u>에러를 출력하지 않는다.</u></p>
+</li>
+</ul>
 <h2 id="객체-타입의-값"><a href="#객체-타입의-값" class="headerlink" title="객체 타입의 값"></a>객체 타입의 값</h2><p>객체 타입의 값은 프로퍼티 갯수가 정해저 있지 않으며 추가되고 삭제 할 수 있다. 즉, <strong>변경가능한 값</strong>이다.<br>따라서 원시 값 처럼 사전에 메모리 공간을 확보할 수 없다.</p>
 <ul>
 <li>객체 타입의 값 관리<br>객체 타입 값은 프로퍼티들로 이루어져있고 프로퍼티는 키와 프로퍼티 값으로 이루어져있다. 프로퍼티 값은 해당 객체 안에 포함되어있지 않고 다른 메모리에 저장되어 있는데 그 메모리 주소를 그 프로퍼티의 키가 갖고 있고 해당 프로퍼티를 호출하면 키가 갖고 있는 주소로 가서 그 메모리에 저장된 값을 가져온다.</li>
 </ul>
 <h3 id="변수를-통한-원시-값-접근과-객체-타입의-값-접근-비교"><a href="#변수를-통한-원시-값-접근과-객체-타입의-값-접근-비교" class="headerlink" title="변수를 통한 원시 값 접근과 객체 타입의 값 접근 비교"></a>변수를 통한 원시 값 접근과 객체 타입의 값 접근 비교</h3><p>변수에 원시 값을 할당하면 원시 값 자체를 변수 값으로 갖는다. 하지만 객체 타입의 값을 할당하면 해당 객체 값이 있는 주소를 값으로 가져서 주소를 값으로 만든다. 이렇게 주소를 값으로 갖는 것을 <strong>참조 값</strong>이라고 한다.<br><u>즉 객체 타입의 값을 할당한 변수는 값으로 참조값를 갖는 것이다.</u></p>
 <h2 id="값의-전달"><a href="#값의-전달" class="headerlink" title="값의 전달"></a>값의 전달</h2><p>어떤 변수에 다른 변수 값을 할당하고 싶은 경우가 있을 수 있다. 그럼 할당 연산자를 통해 값을 전달할 수 있다.<br>전달을 할 때 할당을 하는 변수 값을 복사해서 다른 메모리에 재할당하고 그 메모리 주소를 연결하던가 아님 애초에 할당하는 변수의 연결된 주소를 공유할 수 도 있다.<br>여기서 객체 타입의 값은 문제가 생긴다. 할당을 하는 변수의 연결된 주소를 공유를 하던 복사를 해서 재할당을 하던 그 참조값은 <strong>할당하는 변수나 할당 받는 변수나 같은 객체 주소를 참조하게 된다.</strong> 따라서 이렇게 참조 값을 전달한 후 그 안에 있는 객체 프로퍼티 또는 프로퍼티 값을 수정하면 그 객체 주소를 참조하는 모든 변수가 영향을 받는다는 말이 된다.<br><em>변수로 값을 전달하는 것을 <strong>‘공유에 의한 전달’</strong>이라고 하며, 원시 값을 전달하는 것을 <strong>‘값에 의한 전달’</strong>, 참조 값을 전달하는 것을 <strong>‘참조에 의한 전달’</strong>이라고도 한다.</em></p>
-<pre>ex3)
-var obj = {name : object};
+<pre>ex3) 객체 타입의 값 전달
 
+var obj = {name : object};
 var copy = obj;
+
 console.log(copy === obj);    <span style="color:green">// true</span>
 
 <span style="color:green">// 각 변수의 변경점을 만든다.</span>
 copy.name = copyName;
 obj.add = 'ok';
-console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 'ok'}, {name : copyName, add : 'ok'}</span>
+console.log(copy, obj);       <span style="color:green">// {name : copyName, add : 'ok'}, {name : copyName, add : 'ok'}</span>
+
 </pre>
         </div>
         
@@ -262,11 +268,11 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            9
+                            11
                         </p>
                     </a>
                 </div>
@@ -274,7 +280,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategorien
+                        Categorías
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -286,11 +292,11 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            5
+                            7
                         </p>
                     </a>
                 </div>
@@ -299,7 +305,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                Folgen</a>
+                SEGUIR</a>
         </div>
         
         
@@ -352,7 +358,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Enlaces
         </h3>
         <ul class="menu-list">
         
@@ -389,7 +395,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategorien
+                Categorías
             </h3>
             <ul class="menu-list">
             
@@ -401,9 +407,9 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
-        <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/" style="font-size: 10px;">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8/" style="font-size: 10px;">컴퓨터 기초, 표현식, 문</a>
+        <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 함수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/" style="font-size: 10px;">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</a>
     </div>
 </div>
     
@@ -413,8 +419,46 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="스코프">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T12:19:21.000Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스코프</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="함수">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:58:31.000Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">함수</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -473,44 +517,6 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/24/%EC%A0%9C%EC%96%B4%EB%AC%B8/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="제어문">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-24T01:22:00.000Z">2020-02-24</time></div>
-                    <a href="/2020/02/24/%EC%A0%9C%EC%96%B4%EB%AC%B8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">제어문</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/21/%EC%97%B0%EC%82%B0%EC%9E%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="연산자">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-21T11:04:44.000Z">2020-02-21</time></div>
-                    <a href="/2020/02/21/%EC%97%B0%EC%82%B0%EC%9E%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">연산자</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -518,7 +524,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -528,7 +534,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -542,9 +548,16 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
@@ -568,15 +581,22 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
-                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8/">
-                        <span class="tag">컴퓨터 기초, 표현식, 문</span>
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 함수, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
+                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -600,8 +620,46 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="스코프">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T12:19:21.000Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스코프</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="함수">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:58:31.000Z">2020-02-26</time></div>
+                    <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">함수</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -660,44 +718,6 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/24/%EC%A0%9C%EC%96%B4%EB%AC%B8/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="제어문">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-24T01:22:00.000Z">2020-02-24</time></div>
-                    <a href="/2020/02/24/%EC%A0%9C%EC%96%B4%EB%AC%B8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">제어문</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/21/%EC%97%B0%EC%82%B0%EC%9E%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="연산자">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-21T11:04:44.000Z">2020-02-21</time></div>
-                    <a href="/2020/02/21/%EC%97%B0%EC%82%B0%EC%9E%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">연산자</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -705,7 +725,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -715,7 +735,7 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -729,9 +749,16 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
@@ -755,15 +782,22 @@ console.log(copy, obj);    <span style="color:green">// {name : copyName, add : 
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
-                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8/">
-                        <span class="tag">컴퓨터 기초, 표현식, 문</span>
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 함수, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
+                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -908,7 +942,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -932,7 +966,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Teclea algo..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -944,11 +978,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
-                TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                POSTS: 'Entradas',
+                PAGES: 'Páginas',
+                CATEGORIES: 'Categorías',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Sin título)',
             },
             CONTENT_URL: '/content.json',
         };
