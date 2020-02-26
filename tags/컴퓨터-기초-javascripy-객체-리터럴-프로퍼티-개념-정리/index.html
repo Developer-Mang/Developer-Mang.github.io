@@ -7,19 +7,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>My blog start - Dev.Mang&#39;s Odd and Ends</title>
+<title>Tag: 컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리 - Dev.Mang&#39;s Odd and Ends</title>
 
 
-    <meta name="description" content="Dev.Mang의 블로그 제작 시작">
-<meta property="og:type" content="article">
-<meta property="og:title" content="My blog start">
-<meta property="og:url" content="https://developer-mang.github.io/2020/02/20/My-blog-start/index.html">
+    <meta name="description" content="Every things Mang want to do">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
+<meta property="og:url" content="https://developer-mang.github.io/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:description" content="Dev.Mang의 블로그 제작 시작">
+<meta property="og:description" content="Every things Mang want to do">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://developer-mang.github.io/images/og_image.png">
-<meta property="article:published_time" content="2020-02-20T13:01:06.000Z">
-<meta property="article:modified_time" content="2020-02-20T13:04:43.032Z">
 <meta property="article:author" content="Mang">
 <meta property="article:tag" content="Mang">
 <meta property="article:tag" content=" FE">
@@ -82,7 +80,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="My blog start" height="28">
+                <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
             
             </a>
         </div>
@@ -131,20 +129,31 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-20T13:01:06.000Z">2020-02-20</time>
+                <time class="level-item has-text-grey" datetime="2020-02-24T13:42:01.000Z">2020-02-24</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    몇 초 lesen (Über 10 Worte)
+                    6분 lesen (Über 927 Worte)
                 </span>
                 
                 
@@ -153,11 +162,63 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                My blog start
+                <a class="has-link-black-ter" href="/2020/02/24/%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4/">객체 리터럴</a>
             
         </h1>
         <div class="content">
-            <h1 id="Dev-Mang의-블로그-제작-시작"><a href="#Dev-Mang의-블로그-제작-시작" class="headerlink" title="Dev.Mang의 블로그 제작 시작"></a>Dev.Mang의 블로그 제작 시작</h1>
+            <h2 id="객체란"><a href="#객체란" class="headerlink" title="객체란?"></a>객체란?</h2><p>키(key)와 값(value)로 구성된 프로퍼티(Property)의 집합.<br><em>원시 타입 값과 달리 변경가능한 값이다.</em></p>
+<h3 id="객체-생성-방법"><a href="#객체-생성-방법" class="headerlink" title="객체 생성 방법"></a>객체 생성 방법</h3><ul>
+<li>객체 리터럴<br>{…} 안에 0개 이상의 프로퍼티를 정의.</li>
+</ul>
+<pre>ex) var obj = {name:'객체',sayFunc(){}};</pre>
+
+<p><em>객체 리터럴 중괄호는 블록문을 나타내는 것이 아니기 때문에 <u>문 끝에 ;을 붙여주어야한다.</u></em></p>
+<ul>
+<li>Object 생성자 함수</li>
+<li>생성자 함수</li>
+<li>Object.create 메소드</li>
+<li>클래스(ES6)</li>
+</ul>
+<h2 id="프로퍼티란"><a href="#프로퍼티란" class="headerlink" title="프로퍼티란?"></a>프로퍼티란?</h2><p>객체의 상태나 동작을 나타내는 값.<br>키(key)와 값(value)로 구성된 객체 안에 단위이다. ,(쉼표)로 구분한다.<br>동일한 key의 프로퍼티를 선언하면 나중에 선언한 프로퍼티가 먼저 선언한 프로퍼티를 덮어쓴다.</p>
+<ul>
+<li>키(key)<br>프로퍼티 값에 접근하는 식별자 같은 일을 한다. []안에 평가식을 사용해 평가된 값을 키로 동적으로 생성가능하다.</li>
+</ul>
+<p><em>식별자 네이밍 규칙을 따르지 않는 이름을 사용가능하다. 단,’첫글자에 숫자가 오지 말것!’이라는 규칙을 제외한 다른 이름은 ‘…’로 묶어주어야 한다.</em><br><em>빈 문자열을 이름으로 사용 가능하다. 하지만 의미을 갖을 수 없음으로 권장하지 않는다.</em><br><em>문자열과 symbol 타입 이외의 값을 사용하면 암묵적으로 문자열 타입 값으로 변환한다.</em></p>
+<ul>
+<li><p>값(value)<br>해당 프로퍼티를 참조할 시 참조되는 값. 모든 표현식은 사용가능하다.<br>단 함수를 프로퍼티에 값으로 사용할 경우, 함수와 구별을 위해 메소드(Method)라 부른다. </p>
+</li>
+<li><p>메소드(Method)<br>프로퍼티 값에 함수를 사용하면 함수 객체와 구별하기 위해 메소드라고 부름.</p>
+</li>
+</ul>
+<h3 id="프로퍼티-접근-방법"><a href="#프로퍼티-접근-방법" class="headerlink" title="프로퍼티 접근 방법"></a>프로퍼티 접근 방법</h3><ul>
+<li><p>마침표 표기법<br>해당 객체가 할당된 변수 명 뒤에 .(마침표)를 찍고 객체 안에 있는 키 이름를 뒤에 붙인다.</p>
+</li>
+<li><p>대괄호 표기법<br>해당 객체가 할당된 변수 명 뒤에 [] 붙이고 안에 <u>문자열</u>로 키 이름을 넣는다.<br><u>식별자 네이밍 규칙을 따르지 않은 프로퍼티에 접근하기 위해서는 반드시 대괄호 표기법으로 접근해야한다.</u></p>
+</li>
+</ul>
+<pre>ex) 
+var obj = {key:value};
+
+<span style="color:green">// 마침표 표기법</span>
+obj.key                  <span style="color:green">// -> value</span>
+
+<span style="color:green">// 대괄호 표기법</span>
+obj['key']               <span style="color:green">// -> value</span>
+</pre> 
+
+<p><em>객체에 존재하지 않는 프로퍼티에 접근하면 undefined 값을 반환한다.</em><br><em>객체에 존재하지 않는 프로퍼티에 값을 할당하면 동적으로 프로퍼티를 해당 객체에 추가한다.</em></p>
+<h3 id="프로퍼티-삭제"><a href="#프로퍼티-삭제" class="headerlink" title="프로퍼티 삭제"></a>프로퍼티 삭제</h3><p>delete 연산자를 사용하면 해당 프로퍼티를 삭제 가능하다. 존재하지 않는 프로퍼티를 삭제하려고 하면 <u>에러 없이 무시된다.</u></p>
+<h3 id="객체-리터럴-확장-기능"><a href="#객체-리터럴-확장-기능" class="headerlink" title="객체 리터럴 확장 기능"></a>객체 리터럴 확장 기능</h3><ul>
+<li><p>프로퍼티 축약 표현(ES6)<br>프로퍼티 값에 변수를 사용하는 경우, 변수 명과 key의 이름이 같을 경우 키를 생략할 수 있다.</p>
+</li>
+<li><p>프로퍼티 키 동적 생성(ES5)<br>객체 리터럴 외부에서 대괄호 표기법을 사용해서 […] 안에 표현식을 사용해서 동적으로 프로퍼티 키 이름과 값을 추가할 수 있다.</p>
+</li>
+</ul>
+<p><em>문자열 탬플릿을 사용하면 더 가독성 좋게 만들수 있다.</em></p>
+<ul>
+<li>메소드 축약 표현<br>메소드를 추가할 때 function 키워드를 생략할 수 있다. 단, 프로퍼티 값으로 함수를 할당한 것과 다르게 동작한다. </li>
+</ul>
+
         </div>
         
         
@@ -167,62 +228,9 @@
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Gefällt Ihnen der Artikel? Unterstützen Sie den Autor mit</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/20/%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC-%EB%AC%B8/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">표현식과 문</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/20/hello-world/">
-                <span class="level-item">Hello World</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -789,7 +797,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="My blog start" height="28">
+                    <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
                 
                 </a>
                 <p class="is-size-7">
