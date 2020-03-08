@@ -7,30 +7,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tags - Dev.Mang&#39;s Odd and Ends</title>
+<title>프로퍼티 어트리뷰트 - Dev.Mang&#39;s Odd and Ends</title>
 
 
-    <meta name="description" content="Every things Mang want to do">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:url" content="https://developer-mang.github.io/tags/index.html">
+    <meta name="description" content="내부 슬롯과 내부 메소드자바스크립트에서 객체를 만들 때 해당 객체를 컨드롤 하기 위해 만드는 프로퍼티와 메소드가 있는데 프로퍼티를 내부 슬롯(internal slot), 메소드를 내부 메소드(internal method)라고 한다.원칙적으로는 내부 슬롯과 내부 메소드에 접근할 수 없지만 몇몇 내부 슬롯과 내부 메소드에 한하여 간접적으로 접근 가능하다. 프로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="프로퍼티 어트리뷰트">
+<meta property="og:url" content="https://developer-mang.github.io/2020/03/05/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:description" content="Every things Mang want to do">
+<meta property="og:description" content="내부 슬롯과 내부 메소드자바스크립트에서 객체를 만들 때 해당 객체를 컨드롤 하기 위해 만드는 프로퍼티와 메소드가 있는데 프로퍼티를 내부 슬롯(internal slot), 메소드를 내부 메소드(internal method)라고 한다.원칙적으로는 내부 슬롯과 내부 메소드에 접근할 수 없지만 몇몇 내부 슬롯과 내부 메소드에 한하여 간접적으로 접근 가능하다. 프로">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://developer-mang.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-03-05T08:01:47.000Z">
+<meta property="article:modified_time" content="2020-03-06T12:36:39.185Z">
 <meta property="article:author" content="Mang">
-<meta property="article:tag" content="컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리">
-<meta property="article:tag" content="컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 함수, 개념 정리">
 <meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://developer-mang.github.io/images/og_image.png">
@@ -91,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                <img src="/images/logo.svg" alt="프로퍼티 어트리뷰트" height="28">
             
             </a>
         </div>
@@ -108,7 +98,7 @@
                 <a class="navbar-item"
                 href="/categories">Categories</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/tags">Tags</a>
                 
                 <a class="navbar-item"
@@ -140,109 +130,157 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-05T08:01:47.000Z">2020-03-05</time>
                 
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
                 
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9분 read (About 1292 words)
+                </span>
                 
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 함수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
-                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
                 
             </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                프로퍼티 어트리뷰트
+            
+        </h1>
+        <div class="content">
+            <h2 id="내부-슬롯과-내부-메소드"><a href="#내부-슬롯과-내부-메소드" class="headerlink" title="내부 슬롯과 내부 메소드"></a>내부 슬롯과 내부 메소드</h2><p>자바스크립트에서 객체를 만들 때 해당 객체를 컨드롤 하기 위해 만드는 프로퍼티와 메소드가 있는데 <strong>프로퍼티를 내부 슬롯(internal slot)</strong>, <strong>메소드를 내부 메소드(internal method)</strong>라고 한다.<br><em>원칙적으로는 내부 슬롯과 내부 메소드에 접근할 수 없지만 몇몇 내부 슬롯과 내부 메소드에 한하여 간접적으로 접근 가능하다.</em></p>
+<h2 id="프로퍼티-상태와-프로퍼티-어트리뷰트-디스크립터-객체"><a href="#프로퍼티-상태와-프로퍼티-어트리뷰트-디스크립터-객체" class="headerlink" title="프로퍼티 상태와 프로퍼티 어트리뷰트, 디스크립터 객체"></a>프로퍼티 상태와 프로퍼티 어트리뷰트, 디스크립터 객체</h2><ul>
+<li><p>프로퍼티 상태란?<br>자바스크립트에서 프로퍼티를 생성할 때 해당 프로퍼티에 대한 환경 설정 정보들을 프로퍼티 상태라고 한다.<br>프로퍼티 상태에는 </p>
+<ul>
+<li>프로퍼티 값(value)</li>
+<li>값의 갱신 여부(writable)</li>
+<li>열거 가능 여부(enumerable)</li>
+<li>재정의 가능 여부(configurable)<br>가 있다.</li>
+</ul>
+</li>
+<li><p>프로퍼티 어트리뷰트란?<br>자바스크립트에서 관리하는 프로퍼티 상태에 접근할 수 있는 내부 슬롯이다.</p>
+</li>
+<li><p>디스크립터 객체란?<br>어떠한 객체나 프로퍼티등의 어트리뷰트 정보를 제공하는 객체이다.<br>기본적으로 프로퍼티의 경우, Object.OwnPropertyDesctriptor 메소드를 이용해 프로퍼티의 상태를 확인할 수 있다.<br><em>존재하지 않는 프로퍼티나 <u>상속받은 프로퍼티</u>에 대한 디스크립터 객체를 요구할 경우 undefined 값을 반환한다.</em></p>
+</li>
+</ul>
+<h2 id="프로퍼티의-종류"><a href="#프로퍼티의-종류" class="headerlink" title="프로퍼티의 종류"></a>프로퍼티의 종류</h2><p>프로퍼티는 데이터 프로퍼티와 접근자 프로퍼티로 나누어진다.</p>
+<ul>
+<li><p>데이터 프로퍼티<br>키와 값으로 구성된 일반적인 프로퍼티.<br>데이터 프로퍼티는 해당 프로퍼티 어트리뷰트를 갖는다. </p>
+<ul>
+<li>[[Value]] : 프로퍼티 값</li>
+<li>[[Writable]] : 값 갱신 여부<br><em>false인 경우 값을 변경할 수 없다. 만약 false일 때, 값을 변경을 하면 <u>에러 없이 무시된다.</u></em></li>
+<li>[[Enumerable]] : 열거 가능 여부<br>for…in 문이나 Object.keys 등으로 열거 가능 여부를 정의한다.</li>
+<li>[[Configurable]] : 삭제,재정의 가능 여부<br>delete, Object.defineProperty 메소드를 사용해 프로퍼티 삭제, 어트리뷰트 재정의 가능 여부를 정의한다.<br><em>false인 경우 삭제와 어트리뷰트 재정의를 할 수 없다. 이 때, 어트리뷰트 재정의를 할 경우 에러가 발생하지만 <u>삭제의 경우는 에러 없이 무시된다.</u></em></li>
+</ul>
+</li>
+<li><p>접근자 프로퍼티<br>다른 데이터 프로퍼티 값을 읽거나 저장할 때 호출되는 접근자 함수로 구성된 프로퍼티. 프로퍼티 이름 앞에 get이나 set으로 구분할 수 있다.<br>데이터 프로퍼티 어트리뷰트와 다르게 [[Value]], [[Writable]] 대신에 [[Get]], [[Set]] 프로퍼티 어트리뷰트를 갖는다.</p>
+<ul>
+<li>[[Get]]<br>접근자 프로퍼티의 값에 접근하면 호출되는 getter함수. 다른 데이터 프로퍼티를 가져와 함수를 연산을 시킬수 있다.</li>
+<li>[[Set]]<br>접근자 프로퍼티를 통해 다른 데이터 프로퍼티 값을 저장/수정할 때 호출되는 setter함수. 다른 데이터 프로퍼티를 한꺼번에 수정할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="comment">// 데이터 프로퍼티</span></span><br><span class="line">  name : <span class="string">'obj'</span>,</span><br><span class="line">  number : <span class="string">'1'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// getter 함수</span></span><br><span class="line">  <span class="keyword">get</span> objNum() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.number&#125;</span>.<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// setter 함수</span></span><br><span class="line">  <span class="keyword">set</span> objNum(value) &#123;</span><br><span class="line">    [<span class="keyword">this</span>.number, <span class="keyword">this</span>.name] = value.split(<span class="string">'.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);       <span class="comment">// &#123;name: "obj", number: "1"number // [[get]] 어트리뷰트에 접근</span></span><br><span class="line">conso1lg(obj.objNum);   <span class="comment">// obj.1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);       <span class="comment">// &#123;name: "object", number: "1"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="프로퍼티-정의"><a href="#프로퍼티-정의" class="headerlink" title="프로퍼티 정의"></a>프로퍼티 정의</h2><p>새로운 프로퍼티를 추가할 때 프로퍼티 어트리뷰트를 명시적으로 정의하거나 기존 프로퍼티의 어트리뷰트를 재정의 하는 것이다.<br><u>Object.defineProperty 메소드</u>와 <u>Object.defineProperties 메소드</u>를 사용해서 프로퍼티 어트리뷰트를 정의할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 데이터 프로퍼티 정의</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'name'</span>,&#123;</span><br><span class="line">  value: <span class="string">'obj'</span>,</span><br><span class="line">  writable: <span class="literal">true</span>,</span><br><span class="line">  enumerable: <span class="literal">true</span>,</span><br><span class="line">  configurable: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'number'</span>,&#123;</span><br><span class="line">  value: <span class="string">'1'</span></span><br><span class="line">&#125;);                       <span class="comment">// 프로퍼티 어트리뷰트를 정의해주지 않으면 undefined, false이 기본값이다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 접근자 프로퍼티 정의</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'objNum'</span>,&#123;</span><br><span class="line">  <span class="keyword">get</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.number&#125;</span>.<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>(value) &#123;</span><br><span class="line">    [<span class="keyword">this</span>.number, <span class="keyword">this</span>.name] = value.split(<span class="string">'.'</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  enumerable: <span class="literal">true</span>,</span><br><span class="line">  configurable: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 다수의 프로퍼티 재정의</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  name: &#123;</span><br><span class="line">    writable: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  number: &#123;</span><br><span class="line">    writable: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="객체-변경-방지"><a href="#객체-변경-방지" class="headerlink" title="객체 변경 방지"></a>객체 변경 방지</h2><ul>
+<li><p>객체 확장 금지<br>Object.preventExtensions 메소드를 사용하여 객체의 확장을 금지한다.<br>프로퍼티 추가만 금지한다.</p>
+</li>
+<li><p>객체 밀봉<br>Object.seal 메소드를 사용하여 객체를 밀봉한다.<br>읽기와 쓰기만 가능하다. 프로퍼티 추가/삭제, 어프리뷰트 재정의를 금지한다.</p>
+</li>
+<li><p>객체 동결<br>Object.freeze 메소드를 사용하여 객체를 동결시킨다.<br>읽기만 가능하다. 프로퍼티 갱신, 추가/삭제, 어트리뷰트 재정의를 금지한다.</p>
+</li>
+<li><p>불변 객체<br>Object.freeze 메소드를 사용하여 모든 프로퍼티를 동결시킨다.<br>이렇게 구현하면 중첩 객체도 동결이 된다.</p>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" rel="tag">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">함수와 일급객체</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/28/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/">
+                <span class="level-item">생성자 함수에 의한 객체 생성</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -940,7 +978,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                    <img src="/images/logo.svg" alt="프로퍼티 어트리뷰트" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -7,31 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tags - Dev.Mang&#39;s Odd and Ends</title>
+<title>함수와 일급객체 - Dev.Mang&#39;s Odd and Ends</title>
 
 
-    <meta name="description" content="Every things Mang want to do">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:url" content="https://developer-mang.github.io/tags/index.html">
+    <meta name="description" content="일급 객체특정조건을 만족하는 객체를 일급 객체라고 한다.  무명의 리터럴로 생성 가능. 변수나 자료구조 객체에 저장 가능. 함수의 매개 변수에 전달 가능. 함수의 결과값으로 반환 가능.  함수는 일급객체이다. 이 말은 함수를 객체처럼 사용할 수 있다는 것이다. 함수 객체의 프로퍼티 arguments 프로퍼티함수 호출시 전달된 인수를 argument라고 하고">
+<meta property="og:type" content="article">
+<meta property="og:title" content="함수와 일급객체">
+<meta property="og:url" content="https://developer-mang.github.io/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:description" content="Every things Mang want to do">
+<meta property="og:description" content="일급 객체특정조건을 만족하는 객체를 일급 객체라고 한다.  무명의 리터럴로 생성 가능. 변수나 자료구조 객체에 저장 가능. 함수의 매개 변수에 전달 가능. 함수의 결과값으로 반환 가능.  함수는 일급객체이다. 이 말은 함수를 객체처럼 사용할 수 있다는 것이다. 함수 객체의 프로퍼티 arguments 프로퍼티함수 호출시 전달된 인수를 argument라고 하고">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://developer-mang.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-03-06T12:37:36.000Z">
+<meta property="article:modified_time" content="2020-03-07T14:44:51.379Z">
 <meta property="article:author" content="Mang">
-<meta property="article:tag" content="컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리">
-<meta property="article:tag" content="컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리">
 <meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 함수, 개념 정리">
-<meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://developer-mang.github.io/images/og_image.png">
 
@@ -91,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                <img src="/images/logo.svg" alt="함수와 일급객체" height="28">
             
             </a>
         </div>
@@ -108,7 +98,7 @@
                 <a class="navbar-item"
                 href="/categories">Categories</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/tags">Tags</a>
                 
                 <a class="navbar-item"
@@ -140,109 +130,132 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Tags
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-06T12:37:36.000Z">2020-03-06</time>
                 
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
                 
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 read (About 393 words)
+                </span>
                 
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 함수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
-                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
                 
             </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                함수와 일급객체
+            
+        </h1>
+        <div class="content">
+            <h2 id="일급-객체"><a href="#일급-객체" class="headerlink" title="일급 객체"></a>일급 객체</h2><p>특정조건을 만족하는 객체를 일급 객체라고 한다.</p>
+<ul>
+<li>무명의 리터럴로 생성 가능.</li>
+<li>변수나 자료구조 객체에 저장 가능.</li>
+<li>함수의 매개 변수에 전달 가능.</li>
+<li>함수의 결과값으로 반환 가능.</li>
+</ul>
+<p><strong><u>함수는 일급객체이다.</u> 이 말은 함수를 객체처럼 사용할 수 있다는 것이다.</strong></p>
+<h2 id="함수-객체의-프로퍼티"><a href="#함수-객체의-프로퍼티" class="headerlink" title="함수 객체의 프로퍼티"></a>함수 객체의 프로퍼티</h2><ul>
+<li><p>arguments 프로퍼티<br>함수 호출시 전달된 인수를 argument라고 하고 이 인수들의 정보를 객체로 담고 있는 유사배열 객체를 값으로 갖는 프로퍼티이다.<br><em>argument 객체는 함수 내부에서 지역 변수 처럼 사용가능하다.</em></p>
+</li>
+<li><p>caller 프로퍼티<br>함수 자신을 호출하는 메소드를 말한다.<br><em>ECMAScript 스펙에 포함되지 않았다.</em></p>
+</li>
+<li><p>length 프로퍼티<br>함수 정의시 선언한 매개변수의 수를 값으로 갖는 프로퍼티이다.</p>
+</li>
+<li><p>name 프로퍼티<br>함수 객체의 이름을 값으로 갖는 프로퍼티이다.<br><em>ES6 이후 표준으로 들어왔다.</em><br><em>익명함수의 경우 빈 문자열을 값으로 갖는다.</em></p>
+</li>
+<li><p><strong>proto</strong>접근자 프로퍼티<br>[[prototype]] 내부 슬롯에 접근하는 접근자 프로퍼티이다. 프로토타입 객체에 접근할 수 있다.</p>
+</li>
+<li><p>prototype 프로퍼티<br>함수만이 갖는 프로퍼티로 함수의 프로토타입 객체를 가르킨다. 프로토타입 객체가 무엇인지 확인할 수 있다.</p>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" rel="tag">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">프로토타입</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/05/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/">
+                <span class="level-item">프로퍼티 어트리뷰트</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -940,7 +953,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                    <img src="/images/logo.svg" alt="함수와 일급객체" height="28">
                 
                 </a>
                 <p class="is-size-7">

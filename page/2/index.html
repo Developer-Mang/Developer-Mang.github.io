@@ -117,7 +117,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -137,13 +137,349 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-24T10:03:54.000Z">2020-02-24</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8분 read (About 1235 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/24/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98%EA%B3%BC-%EB%8B%A8%EC%B6%95-%ED%8F%89%EA%B0%80/">타입 변환과 단축 평가</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="타입-변환-이란"><a href="#타입-변환-이란" class="headerlink" title="타입 변환 이란?"></a>타입 변환 이란?</h2><p>컴퓨터에서 입력되는 모든 값은 타입이 있다. 이 타입은 값이 처음 만들어질 때 확정이 되는데 <strong>친절한</strong> javascript 는 참조하는 과정에서 의도적이든 암묵적으로 javascript 엔진에 의해 타입 변화가 일어는 경우가 생긴다.</p>
+<h3 id="암묵적-타입-변환"><a href="#암묵적-타입-변환" class="headerlink" title="암묵적 타입 변환"></a>암묵적 타입 변환</h3><p><u>표현식을 평가할 때</u> 문맥을 고려하여 암묵적으로 값의 타입이 변환되는 것을 <strong>암묵적 타입 변환</strong> 또는 <strong>타입 강제 변환</strong>이라고 한다.</p>
+<ul>
+<li>문자열 타입으로 변환<br>‘+’ 연산자의 기능 중 문자열 연결 연산자를 사용해서 문자열 값을 만드는 것이다.<br>피연산자 중에 하나라도 문자열 타입의 값이 있다면 나머지 값도 문자열 타입으로 암묵적 타입 변환한다.</li>
+</ul>
+<pre>ex)  1 + ' '               <span style="color:green">// -> '1'</span></pre>
+
+<p><em>symbol 타입은 어떠한 경우라도 문자열로 변환될 수 없다. 변환하려고 하면 TypeError를 출력한다.</em><br><em>객체 타입은 문자열로 변환시 이상하게 나온다. 빈 배열 객체는 빈 문자열로 평가되며 배열 객체의 식별자를 참조하면 함수로 나온다.</em></p>
+<ul>
+<li>숫자 타입으로 변환<br>이항 산술 연산자 ‘+’를 제외하고 나머지 산술연산자는 숫자 타입의 값을 만드는 것이다.<br>피연산자 중 숫자 타입 아닌 모든 값을 암묵적으로 숫자 타입으로 변환한다. </li>
+</ul>
+<pre>ex1)  +'1'                 <span style="color:green">// -> 1</span>
+ex2)  +'ten'               <span style="color:green">// -> NaN</span>
+ex3)  +true[/false]        <span style="color:green">// -> 1[/0]</span>
+ex4)  +null                <span style="color:green">// -> 0</span>
+ex5)  +undefined           <span style="color:green">// -> NaN</span>
+ex6)  +Symbol()            <span style="color:green">// -> TypeError : Cannot convert a Symbol value to a number</span>
+ex7)  +{}                  <span style="color:green">// -> NaN</span>
+ex8)  +[]                  <span style="color:green">// -> 0</span>
+ex9)  +[value1, value2]    <span style="color:green">// -> NaN</span>
+ex10) +(function( ){ })    <span style="color:green">// -> NaN</span></pre>
+
+<ul>
+<li><p>Boolean 타입으로 변환<br>논리 연산자는 Boolean 값을 비교해야 하며, 조건문의 평가 결과는 Boolean 값으로 평가 되어야 한다.<br>조건문 안에 표현식이나 논리 연산자의 피연산자는 암묵적으로 Boolean 타입의 값으로 변환된다.  </p>
+<p><strong>false로 평가돠는 값 )</strong></p>
+<ul>
+<li>‘false’</li>
+<li>undefined</li>
+<li>null</li>
+<li>+0,-0</li>
+<li>NaN</li>
+<li>‘’(빈문자열)</li>
+</ul>
+</li>
+</ul>
+<p><em>위의 false 값으로 변환되는 경우를 제외하면 모두 true로 변환한다.</em><br><em>논리 연산자 중 &amp;&amp; 와 || 의 경우는 평가를 할 때는 암묵적 타입 변환이 일어나지만 평가되는 값은 해당 표현식에 값을 결정하는 피연산자 표현식의 값으로 평가한다.</em></p>
+<pre><span style="color:green">// 조건문</span>
+ex1)  if(NaN){ }           <span style="color:green">// NaN -> false</span>
+ex2)  if('string'){ }      <span style="color:green">// 'string' -> true</span>
+
+<span style="color:green">// 논리 연산자</span>
+ex3)  !!null               <span style="color:green">// null -> false</span>
+ex4)  !!2                  <span style="color:green">// 2 -> true</span></pre>
+
+
+<h3 id="명시적-타입-변환"><a href="#명시적-타입-변환" class="headerlink" title="명시적 타입 변환"></a>명시적 타입 변환</h3><p>의도적으로 값의 타입을 변환하는 것을 <strong>명시적 타입 변환</strong> 또는 <strong>타입 캐스팅</strong>이라고 한다.<br><u>표준 빌트인 생성자 함수</u>를 new연산자 없이 호출하는 방법과 <u>빌트인 메소드</u>를 사용하는 방법, <u>암묵적인 타입 변환</u>을 이용해 재할당하는 방법이 있다.</p>
+<ul>
+<li>문자열 타입으로 변환<ul>
+<li>String 생성자 함수</li>
+<li>Object.prototype.toString 메소드</li>
+<li>문자열 연결 연산자</li>
+</ul>
+</li>
+</ul>
+<pre>ex1)  String('true')          <span style="color:green">// -> 'true'</span>
+ex2)  (Infinity).toString()   <span style="color:green">// -> 'Infinity'</span>
+ex3)  null + ''               <span style="color:green">// -> 'null'</span></pre>
+
+<ul>
+<li>숫자 타입으로 변환<ul>
+<li>Number 생성자 함수</li>
+<li>parseInt, parseFloat 함수   <em>문자열만 가능</em></li>
+<li>단항 산술 연산자 + , -</li>
+<li>이항 산술 연산자 - , * , /</li>
+</ul>
+</li>
+</ul>
+<pre>ex1)  Number('true')          <span style="color:green">// -> 1</span>
+ex2)  parseInt('10')          <span style="color:green">// -> 10</span>
+ex3)  +''                     <span style="color:green">// -> 0</span>
+ex4)  undefined * 1           <span style="color:green">// -> NaN</span></pre>
+
+<ul>
+<li>Boolean 타입으로 변환<ul>
+<li>Bloolean 생성자 함수</li>
+<li>부정 논리 연산자 두번 !!</li>
+</ul>
+</li>
+</ul>
+<pre>ex1)  Boolean('10')           <span style="color:green">// -> true</span>
+ex2)  !!NaN                   <span style="color:green">// -> false</span></pre>
+
+<h2 id="단축-평가"><a href="#단축-평가" class="headerlink" title="단축 평가"></a>단축 평가</h2><p>논리 연산자 표현식의 경우 평가되면서 값에 결정을 하는 피연산자가 생기는 것을 단축 평가라고 한다.<br>이 때 좌항 피연산 표현식의 암묵적 타입 변환 까지 일어난 후에 논리 연산자 표현식의 값으로 평가되는 표현식이라면 우항의 표현식을 평가하지 않는다. </p>
+<ul>
+<li>&amp;&amp;(논리 곱 / and 연산)<br><u>피연산자 중 하나라도 false 인 경우 해당 논리 연산자 표현식의 평가는 무조건 false 이다.</u> 따라서 좌항 피연산 표현식의 암묵적 타입 변환 까지 일어난 후에 평가되는 값이 false 라면 뒤에 표현식을 평가하지 않는다. </li>
+</ul>
+<pre>ex)  -1 > 0 && 1 + 3           <span style="color:green">// -1 > 0 && <del>1 + 3</del> -> false</span></pre>
+
+<ul>
+<li>||(논리 합 / or 연산)<br><u>피연산자 중 하나라도 true 인 경우 해당 논리 연산자 표현식의 평가는 무조건 true 이다.</u> 따라서 좌항 피연산 표현식의 암묵적 타입 변환 까지 일어난 후에 평가되는 값이 false 라면 뒤에 표현식을 평가하지 않는다.</li>
+</ul>
+<pre>ex)  '참' && nell              <span style="color:green">// '참' && <del>null</del> -> '참'  <i>값은 암묵적으로 타입 변환이 된 값이 아닌 원래 표현문이 평가된 값으로 평가된다.</i></span></pre>
+
+<p><strong>if 문은 단축 평가로 대체가 가능하다.</strong></p>
+<pre>
+var shortCut;
+var bln = [<i>표현식</i>];
+
+if (bln) shortCut = '참'
+else shortCut = '거짓';
+
+// bln에 할당되는 표현식이 true로 표현될 때 실행
+shortCut bln && '참';
+
+// bln 에 할당되는 표현식이 false로 표현될 때 실행
+shortCut bln || '거짓';
+</pre>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-24T01:22:00.000Z">2020-02-24</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4분 read (About 543 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/24/%EC%A0%9C%EC%96%B4%EB%AC%B8/">제어문</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="제어문이란"><a href="#제어문이란" class="headerlink" title="제어문이란?"></a>제어문이란?</h2><p>제어문을 사용하면 코드의 실행의 흐름을 제어할 수 있다.</p>
+<h3 id="블록문"><a href="#블록문" class="headerlink" title="블록문"></a>블록문</h3><p>0개 이상의 문을 중괄호로 묶은 것.<br><em>함수 정의할 때 사용하는 것이 일반적</em><br><em>블록문 뒤에는 ;을 붙이지 않는다.</em></p>
+<h3 id="조건문"><a href="#조건문" class="headerlink" title="조건문"></a>조건문</h3><ul>
+<li>if…else 문<br>주어진 조건식의 평가 결과에 따라 블럭문을 실행할지 결정.<br>참인 경우 다음 블록을 실행, 거짓인 경우 else 문 다음의 블록문을 실행한다.</li>
+</ul>
+<p><em>조건문이 불리언 값이 아닌 값으로 평가 될 때는 암묵적 타입 변환으로 불리언 값으로 변환되어 실행한다.</em><br>*코드 내에 블록문 뒤에</p>
+<ul>
+<li>switch 문<br>주어진 조건식의 평가 경과에 따라 case문의 실행을 결정한다.<br>조건식이 반드시 불리언 값이 필요가 없다. 다양한 상황에 따라 실행할 코드 블록을 결정한다.<br>case 문은 break;로 끝내주지 않으면 무조건 defult 문를 실행한다.(풀스루)<br>반드시 해당 case에서 실행을 끝내고 싶을 경우 break;로 끝내주어야 한다.</li>
+</ul>
+<h3 id="반복문"><a href="#반복문" class="headerlink" title="반복문"></a>반복문</h3><p>주어진 조건식의 결과가 참인 경우 계속 실행하고 거짓일 경우 까지 반복한다.</p>
+<ul>
+<li>for 문<br>조건식의 변수 선언 후 조건식을 설정하고 증감식을 작성하는 것이 문법이다.<br>ex) for (var i=0;i&lt;5;i++) { }</li>
+</ul>
+<p><em>어떤 식도 선언하지 않으면 무한 루프를 한다.</em><br><em>for 문을 중첩해 사용가능하다.</em><br>-while 문<br>증감식이 없이 조건식만 평가하여 결과가 참이면 코드 블록을 반복한다.<br><em>do while문은 일단 조건식을 평가하지 않고 무조건 코드 블록을 한번 실행한다. 그리고 조건식을 평가한다.</em></p>
+<h3 id="break-문"><a href="#break-문" class="headerlink" title="break 문"></a>break 문</h3><p>코드 불록을 탈출한다. 레이블 문이다.</p>
+<ul>
+<li>레이블 문이란?<br>식별자가 붙어 식별자로 실행하는 분을 말한다.</li>
+</ul>
+<h3 id="continue-문"><a href="#continue-문" class="headerlink" title="continue 문"></a>continue 문</h3><p>break 문이 코드 불록을 아예 탈출한다면 continue 문은 증감식으로 이동한다.</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-21T11:04:44.000Z">2020-02-21</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6분 read (About 924 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/21/%EC%97%B0%EC%82%B0%EC%9E%90/">연산자</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="연산자란"><a href="#연산자란" class="headerlink" title="연산자란?"></a>연산자란?</h2><p>하나 이상의 표현식에서 산술, 할당, 비교, 논리, 타입, 지수 연산을 하게 하는 토근이다.<br>피연산자를 연산하여 새로운 값을 만든다. = 표현식 이다.</p>
+<h3 id="부수효과란"><a href="#부수효과란" class="headerlink" title="부수효과란?"></a>부수효과란?</h3><p>대부분의 연산자는 피연산자에게 영향을 주지 않지만 단항 산술 연산자, 할당 연산자, delete 연산자의 경우 좌항 피연산자에게 반환되는 값을 재할당한다. 이것을 부수효과라고 한다.</p>
+<h2 id="산술연산자란"><a href="#산술연산자란" class="headerlink" title="산술연산자란?"></a>산술연산자란?</h2><p>피연산자를 대상으로 수학적 계산을 수행해 새로운 값을 만드는 토큰이다.</p>
+<h3 id="이항-산술-연산자"><a href="#이항-산술-연산자" class="headerlink" title="이항 산술 연산자 (+,-,*,/,%)"></a>이항 산술 연산자 (+,-,*,/,%)</h3><p>2개의 피연산자를 사칙연산을 하여 새로운 숫자 타입의 값을 만든다.</p>
+<h3 id="단항-산술-연산자-–"><a href="#단항-산술-연산자-–" class="headerlink" title="단항 산술 연산자 (++,–,+,-)"></a>단항 산술 연산자 (++,–,+,-)</h3><p>1개의 피연산자를 증가/감소 한 후에 다시 할당을 하거나 음수를 양수로 양수를 음수로 변환하여 할당한다.<br>숫자 타입이 아닌 피연산자에 + 단항 연산자를 사용시 숫자 타입으로 바꾸어준다.</p>
+<h3 id="문자열-연결-연산자"><a href="#문자열-연결-연산자" class="headerlink" title="문자열 연결 연산자 (+)"></a>문자열 연결 연산자 (+)</h3><p>피연산자 중에 하나라도 문자열이 포함되어 있을 경우 아닌 피연산자를 암묵적인 타입 변환을 통해 문자열로 바꾸어 하나의 문자열 값을 만든다.</p>
+<h3 id="할당-연산자"><a href="#할당-연산자" class="headerlink" title="할당 연산자 (=,+=,-=,*=,/=,%=)"></a>할당 연산자 (=,+=,-=,*=,/=,%=)</h3><p>우항에 있는 피연산자의 평가 결과를 좌항에 <strong>변수</strong>에 할당 한다.<br>  <em>할당문은 우항의 평가 결과를 값으로 갖는 표현식이다.</em></p>
+<h2 id="비교-연산자란"><a href="#비교-연산자란" class="headerlink" title="비교 연산자란?"></a>비교 연산자란?</h2><p>피연산자를 비교하여 불리언 값을 반환하는 토큰이다.</p>
+<h3 id="동등-일치-비교-연산자"><a href="#동등-일치-비교-연산자" class="headerlink" title="동등/일치 비교 연산자 (==,===,!=,!==)"></a>동등/일치 비교 연산자 (==,===,!=,!==)</h3><p>피연산자가 같은 값을 갖는지 비교한다.<br>동등 비교 연산자(==,!=)의 경우에는 암묵적인 타입 변환을 통해 타입을 일치시킨 후에 비교한다.<br>  <em>NaN 값은 동등/일치 비교 연산을 할 경우 무조건 false 값을 출력한다. 비교하려면 isNaN()를 사용해야한다.</em></p>
+<h3 id="대소-관계-비교-연산자-gt-lt-gt-lt"><a href="#대소-관계-비교-연산자-gt-lt-gt-lt" class="headerlink" title="대소 관계 비교 연산자 (&gt;,&lt;,&gt;=,&lt;=)"></a>대소 관계 비교 연산자 (&gt;,&lt;,&gt;=,&lt;=)</h3><p>피연산자의 크기를 비교한다.</p>
+<h2 id="삼항-조건-연산자란"><a href="#삼항-조건-연산자란" class="headerlink" title="삼항 조건 연산자란?"></a>삼항 조건 연산자란?</h2><p>조건식의 평가 결과에 따라 반환할 값을 선택하는 삼항 조건 연산자 표현식에서 사용하는 토큰이다. (? :)<br>  <em>조건식은 불리언 타입으로 평가되어야 하기 때문에 조건식 평가 결과가 불리언 값이 아닐 경우 암묵적으로 불리언 타입으로 변환된다.</em></p>
+<h2 id="논리-연산자란"><a href="#논리-연산자란" class="headerlink" title="논리 연산자란?"></a>논리 연산자란?</h2><p>피연산자의 논리를 연산하는 토큰이다.<br>논리합(||/or 연산), 논리곱(&amp;&amp;/and 연산), 부정(!/not 연산) 이 있다.<br>피연산자를 암묵적으로 불리언 값으로 변환을 하여 연산한다.<br>?? 불리언 값으로 평가 될 수 있다 ??</p>
+<h2 id="쉼표-연산자란"><a href="#쉼표-연산자란" class="headerlink" title="쉼표 연산자란?"></a>쉼표 연산자란?</h2><p>, 왼쪽 피연산자 부터 평가하며 맨 오른쪽에 있는 피연산자의 값을 반환하는 토큰이다.</p>
+<h2 id="그룹-연산자란"><a href="#그룹-연산자란" class="headerlink" title="그룹 연산자란?"></a>그룹 연산자란?</h2><p>() 표현식의 우선 순위를 높여준다.</p>
+<h2 id="typeof-연산자란"><a href="#typeof-연산자란" class="headerlink" title="typeof 연산자란?"></a>typeof 연산자란?</h2><p>피연산자의 데이터 타입을 문자열로 변환하는 토큰이다.<br>  <em>null타입만 변환하지 못한다. null 타입은 object 객체로 반환한다.</em><br>  <em>선언하지 않은 식별자를 피연산자로 사용할 경우 undefined를 반환한다.</em></p>
+<h2 id="지수-연산자란"><a href="#지수-연산자란" class="headerlink" title="지수 연산자란?"></a>지수 연산자란?</h2><p><em>* 지수로 거듭 제곱한 숫자 값을 반환한다.<br>  *음수의 경우 괄호로 묶어주어야 한다.</em><br>  <em>모든 이항 연산자 보다 우선 순위로 연산한다.</em></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-20T13:57:02.000Z">2020-02-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4분 read (About 629 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/20/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/">데이터 타입</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="1-타입의-종류"><a href="#1-타입의-종류" class="headerlink" title="1. 타입의 종류"></a>1. 타입의 종류</h2><p>데이터 타입에는<br>원시 타입 : 숫자, 문자열, 불리언, undefined, null, Symbol<br>객체 타입 : 객체, 함수, 배열 등<br>이 있다.</p>
+<ul>
+<li><p>숫자 : 64비트의 부동소수점 형식. 모든 수를 실수로 처리</p>
+</li>
+<li><p>문자열 : 16비트 유니코드 문자 집합 형식<br><em>템플릿 리터럴 : 편리한 문자열 처리기능을 제공</em></p>
+</li>
+<li><p>불리언 : 논리적 결과를 나타냄. true/false 만 있음.</p>
+</li>
+<li><p>undefined : 명확한 값이 들어있지 않은 변수에 들어있는 값.</p>
+</li>
+<li><p>null : 변수 안에 값이 없다는 것을 알려주는 값.<br><em>이전에 참조하던 값을 더이상 참조하지 않겠다!</em></p>
+</li>
+<li><p>Symbol : 수시로 변하는 객체에 유일한 프로퍼티 키를 주어서 제어하기 위해 사용되는 Symbol 타입 객체를 명시하는 타입 값.</p>
+</li>
+<li><p>객체 : 위에 있는 원시 타입 값과 다르게 변할 수 있는 값?</p>
+</li>
+</ul>
+<h3 id="템플릿-리터털"><a href="#템플릿-리터털" class="headerlink" title="템플릿 리터털"></a>템플릿 리터털</h3><ul>
+<li>멀티라인 문자열 : 줄바꿈을 별도의 코드를 사용하지 않고 표현가능하다.</li>
+<li>표현식 삽입 : 표현식이 평가된 값을 <strong>문자열</strong>로 보여준다.</li>
+<li>테그드 템플릿 : 함수에 넣을 프로퍼티를 쉽게 넣을 수 있다.</li>
+</ul>
+<h2 id="2-타입의-필요성"><a href="#2-타입의-필요성" class="headerlink" title="2. 타입의 필요성"></a>2. 타입의 필요성</h2><ul>
+<li>모든 값은 메모리에 저장 및 참조 가능해야 하기 때문에 값에 할당할 크기를 알아야한다.</li>
+<li>메모리에 2진수로 저장되는데 참조할 때 어떻게 해석하느냐에 따라 결과가 달라지기 때문이다.</li>
+</ul>
+<h2 id="3-동적-타입-언어와-정적-타입-언어"><a href="#3-동적-타입-언어와-정적-타입-언어" class="headerlink" title="3. 동적 타입 언어와 정적 타입 언어"></a>3. 동적 타입 언어와 정적 타입 언어</h2><ul>
+<li>동적 타입 언어 : 자바스크립트처럼 변수를 선언할 때 타입 값을 지정하지 않아 상황에 따라 타입을 바꿀 수 있는 언어</li>
+<li>정적 타입 언어 : c 언어 처럼 변수를 선언할 때 타입을 같이 지정해야하는 언어</li>
+</ul>
+<h3 id="동적-타입-언어"><a href="#동적-타입-언어" class="headerlink" title="동적 타입 언어"></a>동적 타입 언어</h3><p>즉, 변수 선언 단계에서 타입이 결정되는 것이 아니라 변수에 재할당 된 값에 따라 변수의 타입이 결정된다.<br>  <em>값이 확정으로 할당되기 전까지 타입을 확신할 수 없다.</em><br>  <em>따라서 주의 사항이 생긴다.</em><br>  <em>1. 필요한 경우 제한적으로 사용할 것.</em><br>  <em>2. 변수 유효범위(스코프)를 최대한 좁게 설정할 것.</em><br>  <em>3. 전역변수는 최대한 피할 것.</em><br>  <em>4. 상수를 애용할 것.</em><br>  <em>5. 변수 이름을 시멘틱하게 만들 것.</em></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-02-20T13:35:26.000Z">2020-02-20</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 lesen (Über 390 Worte)
+                    3분 read (About 390 words)
                 </span>
                 
                 
@@ -190,7 +526,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    몇 초 lesen (Über 10 Worte)
+                    몇 초 read (About 10 words)
                 </span>
                 
                 
@@ -231,7 +567,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    1분 lesen (Über 123 Worte)
+                    1분 read (About 123 words)
                 </span>
                 
                 
@@ -277,10 +613,10 @@
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/">Zurück</a>
+            <a class="is-flex-grow has-text-black-ter" href="/">Previous</a>
         </div>
         <div class="pagination-next is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Weiter</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Next</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -336,7 +672,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            13
+                            17
                         </p>
                     </a>
                 </div>
@@ -344,7 +680,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategorien
+                        Categories
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -360,7 +696,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            9
+                            13
                         </p>
                     </a>
                 </div>
@@ -369,7 +705,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                Folgen</a>
+                Follow</a>
         </div>
         
         
@@ -459,7 +795,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategorien
+                Categories
             </h3>
             <ul class="menu-list">
             
@@ -473,7 +809,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 함수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/" style="font-size: 10px;">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</a>
+        <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 함수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/" style="font-size: 10px;">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</a>
     </div>
 </div>
     
@@ -483,8 +819,84 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="프로토타입">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-07T14:46:02.000Z">2020-03-07</time></div>
+                    <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">프로토타입</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="함수와 일급객체">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-06T12:37:36.000Z">2020-03-06</time></div>
+                    <a href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" class="title has-link-black-ter is-size-6 has-text-weight-normal">함수와 일급객체</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/05/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="프로퍼티 어트리뷰트">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-05T08:01:47.000Z">2020-03-05</time></div>
+                    <a href="/2020/03/05/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">프로퍼티 어트리뷰트</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/28/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="생성자 함수에 의한 객체 생성">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-28T11:08:46.000Z">2020-02-28</time></div>
+                    <a href="/2020/02/28/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">생성자 함수에 의한 객체 생성</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -505,82 +917,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/27/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="전역 변수의 문제점">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-27T11:13:39.000Z">2020-02-27</time></div>
-                    <a href="/2020/02/27/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">전역 변수의 문제점</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="스코프">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T12:19:21.000Z">2020-02-26</time></div>
-                    <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스코프</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="함수">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:58:31.000Z">2020-02-26</time></div>
-                    <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">함수</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/26/%EC%9B%90%EC%8B%9C-%EA%B0%92%EA%B3%BC-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%B9%84%EA%B5%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="원시 값과 객체의 비교">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T04:59:40.000Z">2020-02-26</time></div>
-                    <a href="/2020/02/26/%EC%9B%90%EC%8B%9C-%EA%B0%92%EA%B3%BC-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%B9%84%EA%B5%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">원시 값과 객체의 비교</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -588,9 +924,20 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">3월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/02/">
@@ -598,7 +945,7 @@
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">14</span>
                 </span>
             </a>
         </li>
@@ -624,8 +971,29 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -675,6 +1043,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
                         <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -698,8 +1073,84 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="프로토타입">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-07T14:46:02.000Z">2020-03-07</time></div>
+                    <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">프로토타입</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="함수와 일급객체">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-06T12:37:36.000Z">2020-03-06</time></div>
+                    <a href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" class="title has-link-black-ter is-size-6 has-text-weight-normal">함수와 일급객체</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/05/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="프로퍼티 어트리뷰트">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-05T08:01:47.000Z">2020-03-05</time></div>
+                    <a href="/2020/03/05/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">프로퍼티 어트리뷰트</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/02/28/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="생성자 함수에 의한 객체 생성">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-28T11:08:46.000Z">2020-02-28</time></div>
+                    <a href="/2020/02/28/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">생성자 함수에 의한 객체 생성</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -720,82 +1171,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/27/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="전역 변수의 문제점">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-27T11:13:39.000Z">2020-02-27</time></div>
-                    <a href="/2020/02/27/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">전역 변수의 문제점</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="스코프">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T12:19:21.000Z">2020-02-26</time></div>
-                    <a href="/2020/02/26/%EC%8A%A4%EC%BD%94%ED%94%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스코프</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="함수">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T06:58:31.000Z">2020-02-26</time></div>
-                    <a href="/2020/02/26/%ED%95%A8%EC%88%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">함수</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/02/26/%EC%9B%90%EC%8B%9C-%EA%B0%92%EA%B3%BC-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%B9%84%EA%B5%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="원시 값과 객체의 비교">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-26T04:59:40.000Z">2020-02-26</time></div>
-                    <a href="/2020/02/26/%EC%9B%90%EC%8B%9C-%EA%B0%92%EA%B3%BC-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%B9%84%EA%B5%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">원시 값과 객체의 비교</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -803,9 +1178,20 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">3월 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/02/">
@@ -813,7 +1199,7 @@
                     <span class="level-item">2월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">14</span>
                 </span>
             </a>
         </li>
@@ -839,8 +1225,29 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -890,6 +1297,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
                         <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1034,7 +1448,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1058,7 +1472,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1071,10 +1485,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
