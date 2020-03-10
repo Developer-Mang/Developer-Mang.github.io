@@ -7,13 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Etiqueta: 컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리 - Dev.Mang&#39;s Odd and Ends</title>
+<title>Etiqueta: 컴퓨터 기초, javascripy, 엄격 모드, 개념 정리 - Dev.Mang&#39;s Odd and Ends</title>
 
 
     <meta name="description" content="Every things Mang want to do">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:url" content="https://developer-mang.github.io/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/index.html">
+<meta property="og:url" content="https://developer-mang.github.io/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
 <meta property="og:description" content="Every things Mang want to do">
 <meta property="og:locale" content="ko_KR">
@@ -134,7 +134,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Etiquetas</a></li>
-            <li class="is-active"><a href="#" aria-current="page">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</a></li>
+            <li class="is-active"><a href="#" aria-current="page">컴퓨터 기초, javascripy, 엄격 모드, 개념 정리</a></li>
         </ul>
         </nav>
     </div>
@@ -147,13 +147,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-06T12:37:36.000Z">2020-03-06</time>
+                <time class="level-item has-text-grey" datetime="2020-03-10T01:16:29.000Z">2020-03-10</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 leer (Acerca de 393 palabras)
+                    3분 leer (Acerca de 492 palabras)
                 </span>
                 
                 
@@ -162,30 +162,33 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">함수와 일급객체</a>
+                <a class="has-link-black-ter" href="/2020/03/10/%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/">엄격 모드</a>
             
         </h1>
         <div class="content">
-            <h2 id="일급-객체"><a href="#일급-객체" class="headerlink" title="일급 객체"></a>일급 객체</h2><p>특정조건을 만족하는 객체를 일급 객체라고 한다.</p>
-<ul>
-<li>무명의 리터럴로 생성 가능.</li>
-<li>변수나 자료구조 객체에 저장 가능.</li>
-<li>함수의 매개 변수에 전달 가능.</li>
-<li>함수의 결과값으로 반환 가능.</li>
+            <h2 id="엄격-모드란"><a href="#엄격-모드란" class="headerlink" title="엄격 모드란?"></a>엄격 모드란?</h2><p>ES5부터 적용된 자바스크립트의 문법을 보다 엄격하게 적용하여 무시되던 오류 발생 가능성이나 엔진 최적화에 문제가 될만한 코드에 에러를 발생시키는 모드이다.</p>
+<h2 id="엄격-모드-적용하기"><a href="#엄격-모드-적용하기" class="headerlink" title="엄격 모드 적용하기"></a>엄격 모드 적용하기</h2><p><u>전역 선두 또는 함수 몸체의 선두</u>에 ‘use strict’을 추가한다.</p>
+<h2 id="주의점"><a href="#주의점" class="headerlink" title="주의점"></a>주의점</h2><ul>
+<li><p>전역에 사용하는 것<br>스크립트 단위로 적용되나 적용할 스크립트와 적용 안할 스크립트를 혼용할 경우, 오류를 발생시킬 가능성이 있음으로 전역 선두에 사용하는 것은 최대한 자제하는 것이 좋다.</p>
+</li>
+<li><p>함수 단위에 사용하는 것<br>함수에 일일이 적용하는 것도 비효율적이며, 엄격 모드가 적용된 함수에서 적용 안된 함수를 참조할 때 오류를 발생할 가능성이 높기 때문에 함수 단위로 적용하는 것은 좋지 않다.</p>
+</li>
 </ul>
-<p><strong><u>함수는 일급객체이다.</u> 이 말은 함수를 객체처럼 사용할 수 있다는 것이다.</strong></p>
-<h2 id="함수-객체의-프로퍼티"><a href="#함수-객체의-프로퍼티" class="headerlink" title="함수 객체의 프로퍼티"></a>함수 객체의 프로퍼티</h2><ul>
-<li><p>arguments 프로퍼티<br>함수 호출시 전달된 인수를 argument라고 하고 이 인수들의 정보를 객체로 담고 있는 유사배열 객체를 값으로 갖는 프로퍼티이다.<br><em>argument 객체는 함수 내부에서 지역 변수 처럼 사용가능하다.</em></p>
+<p><strong>따라서 스크립트 단위을 즉시 실행 함수로 묶어 적용시키는 것이 바람직하다.</strong></p>
+<h2 id="엄격-모드가-발생시키는-에러"><a href="#엄격-모드가-발생시키는-에러" class="headerlink" title="엄격 모드가 발생시키는 에러"></a>엄격 모드가 발생시키는 에러</h2><ul>
+<li><p>암묵적 전역<br>선언하지 않는 변수를 참조하면 ReferenceError를 발생시킨다.</p>
 </li>
-<li><p>caller 프로퍼티<br>함수 자신을 호출하는 메소드를 말한다.<br><em>ECMAScript 스펙에 포함되지 않았다.</em></p>
+<li><p>변수, 함수, 매개 변수의 삭제<br>delete 연산자로 변수, 함수, 매개 변수를 삭제하면 SytaxError를 발생시킨다.</p>
 </li>
-<li><p>length 프로퍼티<br>함수 정의시 선언한 매개변수의 수를 값으로 갖는 프로퍼티이다.</p>
+<li><p>매개 변수 이름 중복<br>중복된 함수 매개변수 이름을 사용시 SytaxError를 발생시킨다.</p>
 </li>
-<li><p>name 프로퍼티<br>함수 객체의 이름을 값으로 갖는 프로퍼티이다.<br><em>ES6 이후 표준으로 들어왔다.</em><br><em>익명함수의 경우 빈 문자열을 값으로 갖는다.</em></p>
+<li><p>with 문의 사용<br>with 문을 사용하면 SytaxError를 발생시킨다.</p>
 </li>
-<li><p><strong>proto</strong>접근자 프로퍼티<br>[[prototype]] 내부 슬롯에 접근하는 접근자 프로퍼티이다. 프로토타입 객체에 접근할 수 있다.</p>
+</ul>
+<h2 id="엄격-모드-적용-시의-변화"><a href="#엄격-모드-적용-시의-변화" class="headerlink" title="엄격 모드 적용 시의 변화"></a>엄격 모드 적용 시의 변화</h2><ul>
+<li><p>일반 함수의 this<br>생성자 함수가 아닌 일반 함수로 호출하면 this에 undefined가 바인딩된다.</p>
 </li>
-<li><p>prototype 프로퍼티<br>함수만이 갖는 프로퍼티로 함수의 프로토타입 객체를 가르킨다. 프로토타입 객체가 무엇인지 확인할 수 있다.</p>
+<li><p>argument 객체<br>매개 변수에 전달된 인수를 재할당하여 변경하여도 argument 객체에 반영되지 않는다.</p>
 </li>
 </ul>
 

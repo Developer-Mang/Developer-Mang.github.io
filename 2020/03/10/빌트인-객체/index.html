@@ -7,20 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Etiqueta: 컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리 - Dev.Mang&#39;s Odd and Ends</title>
+<title>빌트인 객체 - Dev.Mang&#39;s Odd and Ends</title>
 
 
-    <meta name="description" content="Every things Mang want to do">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:url" content="https://developer-mang.github.io/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/index.html">
+    <meta name="description" content="자바스크립트 객체의 분류 표준 빌트인 객체ECMAScript 사양에 정의된 객체를 말한다. 어플리케이션 전역의 공통 기능을 말한다. 빌트인 객체는 전역 객체의 프로퍼티로 제공된다.  호스트 객체ECMAScript 사양에 정의되어 있지 않는 자바스크립트 환경(브라우저 환경 또는 Node.js 환경)에서 추가적으로 제공하는 객체를 말한다.  사용자 정의 객체사">
+<meta property="og:type" content="article">
+<meta property="og:title" content="빌트인 객체">
+<meta property="og:url" content="https://developer-mang.github.io/2020/03/10/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:description" content="Every things Mang want to do">
+<meta property="og:description" content="자바스크립트 객체의 분류 표준 빌트인 객체ECMAScript 사양에 정의된 객체를 말한다. 어플리케이션 전역의 공통 기능을 말한다. 빌트인 객체는 전역 객체의 프로퍼티로 제공된다.  호스트 객체ECMAScript 사양에 정의되어 있지 않는 자바스크립트 환경(브라우저 환경 또는 Node.js 환경)에서 추가적으로 제공하는 객체를 말한다.  사용자 정의 객체사">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://developer-mang.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-03-10T05:05:10.000Z">
+<meta property="article:modified_time" content="2020-03-10T06:29:35.014Z">
 <meta property="article:author" content="Mang">
-<meta property="article:tag" content="Mang">
-<meta property="article:tag" content=" FE">
+<meta property="article:tag" content="컴퓨터 기초, javascripy, 객체, 전역 객체, 빌트인 객체, 레퍼 객체, 개념 정리">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://developer-mang.github.io/images/og_image.png">
 
@@ -80,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                <img src="/images/logo.svg" alt="빌트인 객체" height="28">
             
             </a>
         </div>
@@ -129,31 +130,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Etiquetas</a></li>
-            <li class="is-active"><a href="#" aria-current="page">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-06T12:37:36.000Z">2020-03-06</time>
+                <time class="level-item has-text-grey" datetime="2020-03-10T05:05:10.000Z">2020-03-10</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 leer (Acerca de 393 palabras)
+                    10분 leer (Acerca de 1532 palabras)
                 </span>
                 
                 
@@ -162,33 +152,73 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">함수와 일급객체</a>
+                빌트인 객체
             
         </h1>
         <div class="content">
-            <h2 id="일급-객체"><a href="#일급-객체" class="headerlink" title="일급 객체"></a>일급 객체</h2><p>특정조건을 만족하는 객체를 일급 객체라고 한다.</p>
-<ul>
-<li>무명의 리터럴로 생성 가능.</li>
-<li>변수나 자료구조 객체에 저장 가능.</li>
-<li>함수의 매개 변수에 전달 가능.</li>
-<li>함수의 결과값으로 반환 가능.</li>
+            <h2 id="자바스크립트-객체의-분류"><a href="#자바스크립트-객체의-분류" class="headerlink" title="자바스크립트 객체의 분류"></a>자바스크립트 객체의 분류</h2><ul>
+<li><p>표준 빌트인 객체<br>ECMAScript 사양에 정의된 객체를 말한다. 어플리케이션 전역의 공통 기능을 말한다. 빌트인 객체는 전역 객체의 프로퍼티로 제공된다.</p>
+</li>
+<li><p>호스트 객체<br>ECMAScript 사양에 정의되어 있지 않는 자바스크립트 환경(브라우저 환경 또는 Node.js 환경)에서 추가적으로 제공하는 객체를 말한다.</p>
+</li>
+<li><p>사용자 정의 객체<br>사용자가 집접 정의한 객체를 말한다.</p>
+</li>
 </ul>
-<p><strong><u>함수는 일급객체이다.</u> 이 말은 함수를 객체처럼 사용할 수 있다는 것이다.</strong></p>
-<h2 id="함수-객체의-프로퍼티"><a href="#함수-객체의-프로퍼티" class="headerlink" title="함수 객체의 프로퍼티"></a>함수 객체의 프로퍼티</h2><ul>
-<li><p>arguments 프로퍼티<br>함수 호출시 전달된 인수를 argument라고 하고 이 인수들의 정보를 객체로 담고 있는 유사배열 객체를 값으로 갖는 프로퍼티이다.<br><em>argument 객체는 함수 내부에서 지역 변수 처럼 사용가능하다.</em></p>
+<h2 id="표준-빌트인-객체"><a href="#표준-빌트인-객체" class="headerlink" title="표준 빌트인 객체"></a>표준 빌트인 객체</h2><p>자바스크립트는 40여개의 표준 빌트인 객체를 제공한다.<br>표준 빌트인 객체에는 인스턴스를 생성할 수 있는 생성자 함수 객체와 아닌 객체가 있는데, 아닌 객체에는 Math, Reflect, JSON 이 있다.<br>생성자 함수 객체는 프로토타입 메소드와 정적 메소드를 제공하지만 아닌 객체는 정적 메소드만 제공한다.<br>즉, 생성자 함수인 빌트인 객체로 인스턴스를 만들면 생성자 함수의 prototype 프로퍼티의 값이 해당 인스턴스의 프로토타입에 바인딩된다.<br>따라서 해당 인스턴스는 바인딩된 프로토타입 객체의 다양한 기능을 사용가능하다.</p>
+<h2 id="원시값과-레퍼-객체"><a href="#원시값과-레퍼-객체" class="headerlink" title="원시값과 레퍼 객체"></a>원시값과 레퍼 객체</h2><p>문자열, 숫자, 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 말한다.<br>마침표 표기법으로 접근시 그 순간 <strong>일시적으로</strong> 레퍼객체를 만들어 접근한 후에 바로 원시값으로 되돌아간다.</p>
+<h2 id="전역-객체"><a href="#전역-객체" class="headerlink" title="전역 객체"></a>전역 객체</h2><p>코드가 실행되기 이전 단계에서 자바스크립트 엔진에 의해 어떤 객체보다 먼저 생성되는 특수한 객체이며 어떤 객체에도 속하지 않은 최상위 객체이다.<br>실행 환경에 따라 브라우저에서는 window, Node.js 에서는 global 이 전역 객체를 지칭한다.</p>
+<ul>
+<li>전역객체는 다음과 같은 프로퍼티를 갖는다.<ul>
+<li>표준 빌트인 객체</li>
+<li>호스트 객체</li>
+<li>var 키워드로 선언된 전역 변수   <em>let, const로 선언된 변수는 포함되지 않는다.</em></li>
+<li>전역 함수</li>
+</ul>
 </li>
-<li><p>caller 프로퍼티<br>함수 자신을 호출하는 메소드를 말한다.<br><em>ECMAScript 스펙에 포함되지 않았다.</em></p>
+</ul>
+<p>전역 객체의 프로퍼티를 참조할 때, window.(또는 global.)을 생략할 수 있다.</p>
+<ul>
+<li><p>빌트인 전역 프로퍼티</p>
+<ul>
+<li>Infinity<br>양/음 무한대를 나타내는 숫자값 Infinity를 갖는다.</li>
+<li>NaN<br>숫자가 아닌 숫자 값 NaN을 갖는다.</li>
+<li>undefined<br>원시타입 undefined 값을 갖는다.</li>
+</ul>
 </li>
-<li><p>length 프로퍼티<br>함수 정의시 선언한 매개변수의 수를 값으로 갖는 프로퍼티이다.</p>
+<li><p>빌트인 전역 함수<br>어플리케인 전역에서 호출할 수 있는 전역 객체의 메소드이다.</p>
+<ul>
+<li><p>evel<br>문자열 형태로 매개변수에 전달된 코드를 런타임에 동적으로 평가하고 실행한 결과값을 반환하며 해당 코드가 여러 문으로 이루어져있으면 모든 코드를 실행하고 마지막 문의 결과값을 반환한다.<br><em>evel 함수는 호출될 시 동적으로 스코프를 수정한다. 즉 호출된 스코프 외에 영향을 주지 않는다.</em><br><em>엄격모드에서는 독자적인 스코프를 생성한다.</em></p>
 </li>
-<li><p>name 프로퍼티<br>함수 객체의 이름을 값으로 갖는 프로퍼티이다.<br><em>ES6 이후 표준으로 들어왔다.</em><br><em>익명함수의 경우 빈 문자열을 값으로 갖는다.</em></p>
+<li><p>isFinite<br>매개 변수에 전달된 값이 정상적인 유한수인지 검사하여 그 결과를 불리언 타입으로 반환한다.<br><em>유한수란? 숫자 타입으로 암묵적 타입 변환을 했을 시 유효한 숫자 원시값으로 변화되는 값을 말한다.</em></p>
 </li>
-<li><p><strong>proto</strong>접근자 프로퍼티<br>[[prototype]] 내부 슬롯에 접근하는 접근자 프로퍼티이다. 프로토타입 객체에 접근할 수 있다.</p>
+<li><p>isNaN<br>매개 변수에 전달된 값이 NaN인지 검사하여 그 결과를 불리언 타입으로 반환한다.</p>
 </li>
-<li><p>prototype 프로퍼티<br>함수만이 갖는 프로퍼티로 함수의 프로토타입 객체를 가르킨다. 프로토타입 객체가 무엇인지 확인할 수 있다.</p>
+<li><p>parseFloat<br>매개 변수에 전달된 문자열을 부동소수점 숫자로 변환하여 반환한다.<br><em>공백으로 구분된 문자열을 첫번째 문자열만 변환한다. 만약 첫번째 문자열을 숫자로 변환할 수 없으면 NaN값을 반환한다.</em><br><em>전후 공백은 무시된다.</em></p>
+</li>
+<li><p>parseInt<br>매개 변수에 전달된 문자열을 정수형 숫자로 해석하여 반환한다.</p>
+<p><em>첫번째 매개 변수에 진수 리터럴을 전달할 수 있는데 16진수 리터럴(0x)는 해석하지만 2진수 리터럴(0b), 8진수 리터럴(0o)은 제대로 해석하지 못한다.</em></p>
+<p><em>첫번째 매개 변수에 전달된 문자열의 첫번째 문자가 해당 지수의 숫자로 변환되지 못하면 NaN값을 반환한다. 첫 문자만 변환할 수 있으면 그 다음에 변환되지 못하는 문자는 무시하고 변환하여 반환한다.</em></p>
+<p><em>두번째 매개 변수에 진법을 나타내는 수를 지정할 수 있다. 지정하지 않으면 10진수 정수로 반환한다.</em></p>
+</li>
+<li><p>encodeURI/decodeURI<br>encodeURI는 매개 변수로 전달된 URI를 인코딩하며,<br>decodeURI는 매개 변수로 전달된 인코딩된 URI를 디코딩한다.<br><em>인코딩이란? 네트워크를 통해 정보를 공유할 떄 어떤 시스템도 읽을 수 있는 아스키 문자 셋(ASCII Character-set)으로 변환하는 것이다.</em><br><em>디코딩은 인코딩의 반대 개념으로 아스키 문자 셋을 URI로 변환하는 것이다.</em></p>
+</li>
+<li><p>encodeURIComponent/decodeURIComponent<br>encodeURIComponent는 매개 변수로 전달된 URI 구성 요소를 인코딩하며,<br>decodeURIComponent는 매개 변수로 전달된 인코딩 된 URI 구성 요소를 디코딩한다.<br><em>쿼리 파라미터 구분자인 =, ?, &amp;도 인코딩하고 디코딩한다.</em></p>
+</li>
+</ul>
+</li>
+<li><p>암묵적 전역<br><u>선언하지 않은 식별자에 값을 할당할 때</u> 전역 객체의 프로퍼티처럼 되어 마치 전역 변수처럼 동작하는 현상을 암묵적 전역이라고 한다.<br>전역 변수는 delete연산자로 삭제할 수 있지만 암묵적 전역으로 사용된 식별자는 프로퍼티이기 때문에 삭제가 가능하다.</p>
 </li>
 </ul>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4-%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4-%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" rel="tag">컴퓨터 기초, javascripy, 객체, 전역 객체, 빌트인 객체, 레퍼 객체, 개념 정리</a>
+                </div>
+            </div>
         </div>
         
         
@@ -198,9 +228,62 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/10/this/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">this</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/10/%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/">
+                <span class="level-item">엄격 모드</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -943,7 +1026,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                    <img src="/images/logo.svg" alt="빌트인 객체" height="28">
                 
                 </a>
                 <p class="is-size-7">
