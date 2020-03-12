@@ -7,20 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Archives: 2020/2 - Dev.Mang&#39;s Odd and Ends</title>
+<title>실행 컨텍스트 - Dev.Mang&#39;s Odd and Ends</title>
 
 
-    <meta name="description" content="Every things Mang want to do">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:url" content="https://developer-mang.github.io/archives/2020/02/page/2/index.html">
+    <meta name="description" content="소스 코드의 타입소스 코드는 4가지로 분류할 수 있다. 이 소스 코드의 타입에 따라 실행 컨텍스트를 생성하는 과정과 관리 내용이 다르다.  전역 코드전역에 존해하는 소스 코드.  최상위 스코프인 전역 스코프를 생성 전역에 var 키워드로 선언된 변수와 함수를 전역 객체 프로퍼티와 메소드에 바인딩   함수 코드함수 내부에 있는 소스 코드.  지역 스코프를 생">
+<meta property="og:type" content="article">
+<meta property="og:title" content="실행 컨텍스트">
+<meta property="og:url" content="https://developer-mang.github.io/2020/03/12/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:description" content="Every things Mang want to do">
+<meta property="og:description" content="소스 코드의 타입소스 코드는 4가지로 분류할 수 있다. 이 소스 코드의 타입에 따라 실행 컨텍스트를 생성하는 과정과 관리 내용이 다르다.  전역 코드전역에 존해하는 소스 코드.  최상위 스코프인 전역 스코프를 생성 전역에 var 키워드로 선언된 변수와 함수를 전역 객체 프로퍼티와 메소드에 바인딩   함수 코드함수 내부에 있는 소스 코드.  지역 스코프를 생">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://developer-mang.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-03-12T07:31:52.000Z">
+<meta property="article:modified_time" content="2020-03-12T08:36:32.535Z">
 <meta property="article:author" content="Mang">
-<meta property="article:tag" content="Mang">
-<meta property="article:tag" content=" FE">
+<meta property="article:tag" content="컴퓨터 기초, javascripy, 실행 컨텍스트, 스코프, 렉시컬 환경, 개념 정리">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://developer-mang.github.io/images/og_image.png">
 
@@ -80,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                <img src="/images/logo.svg" alt="실행 컨텍스트" height="28">
             
             </a>
         </div>
@@ -130,98 +131,170 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-12T07:31:52.000Z">2020-03-12</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9분 read (About 1351 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                실행 컨텍스트
+            
+        </h1>
+        <div class="content">
+            <h2 id="소스-코드의-타입"><a href="#소스-코드의-타입" class="headerlink" title="소스 코드의 타입"></a>소스 코드의 타입</h2><p>소스 코드는 4가지로 분류할 수 있다. 이 소스 코드의 타입에 따라 실행 컨텍스트를 생성하는 과정과 관리 내용이 다르다.</p>
+<ul>
+<li><p>전역 코드<br>전역에 존해하는 소스 코드.</p>
+<ul>
+<li>최상위 스코프인 전역 스코프를 생성</li>
+<li>전역에 var 키워드로 선언된 변수와 함수를 전역 객체 프로퍼티와 메소드에 바인딩</li>
+</ul>
+</li>
+<li><p>함수 코드<br>함수 내부에 있는 소스 코드.</p>
+<ul>
+<li>지역 스코프를 생성</li>
+<li>지역 변수와 매개 변수 관리</li>
+<li>지역 스코프를 스코프 체인에 연결</li>
+</ul>
+</li>
+<li><p>eval 코드<br>빌트인 전역 함수 eval 함수에 인수로 전달되어 실행되는 소스 코드.</p>
+<ul>
+<li>엄격 모드에서 자신 만의 독자적인 스코프 생성</li>
+</ul>
+</li>
+<li><p>모듈 코드<br>모듈 내부에 존재하는 소스 코드.</p>
+<ul>
+<li>별도의 독립적인 스코프 생성</li>
+</ul>
+</li>
+</ul>
+<h2 id="소스-코드의-평가와-실행"><a href="#소스-코드의-평가와-실행" class="headerlink" title="소스 코드의 평가와 실행"></a>소스 코드의 평가와 실행</h2><p>소스 코드는 평가되고 실행하는 2단계로 자바스크립트 엔진에서 동작한다.</p>
+<ul>
+<li><p>소스 코드의 평가<br>실행 컨텍스트를 생성하고 변수, 함수 등의 선언문을 먼저 실행한다. 그리고 선언문으로 등록된 식별자를 실행 컨텍스트가 관리하는 스코프(렉시컬 환경 레코드)에 등록한다.</p>
+</li>
+<li><p>소스 코드의 실행<br>선언문을 제외한 소스 코드가 순차적으로 실행된다.</p>
+</li>
+</ul>
+<h2 id="실행-컨텍스트"><a href="#실행-컨텍스트" class="headerlink" title="실행 컨텍스트"></a>실행 컨텍스트</h2><p>식별자(변수, 함수, 클래스 등의 이름)을 등록하고 관리하는 스코프와 코드 실행 순서 관리를 구현한 내부 매커니즘이다.<br>식별자와 스코프는 실행 컨텍스트의 렉시컬 환경으로 관리하고, 실행 순서는 실행 컨텍스트 스택으로 관리한다.</p>
+<h2 id="실행-컨텍스트-스택"><a href="#실행-컨텍스트-스택" class="headerlink" title="실행 컨텍스트 스택"></a>실행 컨텍스트 스택</h2><p>실행 컨텍스트를 실행하는 순서를 메모리에 담아 순서대로 실행하는 자료 구조이며, 스택 자료 구조로 관리된다.<br><em>최상위 실행 컨텍스트가 종료되면 어플리케이션이 종료된 것이며, 따라서 최상위 컨텍스트는 언제나 현재 실행 중인 코드의 실행 컨텍스트이다.이를<strong>실행 중인 실행 컨텍스트</strong>라고 한다.</em></p>
+<h2 id="동기식-처리-모델과-비동기식-처리-모델"><a href="#동기식-처리-모델과-비동기식-처리-모델" class="headerlink" title="동기식 처리 모델과 비동기식 처리 모델"></a>동기식 처리 모델과 비동기식 처리 모델</h2><p>자바스크립트 엔진은 하나의 실행 컨텍스트 스택을 갖는 <strong>싱글 스레드</strong>로 동작한다. 원래 싱글 스레드로 동작하면 동시에 2가지 이상의 일을 할 수 없기 때문에 동기식 처리 모델이지만 자바스크립트는 비동기식 처리 모델을 지원한다.<br><em>Timer 함수, Ajax 요청은 비동기식 처리 모델로 동작한다.</em></p>
+<h2 id="렉시컬-환경"><a href="#렉시컬-환경" class="headerlink" title="렉시컬 환경"></a>렉시컬 환경</h2><p>실행 컨텍스트를 구성하는 컴포넌트로 객체 형태의 스코프를 생성하여 식별자를 키로 등록하고 식별자에 바인딩 된 값을 관리하며 상위 스코프에 대한 참조를 가진다. 각 기능을 가진 컴포넌트로 구성되어 있다.</p>
+<ul>
+<li><p>환경 레코드 : 스코프에 포함된 식별자를 등록하고 바인딩된 값을 관리.</p>
+</li>
+<li><p>외부 렉시컬 환경에 대한 참조 : 상위 스코프, 즉 상위 스코프를 생성하는 외부 렉시컬 환경에 대한 참조. 단방향 링크드 리스트인 스코프 체인을 구현한 것.</p>
+</li>
+</ul>
+<h2 id="실행-컨텍스트의-생성과-실행-과정"><a href="#실행-컨텍스트의-생성과-실행-과정" class="headerlink" title="실행 컨텍스트의 생성과 실행 과정"></a>실행 컨텍스트의 생성과 실행 과정</h2><ol>
+<li><p>전역 객체 생성 : 전역 프로퍼티와 전역 함수, 표준 빌트인 객체, 동작 환경에 따른 호스트 객체를 포함해서 생성한다.</p>
+</li>
+<li><p>전역 코드 평가</p>
+<ol>
+<li>전역 실행 컨텍스트 생성</li>
+<li>전역 렉팉컬 환경 생성</li>
+<li>전역 환경 레코드 생성 : 전역 변수, 함수, 표준 빌트인 함수, 전역 빌트인 프로퍼티 및 메소드를 등록.<ol>
+<li>객체 환경 레코드 생성 :<br>var 키워드로 선언한 전역 변수 및 함수를 전역 객체의 프로퍼티 및 메소드로 등록.</li>
+<li>선언적 환경 레코드 생성 :<br>let, const 키워드로 선언한 전역 변수 및 함수를 등록.</li>
+<li>this 바인딩</li>
+</ol>
+</li>
+<li>외부 렉시컬 환경에 대한 참조 할당</li>
+</ol>
+</li>
+<li><p>전역 코드 실행</p>
+<ul>
+<li>식별자 결정(식별자 검색)을 실행 컨텍스트에서 검색.</li>
+<li>함수 호출 시, 함수 코드 평가 &gt; 함수 코드 실행 &gt; 함수 코드 종료 순으로 동작. 함수 코드 중에 함수가 호출되면 앞의 순서를 반복.<br><em>함수 코드 평가는 위에 전역 코드 평가에서 전역을 함수로 바꾸면 똑같이 동작한다.</em></li>
+</ul>
+</li>
+<li><p>전역 코드 실행 종료</p>
+</li>
+</ol>
+<h2 id="실행-컨텍스트와-블록-레벨-스코프"><a href="#실행-컨텍스트와-블록-레벨-스코프" class="headerlink" title="실행 컨텍스트와 블록 레벨 스코프"></a>실행 컨텍스트와 블록 레벨 스코프</h2><p>코드 실행중 문을 실행할 때, 안에 let이나 const로 변수를 선언하면 선언적 환경 레코드를 갖는 렉시컬 환경을 새롭게 만들고 기존의 전역 렉시컬 환경을 교체한다. 그리고 기존의 전역 렉시컬 환경은 외부 렉시컬 환경에 대한 참조에 바인딩된다.</p>
 
-<div class="card widget">
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%8A%A4%EC%BD%94%ED%94%84-%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" rel="tag">컴퓨터 기초, javascripy, 실행 컨텍스트, 스코프, 렉시컬 환경, 개념 정리</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2월 2020
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-20T13:57:02.000Z">2020-02-20</time>
-                        <a href="/2020/02/20/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">데이터 타입</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-20T13:35:26.000Z">2020-02-20</time>
-                        <a href="/2020/02/20/%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC-%EB%AC%B8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">표현식과 문</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-20T13:01:06.000Z">2020-02-20</time>
-                        <a href="/2020/02/20/My-blog-start/" class="title has-link-black-ter is-size-6 has-text-weight-normal">My blog start</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-20T12:59:39.208Z">2020-02-20</time>
-                        <a href="/2020/02/20/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
 </div>
 
 
 
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2020/02/">Previous</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/10/this/">
+                <span class="level-item">this</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2020/02/page/3/">Next</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2020/02/">1</a></li>
-            
-            <li><a class="pagination-link is-current" href="/archives/2020/02/page/2/">2</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -976,7 +1049,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Dev.Mang&#39;s Odd and Ends" height="28">
+                    <img src="/images/logo.svg" alt="실행 컨텍스트" height="28">
                 
                 </a>
                 <p class="is-size-7">
