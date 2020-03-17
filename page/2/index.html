@@ -117,7 +117,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Buscar" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -137,13 +137,83 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-27T11:13:39.000Z">2020-02-27</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6분 leer (Acerca de 956 palabras)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/27/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90/">전역 변수의 문제점</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="변수의-생명-주기"><a href="#변수의-생명-주기" class="headerlink" title="변수의 생명 주기"></a>변수의 생명 주기</h2><p>변수가 생성되고 쓰레기 값이 될 때까지의 코드 상의 영역을 <strong>변수의 생명주기</strong>라고 한다.</p>
+<h2 id="전역-변수와-지역-변수"><a href="#전역-변수와-지역-변수" class="headerlink" title="전역 변수와 지역 변수"></a>전역 변수와 지역 변수</h2><ul>
+<li><p>전역 변수란?<br>전역 스코프, 즉 최상위 스코프에 선언된 변수를 의미한다. 자바스크립트에서 var 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티로 저장된다.</p>
+</li>
+<li><p>지역 변수란?<br>함수나 블록 문 단위로 지역 스코프에 선언된 변수를 의미한다. 단, 자바스크립트의 var 변수는 함수 레벨 스코프만을 인정하기 때문에 함수 안에 있는 변수를 의미하고 지역 스코프를 갖는다.<br><em>지역 변수는 함수와 생명 주기를 같이 한다.</em><br><em>호이스팅도 스코프를 단위로 동작한다.</em></p>
+</li>
+</ul>
+<h2 id="전역-변수의-문제점"><a href="#전역-변수의-문제점" class="headerlink" title="전역 변수의 문제점"></a>전역 변수의 문제점</h2><p>전역변수는 전역 스코프를 갖기 때문에 다양한 문제가 발생한다.</p>
+<ul>
+<li><p>암묵적 결합<br>전역 변수는 모든 코드가 참조하고 변경할 수 있다. 이것을 암묵적 결합을 허용한다고 한다. 암묵적 결합을 허용하면 코드 여기 저기서 참조하고 변경 가능할 경우 변경될 가능성이 있다는 것이다. </p>
+</li>
+<li><p>긴 생명 주기<br>전역 변수는 해당 프로그램이 끝날 때까지 참조할 수 있다. 이것은 프로그램이 끝날 때까지 메모리 공간을 차지하고 있다는 것이다. 또한 여기 저기서 참조 당해 변경 당할 가능성도 높다는 것이다.</p>
+</li>
+<li><p>스코프 체인 종점에 존재<br>변수를 검색할 때 스코프 체인을 따라 검색을 하게 되는데 전역 변수는 스코프 체인 종점이기 때문에 검색 속도가 가장 느리다.</p>
+</li>
+<li><p>(자바스크립트에서) 네임 스페이스 오염<br>자바스크립트의 경우 여러 자바스크립트 파일을 참조하면 하나의 전역 스코프를 공유하게 된다. 그러면 다른 파일에서 선언한 변수와 식별자가 같으면 버그가 생길 수 있다.</p>
+</li>
+</ul>
+<h2 id="전역-변수-사용-억제-방법"><a href="#전역-변수-사용-억제-방법" class="headerlink" title="전역 변수 사용 억제 방법"></a>전역 변수 사용 억제 방법</h2><p>전역 변수는 위와 같은 문제점들이 있기 때문에 사용할 이유가 없다면 지역변수를 사용해 변수의 스코프를 좁혀주는 것이 좋다.</p>
+<ul>
+<li><p>즉시 실행 함수<br>함수는 지역 스코프를 생성한다. 따라서 모든 코드를 함수로 묶어 즉시 실행하면 즉시 실행 함수의 지역 변수가 된다.</p>
+</li>
+<li><p>네임 스페이스 객체<br>변수를 한 객체에 프로퍼티로 추가하고 그 객체의 키에 접근해서 변수 값을 사용하는 방법이다. 하지만 변수를 담을 객체가 전역 변수에 할당이 됨으로 효과적이지 않다.</p>
+</li>
+<li><p>모듈 패턴 사용<br>관련있는 변수와 함수를 모아 즉시 실행 함수로 감싸 모듈을 만드는 방법이다. 모듈화를 하면 전역 변수 억제뿐 아니라 캡슐화까지 구현가능하다.<br>캡슐화를 하면 필요한 정보만 보여줄 수 있는 정보 은닉을 시킬 수 있다. 모듈화한 함수를 변수로 할당하면 모듈화한 함수 안에서 반환할 값을 지정함으로서 공개할 데이터를 제한할 수 있다.</p>
+</li>
+<li><p>타입을 모듈로 지정(ES6)<br>자바스크립트 파일을 실행할 html의 script 태그 type 어트리뷰트에 module 값을 부여하는 방법이 있다.<br><em>모듈 파일 확장자는 mjs를 권장한다.</em>  </p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-02-26T12:19:21.000Z">2020-02-26</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 read (About 818 words)
+                    5분 leer (Acerca de 818 palabras)
                 </span>
                 
                 
@@ -195,7 +265,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    17분 read (About 2614 words)
+                    17분 leer (Acerca de 2614 palabras)
                 </span>
                 
                 
@@ -321,7 +391,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8분 read (About 1203 words)
+                    8분 leer (Acerca de 1203 palabras)
                 </span>
                 
                 
@@ -408,7 +478,7 @@ console.log(copy, obj);       <span style="color:green">// {name : copyName, add
                 <span class="level-item has-text-grey">
                     
                     
-                    6분 read (About 927 words)
+                    6분 leer (Acerca de 927 palabras)
                 </span>
                 
                 
@@ -501,7 +571,7 @@ obj['key']               <span style="color:green">// -> value</span>
                 <span class="level-item has-text-grey">
                     
                     
-                    8분 read (About 1235 words)
+                    8분 leer (Acerca de 1235 palabras)
                 </span>
                 
                 
@@ -648,7 +718,7 @@ shortCut bln || '거짓';
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 read (About 543 words)
+                    4분 leer (Acerca de 543 palabras)
                 </span>
                 
                 
@@ -708,7 +778,7 @@ shortCut bln || '거짓';
                 <span class="level-item has-text-grey">
                     
                     
-                    6분 read (About 924 words)
+                    6분 leer (Acerca de 924 palabras)
                 </span>
                 
                 
@@ -765,7 +835,7 @@ shortCut bln || '거짓';
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 read (About 629 words)
+                    4분 leer (Acerca de 629 palabras)
                 </span>
                 
                 
@@ -837,7 +907,7 @@ shortCut bln || '거짓';
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 read (About 390 words)
+                    3분 leer (Acerca de 390 palabras)
                 </span>
                 
                 
@@ -871,56 +941,15 @@ shortCut bln || '거짓';
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-20T13:01:06.000Z">2020-02-20</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    몇 초 read (About 10 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/02/20/My-blog-start/">My blog start</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="Dev-Mang의-블로그-제작-시작"><a href="#Dev-Mang의-블로그-제작-시작" class="headerlink" title="Dev.Mang의 블로그 제작 시작"></a>Dev.Mang의 블로그 제작 시작</h1>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/">Previous</a>
+            <a class="is-flex-grow has-text-black-ter" href="/">Anterior</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Next</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/3/">Siguiente</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -974,11 +1003,11 @@ shortCut bln || '거짓';
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            21
+                            22
                         </p>
                     </a>
                 </div>
@@ -986,7 +1015,7 @@ shortCut bln || '거짓';
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorías
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -998,11 +1027,11 @@ shortCut bln || '거짓';
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            17
+                            24
                         </p>
                     </a>
                 </div>
@@ -1011,7 +1040,7 @@ shortCut bln || '거짓';
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -1064,7 +1093,7 @@ shortCut bln || '거짓';
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Enlaces
         </h3>
         <ul class="menu-list">
         
@@ -1101,7 +1130,7 @@ shortCut bln || '거짓';
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorías
             </h3>
             <ul class="menu-list">
             
@@ -1113,9 +1142,9 @@ shortCut bln || '거짓';
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
-        <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4-%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4-%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 전역 객체, 빌트인 객체, 레퍼 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-this-this-%EB%B0%94%EC%9D%B8%EB%94%A9-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 함수, 함수 호출, this, this 바인딩, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%8A%A4%EC%BD%94%ED%94%84-%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 실행 컨텍스트, 스코프, 렉시컬 환경, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 엄격 모드, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 함수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/" style="font-size: 10px;">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</a>
+        <a href="/tags/javascripy/" style="font-size: 10px;">javascripy</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">개념 정리</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 10px;">실행_컨텍스트</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 10px;">컴퓨터 기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4-%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4-%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 전역 객체, 빌트인 객체, 레퍼 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-this-this-%EB%B0%94%EC%9D%B8%EB%94%A9-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 함수, 함수 호출, this, this 바인딩, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%8A%A4%EC%BD%94%ED%94%84-%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 실행 컨텍스트, 스코프, 렉시컬 환경, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 엄격 모드, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 함수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/" style="font-size: 10px;">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a>
     </div>
 </div>
     
@@ -1125,8 +1154,27 @@ shortCut bln || '거짓';
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="클로저">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T00:51:52.000Z">2020-03-17</time></div>
+                    <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">클로저</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1204,25 +1252,6 @@ shortCut bln || '거짓';
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="프로토타입">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-07T14:46:02.000Z">2020-03-07</time></div>
-                    <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">프로토타입</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1230,7 +1259,7 @@ shortCut bln || '거짓';
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -1240,7 +1269,7 @@ shortCut bln || '거짓';
                     <span class="level-item">3월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">8</span>
                 </span>
             </a>
         </li>
@@ -1265,9 +1294,51 @@ shortCut bln || '거짓';
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascripy/">
+                        <span class="tag">javascripy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">렉시컬스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
+                        <span class="tag">실행_컨텍스트</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/">
+                        <span class="tag">자유변수</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/">
+                        <span class="tag">컴퓨터 기초</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
@@ -1384,6 +1455,13 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/">
+                        <span class="tag">클로저</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1407,8 +1485,27 @@ shortCut bln || '거짓';
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="클로저">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T00:51:52.000Z">2020-03-17</time></div>
+                    <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">클로저</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1486,25 +1583,6 @@ shortCut bln || '거짓';
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="프로토타입">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-07T14:46:02.000Z">2020-03-07</time></div>
-                    <a href="/2020/03/07/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">프로토타입</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1512,7 +1590,7 @@ shortCut bln || '거짓';
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -1522,7 +1600,7 @@ shortCut bln || '거짓';
                     <span class="level-item">3월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">8</span>
                 </span>
             </a>
         </li>
@@ -1547,9 +1625,51 @@ shortCut bln || '거짓';
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascripy/">
+                        <span class="tag">javascripy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
+                        <span class="tag">개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">렉시컬스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
+                        <span class="tag">실행_컨텍스트</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/">
+                        <span class="tag">자유변수</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/">
+                        <span class="tag">컴퓨터 기초</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
@@ -1666,6 +1786,13 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/">
+                        <span class="tag">클로저</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1810,7 +1937,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1834,7 +1961,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Teclea algo..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1846,11 +1973,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: 'Entradas',
+                PAGES: 'Páginas',
+                CATEGORIES: 'Categorías',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Sin título)',
             },
             CONTENT_URL: '/content.json',
         };
