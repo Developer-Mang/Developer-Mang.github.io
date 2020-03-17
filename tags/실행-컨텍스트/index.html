@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Etiqueta: 실행_컨텍스트 - Dev.Mang&#39;s Odd and Ends</title>
+<title>Tag: 실행_컨텍스트 - Dev.Mang&#39;s Odd and Ends</title>
 
 
     <meta name="description" content="Every things Mang want to do">
@@ -117,7 +117,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Buscar" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -133,7 +133,7 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">Etiquetas</a></li>
+            <li><a href="/tags">Tags</a></li>
             <li class="is-active"><a href="#" aria-current="page">실행_컨텍스트</a></li>
         </ul>
         </nav>
@@ -153,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 leer (Acerca de 552 palabras)
+                    4분 read (About 552 words)
                 </span>
                 
                 
@@ -178,6 +178,130 @@
 <li><p>독립된 렉시컬 환경<br>클로저 함수를 호출해 함수를 반환할 때마다 독립된 레시컬 환경을 갖는다.<br>새로 호출한 클로저로 반환된 함수는 이전에 호출한 클로저로 반환한 함수와는 독립적으로 작동한다.</p>
 </li>
 </ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-12T07:31:52.000Z">2020-03-12</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10분 read (About 1521 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/12/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">실행 컨텍스트</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="소스-코드의-타입"><a href="#소스-코드의-타입" class="headerlink" title="소스 코드의 타입"></a>소스 코드의 타입</h2><p>소스 코드는 4가지로 분류할 수 있다. 이 소스 코드의 타입에 따라 실행 컨텍스트를 생성하는 과정과 관리 내용이 다르다.</p>
+<ul>
+<li><p>전역 코드<br>전역에 존해하는 소스 코드.</p>
+<ul>
+<li>최상위 스코프인 전역 스코프를 생성</li>
+<li>전역에 var 키워드로 선언된 변수와 함수를 전역 객체 프로퍼티와 메소드에 바인딩</li>
+</ul>
+</li>
+<li><p>함수 코드<br>함수 내부에 있는 소스 코드.</p>
+<ul>
+<li>지역 스코프를 생성</li>
+<li>지역 변수와 매개 변수 관리</li>
+<li>지역 스코프를 스코프 체인에 연결</li>
+</ul>
+</li>
+<li><p>eval 코드<br>빌트인 전역 함수 eval 함수에 인수로 전달되어 실행되는 소스 코드.</p>
+<ul>
+<li>엄격 모드에서 자신 만의 독자적인 스코프 생성</li>
+</ul>
+</li>
+<li><p>모듈 코드<br>모듈 내부에 존재하는 소스 코드.</p>
+<ul>
+<li>별도의 독립적인 스코프 생성</li>
+</ul>
+</li>
+</ul>
+<h2 id="소스-코드의-평가와-실행"><a href="#소스-코드의-평가와-실행" class="headerlink" title="소스 코드의 평가와 실행"></a>소스 코드의 평가와 실행</h2><p>소스 코드는 평가되고 실행하는 2단계로 자바스크립트 엔진에서 동작한다.</p>
+<ul>
+<li><p>소스 코드의 평가<br>실행 컨텍스트를 생성하고 변수, 함수 등의 선언문을 먼저 실행한다. 그리고 선언문으로 등록된 식별자를 실행 컨텍스트가 관리하는 스코프(렉시컬 환경 레코드)에 등록한다.</p>
+</li>
+<li><p>소스 코드의 실행<br>선언문을 제외한 소스 코드가 순차적으로 실행된다.</p>
+</li>
+</ul>
+<h2 id="실행-컨텍스트"><a href="#실행-컨텍스트" class="headerlink" title="실행 컨텍스트"></a>실행 컨텍스트</h2><p>식별자(변수, 함수, 클래스 등의 이름)을 등록하고 관리하는 스코프와 코드 실행 순서 관리를 구현한 내부 매커니즘이다.<br><strong>식별자와 스코프는 실행 컨텍스트의 렉시컬 환경으로 관리</strong>하고, <strong>실행 순서는 실행 컨텍스트 스택</strong>으로 관리한다.</p>
+<h2 id="실행-컨텍스트-스택"><a href="#실행-컨텍스트-스택" class="headerlink" title="실행 컨텍스트 스택"></a>실행 컨텍스트 스택</h2><p>실행 컨텍스트를 실행하는 순서를 메모리에 담아 순서대로 실행하는 자료 구조이며, 스택 자료 구조로 관리된다.<br><em>최상위 실행 컨텍스트가 종료되면 어플리케이션이 종료된 것이며, 따라서 최상위 컨텍스트는 언제나 현재 실행 중인 코드의 실행 컨텍스트이다.이를<strong>실행 중인 실행 컨텍스트</strong>라고 한다.</em></p>
+<h2 id="동기식-처리-모델과-비동기식-처리-모델"><a href="#동기식-처리-모델과-비동기식-처리-모델" class="headerlink" title="동기식 처리 모델과 비동기식 처리 모델"></a>동기식 처리 모델과 비동기식 처리 모델</h2><p>자바스크립트 엔진은 하나의 실행 컨텍스트 스택을 갖는 <strong>싱글 스레드</strong>로 동작한다. 원래 싱글 스레드로 동작하면 동시에 2가지 이상의 일을 할 수 없기 때문에 동기식 처리 모델이지만 자바스크립트는 비동기식 처리 모델을 지원한다.<br><em>Timer 함수, Ajax 요청은 비동기식 처리 모델로 동작한다.</em></p>
+<h2 id="렉시컬-환경"><a href="#렉시컬-환경" class="headerlink" title="렉시컬 환경"></a>렉시컬 환경</h2><p>실행 컨텍스트를 구성하는 컴포넌트로 객체 형태의 스코프를 생성하여 식별자를 키로 등록하고 식별자에 바인딩 된 값을 관리하며 상위 스코프에 대한 참조를 가진다. 각 기능을 가진 컴포넌트로 구성되어 있다.</p>
+<ul>
+<li><p>환경 레코드 : 스코프에 포함된 식별자를 등록하고 바인딩된 값을 관리.</p>
+<ul>
+<li><p>전역 환경 레코드</p>
+<ul>
+<li>객체 환경 레코드 :<br>전역 객체에 등록해야할 변수들을 등록을 관리.</li>
+<li>선언적 환경 레코드 :<br>전역 스코프에 등록해야할 변수들을 등록을 관리.</li>
+</ul>
+</li>
+<li><p>함수 환경 레코드</p>
+<ul>
+<li>객체 환경 레코드 :<br>전역 객체에 등록해야할 변수들을 등록을 관리.<br><em>전역 환경 레코드와 같다</em></li>
+<li>선언적 환경 레코드 :<br>함수 지역 스코프에 등록해야할 변수들을 등록을 관리.<br><em>단, 전역 환경 레코드와 차이는 추가적으로 argument 객체나 매개 변수, 등을 암묵적으로 등록한다.</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>외부 렉시컬 환경에 대한 참조 : 상위 스코프, 즉 상위 스코프를 생성하는 외부 렉시컬 환경에 대한 참조. 단방향 링크드 리스트인 스코프 체인을 구현한 것.</p>
+</li>
+</ul>
+<h2 id="실행-컨텍스트의-생성과-실행-과정"><a href="#실행-컨텍스트의-생성과-실행-과정" class="headerlink" title="실행 컨텍스트의 생성과 실행 과정"></a>실행 컨텍스트의 생성과 실행 과정</h2><ol>
+<li><p>전역 객체 생성 : 전역 프로퍼티와 전역 함수, 표준 빌트인 객체, 동작 환경에 따른 호스트 객체를 포함해서 생성한다.</p>
+</li>
+<li><p>전역 코드 평가</p>
+<ol>
+<li>전역 실행 컨텍스트 생성</li>
+<li>전역 렉팉컬 환경 생성</li>
+<li>전역 환경 레코드 생성 : 전역 변수, 함수, 표준 빌트인 함수, 전역 빌트인 프로퍼티 및 메소드를 등록.<ol>
+<li>객체 환경 레코드 생성 :<br>var 키워드로 선언한 전역 변수 및 함수를 전역 객체의 프로퍼티 및 메소드로 등록.</li>
+<li>선언적 환경 레코드 생성 :<br>let, const 키워드로 선언한 전역 변수 및 함수를 등록.</li>
+<li>this 바인딩</li>
+</ol>
+</li>
+<li>외부 렉시컬 환경에 대한 참조 할당</li>
+</ol>
+</li>
+<li><p>전역 코드 실행</p>
+<ul>
+<li>식별자 결정(식별자 검색)을 실행 컨텍스트에서 검색.</li>
+<li>함수 호출 시, 함수 코드 평가 &gt; 함수 코드 실행 &gt; 함수 코드 종료 순으로 동작. 함수 코드 중에 함수가 호출되면 앞의 순서를 반복.<br><em>함수 코드 평가는 위에 전역 코드 평가에서 전역을 함수로 바꾸면 똑같이 동작한다.</em></li>
+</ul>
+</li>
+<li><p>전역 코드 실행 종료</p>
+</li>
+</ol>
+<h2 id="실행-컨텍스트와-블록-레벨-스코프"><a href="#실행-컨텍스트와-블록-레벨-스코프" class="headerlink" title="실행 컨텍스트와 블록 레벨 스코프"></a>실행 컨텍스트와 블록 레벨 스코프</h2><p>코드 실행중 문을 실행할 때, 안에 let이나 const로 변수를 선언하면 <u>선언적 환경 레코드를 갖는 렉시컬 환경을 새롭게 만들고</u> 기존의 전역 렉시컬 환경을 교체한다. 그리고 기존의 전역 렉시컬 환경은 외부 렉시컬 환경에 대한 참조에 바인딩된다.</p>
 
         </div>
         
@@ -234,7 +358,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
@@ -246,7 +370,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorías
+                        Categories
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -258,11 +382,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            24
+                            59
                         </p>
                     </a>
                 </div>
@@ -271,7 +395,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -324,7 +448,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Enlaces
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -361,7 +485,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorías
+                Categories
             </h3>
             <ul class="menu-list">
             
@@ -373,9 +497,9 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
-        <a href="/tags/javascripy/" style="font-size: 10px;">javascripy</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">개념 정리</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 10px;">실행_컨텍스트</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 10px;">컴퓨터 기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4-%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4-%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 전역 객체, 빌트인 객체, 레퍼 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-this-this-%EB%B0%94%EC%9D%B8%EB%94%A9-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 객체, 함수, 함수 호출, this, this 바인딩, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%8A%A4%EC%BD%94%ED%94%84-%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 실행 컨텍스트, 스코프, 렉시컬 환경, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 엄격 모드, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 기초, javascripy, 함수, 개념 정리</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/" style="font-size: 10px;">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 10px;">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a>
+        <a href="/tags/const/" style="font-size: 10px;">const</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/let/" style="font-size: 10px;">let</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/" style="font-size: 10px;">this_바인딩</a> <a href="/tags/var/" style="font-size: 10px;">var</a> <a href="/tags/%EA%B0%92/" style="font-size: 10px;">값</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 20px;">개념_정리</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 17.14px;">객체</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">내부_메소드</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/" style="font-size: 10px;">내부_슬롯</a> <a href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/" style="font-size: 10px;">단축평가</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 12.86px;">데이터_타입</a> <a href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">동적_타입_언어</a> <a href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">레퍼_객체</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/" style="font-size: 10px;">렉시컬_환경</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 11.43px;">리터럴</a> <a href="/tags/%EB%AC%B8/" style="font-size: 10px;">문</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B3%80%EC%88%98/" style="font-size: 11.43px;">변수</a> <a href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/" style="font-size: 10px;">부수_효과</a> <a href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">블록_레벨_스코프</a> <a href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">빌트인_객체</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 10px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/" style="font-size: 10px;">생성자_함수</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 11.43px;">스코프</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 11.43px;">실행_컨텍스트</a> <a href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" style="font-size: 10px;">어트리뷰트</a> <a href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/" style="font-size: 10px;">엄격_모드</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/" style="font-size: 10px;">원시_값</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">일급객체</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">전역_객체</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.43px;">전역_변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">전역_스코프</a> <a href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">정적_타입_언어</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.43px;">지역_변수</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">지역_스코프</a> <a href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">캡슐화</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 18.57px;">컴퓨터_기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/" style="font-size: 15.71px;">컴퓨터_심화</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 10px;">클래스</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a> <a href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/" style="font-size: 10px;">타입_변환</a> <a href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/" style="font-size: 10px;">표현식</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/" style="font-size: 10px;">프로토타입_체인</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/" style="font-size: 11.43px;">프로퍼티</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 14.29px;">함수</a> <a href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 10px;">함수_리터럴</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/" style="font-size: 10px;">함수_정의</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/" style="font-size: 10px;">함수_종류</a> <a href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/" style="font-size: 10px;">함수_호출</a>
     </div>
 </div>
     
@@ -385,7 +509,7 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -490,7 +614,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -525,20 +649,118 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/javascripy/">
-                        <span class="tag">javascripy</span>
+                    <a class="tags has-addons" href="/tags/const/">
+                        <span class="tag">const</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascript/">
+                        <span class="tag">javascript</span>
+                        <span class="tag is-grey">20</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/let/">
+                        <span class="tag">let</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/this/">
+                        <span class="tag">this</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/">
+                        <span class="tag">this_바인딩</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/var/">
+                        <span class="tag">var</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EA%B0%92/">
+                        <span class="tag">값</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">개념 정리</span>
+                        <span class="tag">개념_정리</span>
+                        <span class="tag is-grey">20</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">객체</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/">
+                        <span class="tag">내부_메소드</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/">
+                        <span class="tag">내부_슬롯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/">
+                        <span class="tag">단축평가</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/">
+                        <span class="tag">데이터_타입</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/">
+                        <span class="tag">동적_타입_언어</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">레퍼_객체</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/">
+                        <span class="tag">렉시컬_환경</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -551,8 +773,127 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/">
+                        <span class="tag">리터럴</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%AC%B8/">
+                        <span class="tag">문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/">
+                        <span class="tag">반복문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B3%80%EC%88%98/">
+                        <span class="tag">변수</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/">
+                        <span class="tag">부수_효과</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">블록_레벨_스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">빌트인_객체</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%83%81%EC%86%8D/">
+                        <span class="tag">상속</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%83%81%EC%88%98/">
+                        <span class="tag">상수</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/">
+                        <span class="tag">생성자_함수</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">스코프</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
                         <span class="tag">실행_컨텍스트</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/">
+                        <span class="tag">어트리뷰트</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/">
+                        <span class="tag">엄격_모드</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/">
+                        <span class="tag">연산자</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/">
+                        <span class="tag">원시_값</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/">
+                        <span class="tag">인스턴스</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">일급객체</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -565,127 +906,85 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">전역_객체</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/">
+                        <span class="tag">전역_변수</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">전역_스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/">
+                        <span class="tag">정적_타입_언어</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/">
+                        <span class="tag">제어문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/">
+                        <span class="tag">조건문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/">
+                        <span class="tag">지역_변수</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">지역_스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/">
+                        <span class="tag">캡슐화</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/">
-                        <span class="tag">컴퓨터 기초</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag">컴퓨터_기초</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
+                        <span class="tag">컴퓨터_심화</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4-%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4-%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 전역 객체, 빌트인 객체, 레퍼 객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-this-this-%EB%B0%94%EC%9D%B8%EB%94%A9-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 함수 호출, this, this 바인딩, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%8A%A4%EC%BD%94%ED%94%84-%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 실행 컨텍스트, 스코프, 렉시컬 환경, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 엄격 모드, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 함수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
-                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
+                    <a class="tags has-addons" href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/">
+                        <span class="tag">클래스</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -693,6 +992,76 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/">
                         <span class="tag">클로저</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/">
+                        <span class="tag">타입_변환</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/">
+                        <span class="tag">표현식</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/">
+                        <span class="tag">프로토타입</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/">
+                        <span class="tag">프로토타입_체인</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/">
+                        <span class="tag">프로퍼티</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98/">
+                        <span class="tag">함수</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/">
+                        <span class="tag">함수_리터럴</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/">
+                        <span class="tag">함수_정의</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/">
+                        <span class="tag">함수_종류</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/">
+                        <span class="tag">함수_호출</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -716,7 +1085,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
         
         <article class="media">
@@ -821,7 +1190,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -856,20 +1225,118 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/javascripy/">
-                        <span class="tag">javascripy</span>
+                    <a class="tags has-addons" href="/tags/const/">
+                        <span class="tag">const</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascript/">
+                        <span class="tag">javascript</span>
+                        <span class="tag is-grey">20</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/let/">
+                        <span class="tag">let</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/this/">
+                        <span class="tag">this</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/">
+                        <span class="tag">this_바인딩</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/var/">
+                        <span class="tag">var</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EA%B0%92/">
+                        <span class="tag">값</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">개념 정리</span>
+                        <span class="tag">개념_정리</span>
+                        <span class="tag is-grey">20</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">객체</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/">
+                        <span class="tag">내부_메소드</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/">
+                        <span class="tag">내부_슬롯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/">
+                        <span class="tag">단축평가</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/">
+                        <span class="tag">데이터_타입</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/">
+                        <span class="tag">동적_타입_언어</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">레퍼_객체</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/">
+                        <span class="tag">렉시컬_환경</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -882,8 +1349,127 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/">
+                        <span class="tag">리터럴</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%AC%B8/">
+                        <span class="tag">문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/">
+                        <span class="tag">반복문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B3%80%EC%88%98/">
+                        <span class="tag">변수</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/">
+                        <span class="tag">부수_효과</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">블록_레벨_스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">빌트인_객체</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%83%81%EC%86%8D/">
+                        <span class="tag">상속</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%83%81%EC%88%98/">
+                        <span class="tag">상수</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/">
+                        <span class="tag">생성자_함수</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">스코프</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
                         <span class="tag">실행_컨텍스트</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/">
+                        <span class="tag">어트리뷰트</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/">
+                        <span class="tag">엄격_모드</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/">
+                        <span class="tag">연산자</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/">
+                        <span class="tag">원시_값</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/">
+                        <span class="tag">인스턴스</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">일급객체</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -896,127 +1482,85 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/">
+                        <span class="tag">전역_객체</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/">
+                        <span class="tag">전역_변수</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">전역_스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/">
+                        <span class="tag">정적_타입_언어</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/">
+                        <span class="tag">제어문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/">
+                        <span class="tag">조건문</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/">
+                        <span class="tag">지역_변수</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/">
+                        <span class="tag">지역_스코프</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/">
+                        <span class="tag">캡슐화</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/">
-                        <span class="tag">컴퓨터 기초</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag">컴퓨터_기초</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%92-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%91%9C%ED%98%84%EC%8B%9D-%EB%AC%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 값, 리터럴, 표현식, 문, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
+                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
+                        <span class="tag">컴퓨터_심화</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF-%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 내부 슬롯, 내부 메소드, 프로퍼티, 어트리뷰트, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 리터럴, 프로퍼티, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4-%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4-%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 전역 객체, 빌트인 객체, 레퍼 객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%ED%95%A8%EC%88%98-%EC%83%81%EC%86%8D-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 프로토타입, 함수, 상속, 프로토타입 체인, 캡슐화, 클래스, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 일급객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EA%B0%9D%EC%B2%B4-%ED%95%A8%EC%88%98-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-this-this-%EB%B0%94%EC%9D%B8%EB%94%A9-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 객체, 함수, 함수 호출, this, this 바인딩, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9B%90%EC%8B%9C-%EA%B0%92-%EA%B0%9D%EC%B2%B4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 원시 값, 객체, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 데이터 타입, 타입 변환, 단축평가, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-var-let-const-%EC%83%81%EC%88%98-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, var, let, const, 상수, 블록 레벨 스코프, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EB%B3%80%EC%88%98-%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 변수, 전역 스코프, 전역 변수, 지역 스코프, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 스코프, 전역 변수, 지역 변수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%8A%A4%EC%BD%94%ED%94%84-%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 실행 컨텍스트, 스코프, 렉시컬 환경, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 엄격 모드, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-javascripy-%ED%95%A8%EC%88%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 기초, javascripy, 함수, 개념 정리</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
-                        <span class="tag">컴퓨터 기초, 데이터 타입, 자바스크립트, 웹 개발</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94-javascripy-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
-                        <span class="tag">컴퓨터 심화, javascripy, 객체, 생성자 함수, 인스턴스, 개념 정리</span>
+                    <a class="tags has-addons" href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/">
+                        <span class="tag">클래스</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1024,6 +1568,76 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/">
                         <span class="tag">클로저</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/">
+                        <span class="tag">타입_변환</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/">
+                        <span class="tag">표현식</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/">
+                        <span class="tag">프로토타입</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/">
+                        <span class="tag">프로토타입_체인</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/">
+                        <span class="tag">프로퍼티</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98/">
+                        <span class="tag">함수</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/">
+                        <span class="tag">함수_리터럴</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/">
+                        <span class="tag">함수_정의</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/">
+                        <span class="tag">함수_종류</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/">
+                        <span class="tag">함수_호출</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1168,7 +1782,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1192,7 +1806,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Teclea algo..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1204,11 +1818,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
-                PAGES: 'Páginas',
-                CATEGORIES: 'Categorías',
-                TAGS: 'Etiquetas',
-                UNTITLED: '(Sin título)',
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
