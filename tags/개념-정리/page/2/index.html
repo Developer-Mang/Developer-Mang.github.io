@@ -147,6 +147,94 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-05T08:01:47.000Z">2020-03-05</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9분 read (About 1292 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/05/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/">프로퍼티 어트리뷰트</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="내부-슬롯과-내부-메소드"><a href="#내부-슬롯과-내부-메소드" class="headerlink" title="내부 슬롯과 내부 메소드"></a>내부 슬롯과 내부 메소드</h2><p>자바스크립트에서 객체를 만들 때 해당 객체를 컨드롤 하기 위해 만드는 프로퍼티와 메소드가 있는데 <strong>프로퍼티를 내부 슬롯(internal slot)</strong>, <strong>메소드를 내부 메소드(internal method)</strong>라고 한다.<br><em>원칙적으로는 내부 슬롯과 내부 메소드에 접근할 수 없지만 몇몇 내부 슬롯과 내부 메소드에 한하여 간접적으로 접근 가능하다.</em></p>
+<h2 id="프로퍼티-상태와-프로퍼티-어트리뷰트-디스크립터-객체"><a href="#프로퍼티-상태와-프로퍼티-어트리뷰트-디스크립터-객체" class="headerlink" title="프로퍼티 상태와 프로퍼티 어트리뷰트, 디스크립터 객체"></a>프로퍼티 상태와 프로퍼티 어트리뷰트, 디스크립터 객체</h2><ul>
+<li><p>프로퍼티 상태란?<br>자바스크립트에서 프로퍼티를 생성할 때 해당 프로퍼티에 대한 환경 설정 정보들을 프로퍼티 상태라고 한다.<br>프로퍼티 상태에는 </p>
+<ul>
+<li>프로퍼티 값(value)</li>
+<li>값의 갱신 여부(writable)</li>
+<li>열거 가능 여부(enumerable)</li>
+<li>재정의 가능 여부(configurable)<br>가 있다.</li>
+</ul>
+</li>
+<li><p>프로퍼티 어트리뷰트란?<br>자바스크립트에서 관리하는 프로퍼티 상태에 접근할 수 있는 내부 슬롯이다.</p>
+</li>
+<li><p>디스크립터 객체란?<br>어떠한 객체나 프로퍼티등의 어트리뷰트 정보를 제공하는 객체이다.<br>기본적으로 프로퍼티의 경우, Object.OwnPropertyDesctriptor 메소드를 이용해 프로퍼티의 상태를 확인할 수 있다.<br><em>존재하지 않는 프로퍼티나 <u>상속받은 프로퍼티</u>에 대한 디스크립터 객체를 요구할 경우 undefined 값을 반환한다.</em></p>
+</li>
+</ul>
+<h2 id="프로퍼티의-종류"><a href="#프로퍼티의-종류" class="headerlink" title="프로퍼티의 종류"></a>프로퍼티의 종류</h2><p>프로퍼티는 데이터 프로퍼티와 접근자 프로퍼티로 나누어진다.</p>
+<ul>
+<li><p>데이터 프로퍼티<br>키와 값으로 구성된 일반적인 프로퍼티.<br>데이터 프로퍼티는 해당 프로퍼티 어트리뷰트를 갖는다. </p>
+<ul>
+<li>[[Value]] : 프로퍼티 값</li>
+<li>[[Writable]] : 값 갱신 여부<br><em>false인 경우 값을 변경할 수 없다. 만약 false일 때, 값을 변경을 하면 <u>에러 없이 무시된다.</u></em></li>
+<li>[[Enumerable]] : 열거 가능 여부<br>for…in 문이나 Object.keys 등으로 열거 가능 여부를 정의한다.</li>
+<li>[[Configurable]] : 삭제,재정의 가능 여부<br>delete, Object.defineProperty 메소드를 사용해 프로퍼티 삭제, 어트리뷰트 재정의 가능 여부를 정의한다.<br><em>false인 경우 삭제와 어트리뷰트 재정의를 할 수 없다. 이 때, 어트리뷰트 재정의를 할 경우 에러가 발생하지만 <u>삭제의 경우는 에러 없이 무시된다.</u></em></li>
+</ul>
+</li>
+<li><p>접근자 프로퍼티<br>다른 데이터 프로퍼티 값을 읽거나 저장할 때 호출되는 접근자 함수로 구성된 프로퍼티. 프로퍼티 이름 앞에 get이나 set으로 구분할 수 있다.<br>데이터 프로퍼티 어트리뷰트와 다르게 [[Value]], [[Writable]] 대신에 [[Get]], [[Set]] 프로퍼티 어트리뷰트를 갖는다.</p>
+<ul>
+<li>[[Get]]<br>접근자 프로퍼티의 값에 접근하면 호출되는 getter함수. 다른 데이터 프로퍼티를 가져와 함수를 연산을 시킬수 있다.</li>
+<li>[[Set]]<br>접근자 프로퍼티를 통해 다른 데이터 프로퍼티 값을 저장/수정할 때 호출되는 setter함수. 다른 데이터 프로퍼티를 한꺼번에 수정할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="comment">// 데이터 프로퍼티</span></span><br><span class="line">  name : <span class="string">'obj'</span>,</span><br><span class="line">  number : <span class="string">'1'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// getter 함수</span></span><br><span class="line">  <span class="keyword">get</span> objNum() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.number&#125;</span>.<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// setter 함수</span></span><br><span class="line">  <span class="keyword">set</span> objNum(value) &#123;</span><br><span class="line">    [<span class="keyword">this</span>.number, <span class="keyword">this</span>.name] = value.split(<span class="string">'.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);       <span class="comment">// &#123;name: "obj", number: "1"number // [[get]] 어트리뷰트에 접근</span></span><br><span class="line">conso1lg(obj.objNum);   <span class="comment">// obj.1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);       <span class="comment">// &#123;name: "object", number: "1"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="프로퍼티-정의"><a href="#프로퍼티-정의" class="headerlink" title="프로퍼티 정의"></a>프로퍼티 정의</h2><p>새로운 프로퍼티를 추가할 때 프로퍼티 어트리뷰트를 명시적으로 정의하거나 기존 프로퍼티의 어트리뷰트를 재정의 하는 것이다.<br><u>Object.defineProperty 메소드</u>와 <u>Object.defineProperties 메소드</u>를 사용해서 프로퍼티 어트리뷰트를 정의할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 데이터 프로퍼티 정의</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'name'</span>,&#123;</span><br><span class="line">  value: <span class="string">'obj'</span>,</span><br><span class="line">  writable: <span class="literal">true</span>,</span><br><span class="line">  enumerable: <span class="literal">true</span>,</span><br><span class="line">  configurable: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'number'</span>,&#123;</span><br><span class="line">  value: <span class="string">'1'</span></span><br><span class="line">&#125;);                       <span class="comment">// 프로퍼티 어트리뷰트를 정의해주지 않으면 undefined, false이 기본값이다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 접근자 프로퍼티 정의</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'objNum'</span>,&#123;</span><br><span class="line">  <span class="keyword">get</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.number&#125;</span>.<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>(value) &#123;</span><br><span class="line">    [<span class="keyword">this</span>.number, <span class="keyword">this</span>.name] = value.split(<span class="string">'.'</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  enumerable: <span class="literal">true</span>,</span><br><span class="line">  configurable: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 다수의 프로퍼티 재정의</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  name: &#123;</span><br><span class="line">    writable: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  number: &#123;</span><br><span class="line">    writable: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="객체-변경-방지"><a href="#객체-변경-방지" class="headerlink" title="객체 변경 방지"></a>객체 변경 방지</h2><ul>
+<li><p>객체 확장 금지<br>Object.preventExtensions 메소드를 사용하여 객체의 확장을 금지한다.<br>프로퍼티 추가만 금지한다.</p>
+</li>
+<li><p>객체 밀봉<br>Object.seal 메소드를 사용하여 객체를 밀봉한다.<br>읽기와 쓰기만 가능하다. 프로퍼티 추가/삭제, 어프리뷰트 재정의를 금지한다.</p>
+</li>
+<li><p>객체 동결<br>Object.freeze 메소드를 사용하여 객체를 동결시킨다.<br>읽기만 가능하다. 프로퍼티 갱신, 추가/삭제, 어트리뷰트 재정의를 금지한다.</p>
+</li>
+<li><p>불변 객체<br>Object.freeze 메소드를 사용하여 모든 프로퍼티를 동결시킨다.<br>이렇게 구현하면 중첩 객체도 동결이 된다.</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-02-28T11:08:46.000Z">2020-02-28</time>
                 
                 
@@ -901,63 +989,6 @@ shortCut bln || '거짓';
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-21T11:04:44.000Z">2020-02-21</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6분 read (About 924 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/02/21/%EC%97%B0%EC%82%B0%EC%9E%90/">연산자</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="연산자란"><a href="#연산자란" class="headerlink" title="연산자란?"></a>연산자란?</h2><p>하나 이상의 표현식에서 산술, 할당, 비교, 논리, 타입, 지수 연산을 하게 하는 토근이다.<br>피연산자를 연산하여 새로운 값을 만든다. = 표현식 이다.</p>
-<h3 id="부수효과란"><a href="#부수효과란" class="headerlink" title="부수효과란?"></a>부수효과란?</h3><p>대부분의 연산자는 피연산자에게 영향을 주지 않지만 단항 산술 연산자, 할당 연산자, delete 연산자의 경우 좌항 피연산자에게 반환되는 값을 재할당한다. 이것을 부수효과라고 한다.</p>
-<h2 id="산술연산자란"><a href="#산술연산자란" class="headerlink" title="산술연산자란?"></a>산술연산자란?</h2><p>피연산자를 대상으로 수학적 계산을 수행해 새로운 값을 만드는 토큰이다.</p>
-<h3 id="이항-산술-연산자"><a href="#이항-산술-연산자" class="headerlink" title="이항 산술 연산자 (+,-,*,/,%)"></a>이항 산술 연산자 (+,-,*,/,%)</h3><p>2개의 피연산자를 사칙연산을 하여 새로운 숫자 타입의 값을 만든다.</p>
-<h3 id="단항-산술-연산자-–"><a href="#단항-산술-연산자-–" class="headerlink" title="단항 산술 연산자 (++,–,+,-)"></a>단항 산술 연산자 (++,–,+,-)</h3><p>1개의 피연산자를 증가/감소 한 후에 다시 할당을 하거나 음수를 양수로 양수를 음수로 변환하여 할당한다.<br>숫자 타입이 아닌 피연산자에 + 단항 연산자를 사용시 숫자 타입으로 바꾸어준다.</p>
-<h3 id="문자열-연결-연산자"><a href="#문자열-연결-연산자" class="headerlink" title="문자열 연결 연산자 (+)"></a>문자열 연결 연산자 (+)</h3><p>피연산자 중에 하나라도 문자열이 포함되어 있을 경우 아닌 피연산자를 암묵적인 타입 변환을 통해 문자열로 바꾸어 하나의 문자열 값을 만든다.</p>
-<h3 id="할당-연산자"><a href="#할당-연산자" class="headerlink" title="할당 연산자 (=,+=,-=,*=,/=,%=)"></a>할당 연산자 (=,+=,-=,*=,/=,%=)</h3><p>우항에 있는 피연산자의 평가 결과를 좌항에 <strong>변수</strong>에 할당 한다.<br>  <em>할당문은 우항의 평가 결과를 값으로 갖는 표현식이다.</em></p>
-<h2 id="비교-연산자란"><a href="#비교-연산자란" class="headerlink" title="비교 연산자란?"></a>비교 연산자란?</h2><p>피연산자를 비교하여 불리언 값을 반환하는 토큰이다.</p>
-<h3 id="동등-일치-비교-연산자"><a href="#동등-일치-비교-연산자" class="headerlink" title="동등/일치 비교 연산자 (==,===,!=,!==)"></a>동등/일치 비교 연산자 (==,===,!=,!==)</h3><p>피연산자가 같은 값을 갖는지 비교한다.<br>동등 비교 연산자(==,!=)의 경우에는 암묵적인 타입 변환을 통해 타입을 일치시킨 후에 비교한다.<br>  <em>NaN 값은 동등/일치 비교 연산을 할 경우 무조건 false 값을 출력한다. 비교하려면 isNaN()를 사용해야한다.</em></p>
-<h3 id="대소-관계-비교-연산자-gt-lt-gt-lt"><a href="#대소-관계-비교-연산자-gt-lt-gt-lt" class="headerlink" title="대소 관계 비교 연산자 (&gt;,&lt;,&gt;=,&lt;=)"></a>대소 관계 비교 연산자 (&gt;,&lt;,&gt;=,&lt;=)</h3><p>피연산자의 크기를 비교한다.</p>
-<h2 id="삼항-조건-연산자란"><a href="#삼항-조건-연산자란" class="headerlink" title="삼항 조건 연산자란?"></a>삼항 조건 연산자란?</h2><p>조건식의 평가 결과에 따라 반환할 값을 선택하는 삼항 조건 연산자 표현식에서 사용하는 토큰이다. (? :)<br>  <em>조건식은 불리언 타입으로 평가되어야 하기 때문에 조건식 평가 결과가 불리언 값이 아닐 경우 암묵적으로 불리언 타입으로 변환된다.</em></p>
-<h2 id="논리-연산자란"><a href="#논리-연산자란" class="headerlink" title="논리 연산자란?"></a>논리 연산자란?</h2><p>피연산자의 논리를 연산하는 토큰이다.<br>논리합(||/or 연산), 논리곱(&amp;&amp;/and 연산), 부정(!/not 연산) 이 있다.<br>피연산자를 암묵적으로 불리언 값으로 변환을 하여 연산한다.<br>?? 불리언 값으로 평가 될 수 있다 ??</p>
-<h2 id="쉼표-연산자란"><a href="#쉼표-연산자란" class="headerlink" title="쉼표 연산자란?"></a>쉼표 연산자란?</h2><p>, 왼쪽 피연산자 부터 평가하며 맨 오른쪽에 있는 피연산자의 값을 반환하는 토큰이다.</p>
-<h2 id="그룹-연산자란"><a href="#그룹-연산자란" class="headerlink" title="그룹 연산자란?"></a>그룹 연산자란?</h2><p>() 표현식의 우선 순위를 높여준다.</p>
-<h2 id="typeof-연산자란"><a href="#typeof-연산자란" class="headerlink" title="typeof 연산자란?"></a>typeof 연산자란?</h2><p>피연산자의 데이터 타입을 문자열로 변환하는 토큰이다.<br>  <em>null타입만 변환하지 못한다. null 타입은 object 객체로 반환한다.</em><br>  <em>선언하지 않은 식별자를 피연산자로 사용할 경우 undefined를 반환한다.</em></p>
-<h2 id="지수-연산자란"><a href="#지수-연산자란" class="headerlink" title="지수 연산자란?"></a>지수 연산자란?</h2><p><em>* 지수로 거듭 제곱한 숫자 값을 반환한다.<br>  *음수의 경우 괄호로 묶어주어야 한다.</em><br>  <em>모든 이항 연산자 보다 우선 순위로 연산한다.</em></p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1024,7 +1055,7 @@ shortCut bln || '거짓';
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            24
+                            26
                         </p>
                     </a>
                 </div>
@@ -1048,7 +1079,7 @@ shortCut bln || '거짓';
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            63
+                            68
                         </p>
                     </a>
                 </div>
@@ -1161,7 +1192,7 @@ shortCut bln || '거짓';
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/const/" style="font-size: 10px;">const</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/let/" style="font-size: 10px;">let</a> <a href="/tags/super/" style="font-size: 10px;">super</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/" style="font-size: 10px;">this_바인딩</a> <a href="/tags/var/" style="font-size: 10px;">var</a> <a href="/tags/%EA%B0%92/" style="font-size: 10px;">값</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 20px;">개념_정리</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 15.71px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" style="font-size: 10px;">객체_생성</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">내부_메소드</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/" style="font-size: 10px;">내부_슬롯</a> <a href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/" style="font-size: 10px;">단축평가</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 12.86px;">데이터_타입</a> <a href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">동적_타입_언어</a> <a href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">레퍼_객체</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/" style="font-size: 10px;">렉시컬_환경</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 11.43px;">리터럴</a> <a href="/tags/%EB%AC%B8/" style="font-size: 10px;">문</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B3%80%EC%88%98/" style="font-size: 11.43px;">변수</a> <a href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/" style="font-size: 10px;">부수_효과</a> <a href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">블록_레벨_스코프</a> <a href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">빌트인_객체</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 10px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/" style="font-size: 10px;">생성자_함수</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 11.43px;">스코프</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 11.43px;">실행_컨텍스트</a> <a href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" style="font-size: 10px;">어트리뷰트</a> <a href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/" style="font-size: 10px;">엄격_모드</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/" style="font-size: 10px;">원시_값</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">일급객체</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">전역_객체</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.43px;">전역_변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">전역_스코프</a> <a href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">정적_타입_언어</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.43px;">지역_변수</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">지역_스코프</a> <a href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">캡슐화</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 18.57px;">컴퓨터_기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/" style="font-size: 17.14px;">컴퓨터_심화</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 11.43px;">클래스</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a> <a href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/" style="font-size: 10px;">타입_변환</a> <a href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/" style="font-size: 10px;">표현식</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/" style="font-size: 10px;">프로토타입_체인</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/" style="font-size: 11.43px;">프로퍼티</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 14.29px;">함수</a> <a href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 10px;">함수_리터럴</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/" style="font-size: 10px;">함수_정의</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/" style="font-size: 10px;">함수_종류</a> <a href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/" style="font-size: 10px;">함수_호출</a> <a href="/tags/%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98/" style="font-size: 10px;">화살표 함수</a>
+        <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Array-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">Array_메소드</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/const/" style="font-size: 10px;">const</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/let/" style="font-size: 10px;">let</a> <a href="/tags/super/" style="font-size: 10px;">super</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/" style="font-size: 10px;">this_바인딩</a> <a href="/tags/var/" style="font-size: 10px;">var</a> <a href="/tags/%EA%B0%92/" style="font-size: 11.25px;">값</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 18.75px;">개념_정리</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 15px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" style="font-size: 10px;">객체_생성</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">내부_메소드</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/" style="font-size: 10px;">내부_슬롯</a> <a href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/" style="font-size: 10px;">단축평가</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 12.5px;">데이터_타입</a> <a href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">동적_타입_언어</a> <a href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">레퍼_객체</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/" style="font-size: 10px;">렉시컬_환경</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 11.25px;">리터럴</a> <a href="/tags/%EB%AC%B8/" style="font-size: 10px;">문</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">변수</a> <a href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/" style="font-size: 10px;">부수_효과</a> <a href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">블록_레벨_스코프</a> <a href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">빌트인_객체</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 10px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/" style="font-size: 10px;">생성자_함수</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 11.25px;">스코프</a> <a href="/tags/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">스프레드 문법</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 11.25px;">실행_컨텍스트</a> <a href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" style="font-size: 10px;">어트리뷰트</a> <a href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/" style="font-size: 10px;">엄격_모드</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/" style="font-size: 10px;">원시_값</a> <a href="/tags/%EC%9D%B8%EC%88%98/" style="font-size: 10px;">인수</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">일급객체</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">전역_객체</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">전역_변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">전역_스코프</a> <a href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">정적_타입_언어</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">지역_변수</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">지역_스코프</a> <a href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">캡슐화</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 17.5px;">컴퓨터_기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/" style="font-size: 16.25px;">컴퓨터_심화</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 11.25px;">클래스</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a> <a href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/" style="font-size: 10px;">타입_변환</a> <a href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/" style="font-size: 10px;">표현식</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/" style="font-size: 10px;">프로토타입_체인</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/" style="font-size: 11.25px;">프로퍼티</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 13.75px;">함수</a> <a href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 10px;">함수_리터럴</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/" style="font-size: 10px;">함수_정의</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/" style="font-size: 10px;">함수_종류</a> <a href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/" style="font-size: 10px;">함수_호출</a> <a href="/tags/%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98/" style="font-size: 10px;">화살표 함수</a>
     </div>
 </div>
     
@@ -1173,6 +1204,44 @@ shortCut bln || '거짓';
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/23/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="스프레드 문법">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-22T15:49:11.000Z">2020-03-23</time></div>
+                    <a href="/2020/03/23/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스프레드 문법</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/20/%EB%B0%B0%EC%97%B4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="배열">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-20T04:11:00.000Z">2020-03-20</time></div>
+                    <a href="/2020/03/20/%EB%B0%B0%EC%97%B4/" class="title has-link-black-ter is-size-6 has-text-weight-normal">배열</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1231,44 +1300,6 @@ shortCut bln || '거짓';
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/12/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="실행 컨텍스트">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-12T07:31:52.000Z">2020-03-12</time></div>
-                    <a href="/2020/03/12/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">실행 컨텍스트</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/10/this/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="this">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-10T06:49:19.000Z">2020-03-10</time></div>
-                    <a href="/2020/03/10/this/" class="title has-link-black-ter is-size-6 has-text-weight-normal">this</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1286,7 +1317,7 @@ shortCut bln || '거짓';
                     <span class="level-item">3월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1316,6 +1347,20 @@ shortCut bln || '거짓';
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Array/">
+                        <span class="tag">Array</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Array-%EB%A9%94%EC%86%8C%EB%93%9C/">
+                        <span class="tag">Array_메소드</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -1332,7 +1377,7 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">22</span>
+                        <span class="tag is-grey">24</span>
                     </a>
                 </div>
                 
@@ -1374,14 +1419,14 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%92/">
                         <span class="tag">값</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">개념_정리</span>
-                        <span class="tag is-grey">22</span>
+                        <span class="tag is-grey">23</span>
                     </a>
                 </div>
                 
@@ -1477,6 +1522,13 @@ shortCut bln || '거짓';
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B0%B0%EC%97%B4/">
+                        <span class="tag">배열</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EB%B3%80%EC%88%98/">
                         <span class="tag">변수</span>
                         <span class="tag is-grey">2</span>
@@ -1533,6 +1585,13 @@ shortCut bln || '거짓';
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/">
+                        <span class="tag">스프레드 문법</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
                         <span class="tag">실행_컨텍스트</span>
                         <span class="tag is-grey">2</span>
@@ -1563,6 +1622,13 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/">
                         <span class="tag">원시_값</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B8%EC%88%98/">
+                        <span class="tag">인수</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1661,7 +1727,7 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
                         <span class="tag">컴퓨터_심화</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
@@ -1780,6 +1846,44 @@ shortCut bln || '거짓';
         
         <article class="media">
             
+            <a href="/2020/03/23/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="스프레드 문법">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-22T15:49:11.000Z">2020-03-23</time></div>
+                    <a href="/2020/03/23/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" class="title has-link-black-ter is-size-6 has-text-weight-normal">스프레드 문법</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/20/%EB%B0%B0%EC%97%B4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="배열">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-20T04:11:00.000Z">2020-03-20</time></div>
+                    <a href="/2020/03/20/%EB%B0%B0%EC%97%B4/" class="title has-link-black-ter is-size-6 has-text-weight-normal">배열</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/20/ES6-%ED%95%A8%EC%88%98%EC%9D%98-%EC%B6%94%EA%B0%80-%EA%B8%B0%EB%8A%A5/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6 함수의 추가 기능">
@@ -1835,44 +1939,6 @@ shortCut bln || '거짓';
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/12/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="실행 컨텍스트">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-12T07:31:52.000Z">2020-03-12</time></div>
-                    <a href="/2020/03/12/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">실행 컨텍스트</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/03/10/this/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="this">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-10T06:49:19.000Z">2020-03-10</time></div>
-                    <a href="/2020/03/10/this/" class="title has-link-black-ter is-size-6 has-text-weight-normal">this</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1890,7 +1956,7 @@ shortCut bln || '거짓';
                     <span class="level-item">3월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1920,6 +1986,20 @@ shortCut bln || '거짓';
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Array/">
+                        <span class="tag">Array</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Array-%EB%A9%94%EC%86%8C%EB%93%9C/">
+                        <span class="tag">Array_메소드</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -1936,7 +2016,7 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">22</span>
+                        <span class="tag is-grey">24</span>
                     </a>
                 </div>
                 
@@ -1978,14 +2058,14 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%92/">
                         <span class="tag">값</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">개념_정리</span>
-                        <span class="tag is-grey">22</span>
+                        <span class="tag is-grey">23</span>
                     </a>
                 </div>
                 
@@ -2081,6 +2161,13 @@ shortCut bln || '거짓';
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EB%B0%B0%EC%97%B4/">
+                        <span class="tag">배열</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EB%B3%80%EC%88%98/">
                         <span class="tag">변수</span>
                         <span class="tag is-grey">2</span>
@@ -2137,6 +2224,13 @@ shortCut bln || '거짓';
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/">
+                        <span class="tag">스프레드 문법</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
                         <span class="tag">실행_컨텍스트</span>
                         <span class="tag is-grey">2</span>
@@ -2167,6 +2261,13 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/">
                         <span class="tag">원시_값</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B8%EC%88%98/">
+                        <span class="tag">인수</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -2265,7 +2366,7 @@ shortCut bln || '거짓';
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
                         <span class="tag">컴퓨터_심화</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
