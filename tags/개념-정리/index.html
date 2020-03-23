@@ -117,7 +117,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -147,13 +147,70 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-23T10:12:49.000Z">2020-03-23</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 read (About 417 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/23/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/">디스트럭처링 할당</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="디스트럭처링-할당이란"><a href="#디스트럭처링-할당이란" class="headerlink" title="디스트럭처링 할당이란?"></a>디스트럭처링 할당이란?</h2><p>구조화된 배열 또는 객체를 비구조화하여 1개 이상의 변수에 개별적으로 할당하는 것을 말한다.<br><strong>배열 또는 개체 리터럴에서 필요한 값만 추출</strong>하여 변수에 할당할 때 유용하다.</p>
+<h2 id="배열-디스트럭처링-할당"><a href="#배열-디스트럭처링-할당" class="headerlink" title="배열 디스트럭처링 할당"></a>배열 디스트럭처링 할당</h2><ul>
+<li><p>ES6 이전<br>해당 배열의 각 요소를 변수에 할당.</p>
+</li>
+<li><p>ES6의 배열<br>배열의 각 요소를 배열로 부터 추출하여 1개 이상의 변수에 할당. 할당 기준은 인덱스 순이다.<br>배열 디스트럭처링 할당을 위한 변수에 기본값을 설정 가능하다.<br><em>Rest 요소를 사용가능하다.</em></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> [one, two, three, four = <span class="number">4</span>] = arr; </span><br><span class="line"><span class="comment">// one = 1, two = 2, three = 3 , four는 기본값을 4로 지정.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(one, two, three, four);  <span class="comment">// 1, 2, 3, 4</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="객체-디스트럭처링-할당"><a href="#객체-디스트럭처링-할당" class="headerlink" title="객체 디스트럭처링 할당"></a>객체 디스트럭처링 할당</h2><ul>
+<li><p>ES6 이전<br>해당 객체의 프로퍼티 값을 변수에 할당.</p>
+</li>
+<li><p>ES6의 객체<br>객체의 프로퍼티 값을 객체로 부터 추출하여 디스트럭처링 할당을 위한 객체의 같은 이름의 프로퍼티 값을 이름으로 갖는 변수에 할당할 수 있다.<br>기본값을 설정 가능하다. 순서는 상관없이 프로퍼티 키만 같으면 된다.</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fullName = &#123;<span class="attr">first</span>: <span class="string">'lim'</span>, <span class="attr">last</span>: <span class="string">'smith'</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> &#123;frist, last&#125; = fullName;</span><br><span class="line"><span class="comment">// 앞에 선언한 객체의 프로퍼티는 프로퍼티 축약 표현임으로 키와 값이 같다. frist = 'lim', last = 'smith'</span></span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">frist</span>: frt, <span class="attr">middle</span>: mid = <span class="string">'erric'</span>, <span class="attr">last</span>: lst&#125; = fullName;</span><br><span class="line"><span class="comment">// frt = 'lim', lst = 'smith' mid는 기본값이다. 순서에 관계 없이 키 이름만 같으면 된다.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(frt, lst, mid);  <span class="comment">// 'lim', 'smith', mid</span></span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-03-20T04:11:00.000Z">2020-03-20</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    20분 lesen (Über 2979 Worte)
+                    21분 read (About 3151 words)
                 </span>
                 
                 
@@ -180,6 +237,7 @@
 <li>length 값이 배열 요소들의 수보다 클 때는 배열의 길이가 늘어나지는 않는다. 실제 배열에는 아무런 변화가 없고 단지 length 값이 바뀔 뿐이다.</li>
 </ul>
 <p>또한 자바스크립트는 비어있는 요소를 넣을 수 있다. 이를 <strong>희소 배열</strong>이라고 한다.</p>
+<h2 id="유사-배열-객체"><a href="#유사-배열-객체" class="headerlink" title="유사 배열 객체"></a>유사 배열 객체</h2><p>마치 배열처럼 인덱스로 프로퍼티 값에 접근할 수 있고, length 프로퍼티를 갖는 객체.<br>length 프로퍼티가 있음으로 for 문으로 순회할 수 있다.<br>단, 배열 객체와 차이는 자바스크립트에서 제공하는 Array.prototype 메소드를 사용할 수 없다는 것이다.</p>
 <h2 id="배열-생성"><a href="#배열-생성" class="headerlink" title="배열 생성"></a>배열 생성</h2><ul>
 <li><p>배열 리터럴<br>0개 이상의 요소를 쉼표로 구분하여 [ ] 로 묶어준다. </p>
 </li>
@@ -220,20 +278,20 @@
 <ul>
 <li><p>Array.prototype.splice<br>원본 배열의 중간에 요소를 추가/제거. 해당 배열을 반환<br><em>원본 배열을 바꿈</em><br>3개의 인수를 가질 수 있다. 순서대로</p>
 <ul>
-<li>start : 본 배열의 요소를 제거하기 시작할 인덱스. 음수일 경우, 배열 끝에서 부터의 인덱스를 나타냄<br><em>start만 있을 경우, 그 이후의 인덱스를 전부 제거</em></li>
+<li>start : 본 배열의 요소를 제거하기 시작할 인덱스. 음수일 경우, 배열 끝에서 부터의 인덱스를 나타냄.<br><em>start만 있을 경우, 그 이후의 인덱스를 전부 제거</em></li>
 <li>deleteCount(옵션) : start 인덱스로 부터 제거할 인덱스 수. 생략할 경우 0</li>
 <li>items(옵션) : 제거한 위치에 삽입될 요소 목록</li>
 </ul>
 </li>
 <li><p>Array.prototype.slice<br>인수로 전달한 범위의 요소를 복사. 복사한 배열을 반환<br>2개의 인수를 가질 수 있다. 순서대로</p>
 <ul>
-<li>start : 복사 시작할 인덱스. 음수일 경우, 배열 끝에서 부터의 인덱스를 나타냄</li>
-<li>end(옵션) : 복사 종료할 인덱스. 생략할 경우 배열 끝까지 복사</li>
+<li>start(옵션) : 복사 시작할 인덱스. 음수일 경우, 배열 끝에서 부터의 인덱스를 나타냄. 생략한 경우, 기본값은 0</li>
+<li>end(옵션) : 복사 종료할 인덱스. <u>해당 인덱스의 요소는 복사하지 않는다.</u> 생략할 경우 배열 끝까지 복사</li>
 </ul>
 </li>
 <li><p>Array.prototype.join<br>배열의 모든 요소를 문자열로 반환한 후 인수로 전달한 값을 구분자로서 연결하여 반환. 구분자는 생략 가능하며 기본 구분자는 ‘,’ 이다.</p>
 </li>
-<li><p>Array.prototype.reverse<br>원본 배열의 순서를 반대로 변경. 그 배열을 반환.</p>
+<li><p>Array.prototype.reverse<br>원본 배열의 순서를 반대로 변경. 그 배열을 반환.<br><em>sort 메소드와 함께 쓰여 내림차순을 만들 때 사용한다.</em></p>
 </li>
 <li><p>Array.prototype.fill(ES6)<br>전달한 인수로 일정 부분의 배열을 전부 바꾸어 채움. 해당 배열을 반환.<br>2개의 인수를 가질 수 있다. 순서대로</p>
 <ul>
@@ -261,7 +319,7 @@
 <li>인덱스</li>
 <li>this 값 : forEach를 호출한 배열 객체</li>
 </ul>
-<p><em>대부분의 for문을 대체 가능. 하지만 continue 문이나 break 문을 사용할 수 없다.</em></p>
+<p><em>대부분의 for문, for…in, for…of를 대체 가능. 하지만 continue 문이나 break 문을 사용할 수 없다.</em><br><em>for 문의 문제점 : 순회를 위한 변수를 선언하며, 해야할 일이 많다.</em></p>
 </li>
 <li><p>Array.prototype.map<br>배열을 순회하며 배열의 각 요소에 대하여 인수로 전달된 콜백 함수를 실행. 실행되어 반환된 반환값들의 새로운 배열을 반환.<br>콜백함수로 전달할 인수로는 순서대로</p>
 <ul>
@@ -358,7 +416,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 lesen (Über 687 Worte)
+                    5분 read (About 698 words)
                 </span>
                 
                 
@@ -381,6 +439,8 @@
 <h3 id="메소드"><a href="#메소드" class="headerlink" title="메소드"></a>메소드</h3><p>ES6에서는 메소드 축약 표현으로 정의된 함수만을 메소드로 취급한다.<br>그리고 이렇게 정의된 메소드만 메소드가 바인딩된 객체를 가르키는 내부슬롯 [[HomeObject]]을 갖는다. 따라서 super 키워드는 이 메소드만 사용 가능하다.</p>
 <h3 id="화살표-함수"><a href="#화살표-함수" class="headerlink" title="화살표 함수"></a>화살표 함수</h3><p>function 키워드 대신에 화살표(=&gt;)를 사용하여 정의한 함수이다.<br>(매개 변수들…) =&gt; {함수 몸체} 로 이루어진다.<br>화살표 함수는 다음과 같은 특징을 갖는다.</p>
 <ul>
+<li><p>함수 이름을 선언할 수 없다.</p>
+</li>
 <li><p>매개 변수<br>매개 변수가 한개인 경우에만 ()를 생략 가능하다.<br><em>오직 매개 변수가 한개인 경우만 생략 가능하다. 없으면 써주어야한다.</em><br>또한, 일반함수와 다르게 중복된 매개변수를 사용할 수 없다.</p>
 </li>
 <li><p>함수 몸체<br>함수 몸체가 한 줄의 문으로 구성되면 {}를 생략하고 바로 사용 가능하며 해당 문을 반환한다.<br>한줄이 아닌 경우에는 생략할 수 없고, 반환값이 있다면 명시적으로 반환해야한다.<br>객체 리터럴만을 반환하는 경우 {}를 생략하고 ({반환할 객체 리터럴})의 형식으로 사용가능하다.</p>
@@ -394,7 +454,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="Rest-파라미터"><a href="#Rest-파라미터" class="headerlink" title="Rest 파라미터"></a>Rest 파라미터</h2><p>매개 변수 이름 앞에 …를 붙여서 정의한 매개 변수이다. 전달받은 인수들을 배열로 전달 받는다.<br>*Rest 파라미터가 있음으로 arguments 객체를 배열로 변환하는 번거로움을 피할 수 있다.</p>
+<h2 id="Rest-파라미터"><a href="#Rest-파라미터" class="headerlink" title="Rest 파라미터"></a>Rest 파라미터</h2><p>매개 변수 이름 앞에 …를 붙여서 정의한 매개 변수이다. 전달받은 인수들을 배열로 전달 받는다.<br><em>Rest 파라미터가 있음으로 arguments 객체를 배열로 변환하는 번거로움을 피할 수 있다.</em></p>
 <h2 id="매개변수의-기본값"><a href="#매개변수의-기본값" class="headerlink" title="매개변수의 기본값"></a>매개변수의 기본값</h2><p>일반적으로 매개 변수를 정의하고 따로 초기화을 하지 않으면 undefined 값으로 초기화된다.<br>하지만 ES6에서 매개변수에 바로 할당문을 사용함으로서 초기화를 간소화 할 수 있다.</p>
 
         </div>
@@ -424,7 +484,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16분 lesen (Über 2362 Worte)
+                    16분 read (About 2362 words)
                 </span>
                 
                 
@@ -561,7 +621,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 lesen (Über 552 Worte)
+                    4분 read (About 552 words)
                 </span>
                 
                 
@@ -614,7 +674,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10분 lesen (Über 1521 Worte)
+                    10분 read (About 1521 words)
                 </span>
                 
                 
@@ -738,7 +798,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2분 lesen (Über 355 Worte)
+                    2분 read (About 355 words)
                 </span>
                 
                 
@@ -791,7 +851,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10분 lesen (Über 1564 Worte)
+                    10분 read (About 1564 words)
                 </span>
                 
                 
@@ -882,7 +942,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 lesen (Über 492 Worte)
+                    3분 read (About 492 words)
                 </span>
                 
                 
@@ -948,7 +1008,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    24분 lesen (Über 3646 Worte)
+                    24분 read (About 3646 words)
                 </span>
                 
                 
@@ -1050,78 +1110,15 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-06T12:37:36.000Z">2020-03-06</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3분 lesen (Über 393 Worte)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/06/%ED%95%A8%EC%88%98%EC%99%80-%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">함수와 일급객체</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="일급-객체"><a href="#일급-객체" class="headerlink" title="일급 객체"></a>일급 객체</h2><p>특정조건을 만족하는 객체를 일급 객체라고 한다.</p>
-<ul>
-<li>무명의 리터럴로 생성 가능.</li>
-<li>변수나 자료구조 객체에 저장 가능.</li>
-<li>함수의 매개 변수에 전달 가능.</li>
-<li>함수의 결과값으로 반환 가능.</li>
-</ul>
-<p><strong><u>함수는 일급객체이다.</u> 이 말은 함수를 객체처럼 사용할 수 있다는 것이다.</strong></p>
-<h2 id="함수-객체의-프로퍼티"><a href="#함수-객체의-프로퍼티" class="headerlink" title="함수 객체의 프로퍼티"></a>함수 객체의 프로퍼티</h2><ul>
-<li><p>arguments 프로퍼티<br>함수 호출시 전달된 인수를 argument라고 하고 이 인수들의 정보를 객체로 담고 있는 유사배열 객체를 값으로 갖는 프로퍼티이다.<br><em>argument 객체는 함수 내부에서 지역 변수 처럼 사용가능하다.</em></p>
-</li>
-<li><p>caller 프로퍼티<br>함수 자신을 호출하는 메소드를 말한다.<br><em>ECMAScript 스펙에 포함되지 않았다.</em></p>
-</li>
-<li><p>length 프로퍼티<br>함수 정의시 선언한 매개변수의 수를 값으로 갖는 프로퍼티이다.</p>
-</li>
-<li><p>name 프로퍼티<br>함수 객체의 이름을 값으로 갖는 프로퍼티이다.<br><em>ES6 이후 표준으로 들어왔다.</em><br><em>익명함수의 경우 빈 문자열을 값으로 갖는다.</em></p>
-</li>
-<li><p><strong>proto</strong>접근자 프로퍼티<br>[[prototype]] 내부 슬롯에 접근하는 접근자 프로퍼티이다. 프로토타입 객체에 접근할 수 있다.</p>
-</li>
-<li><p>prototype 프로퍼티<br>함수만이 갖는 프로퍼티로 함수의 프로토타입 객체를 가르킨다. 프로토타입 객체가 무엇인지 확인할 수 있다.</p>
-</li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/page/0/">Zurück</a>
+            <a class="is-flex-grow has-text-black-ter" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/page/0/">Previous</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/page/2/">Weiter</a>
+            <a class="is-flex-grow has-text-black-ter" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/page/2/">Next</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -1179,7 +1176,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -1187,7 +1184,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategorien
+                        Categories
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -1203,7 +1200,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            68
+                            69
                         </p>
                     </a>
                 </div>
@@ -1212,7 +1209,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                Folgen</a>
+                Follow</a>
         </div>
         
         
@@ -1302,7 +1299,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategorien
+                Categories
             </h3>
             <ul class="menu-list">
             
@@ -1316,7 +1313,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Array-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">Array_메소드</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/const/" style="font-size: 10px;">const</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/let/" style="font-size: 10px;">let</a> <a href="/tags/super/" style="font-size: 10px;">super</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/" style="font-size: 10px;">this_바인딩</a> <a href="/tags/var/" style="font-size: 10px;">var</a> <a href="/tags/%EA%B0%92/" style="font-size: 11.25px;">값</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 18.75px;">개념_정리</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 15px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" style="font-size: 10px;">객체_생성</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">내부_메소드</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/" style="font-size: 10px;">내부_슬롯</a> <a href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/" style="font-size: 10px;">단축평가</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 12.5px;">데이터_타입</a> <a href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">동적_타입_언어</a> <a href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">레퍼_객체</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/" style="font-size: 10px;">렉시컬_환경</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 11.25px;">리터럴</a> <a href="/tags/%EB%AC%B8/" style="font-size: 10px;">문</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">변수</a> <a href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/" style="font-size: 10px;">부수_효과</a> <a href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">블록_레벨_스코프</a> <a href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">빌트인_객체</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 10px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/" style="font-size: 10px;">생성자_함수</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 11.25px;">스코프</a> <a href="/tags/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">스프레드 문법</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 11.25px;">실행_컨텍스트</a> <a href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" style="font-size: 10px;">어트리뷰트</a> <a href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/" style="font-size: 10px;">엄격_모드</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/" style="font-size: 10px;">원시_값</a> <a href="/tags/%EC%9D%B8%EC%88%98/" style="font-size: 10px;">인수</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">일급객체</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">전역_객체</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">전역_변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">전역_스코프</a> <a href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">정적_타입_언어</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">지역_변수</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">지역_스코프</a> <a href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">캡슐화</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 17.5px;">컴퓨터_기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/" style="font-size: 16.25px;">컴퓨터_심화</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 11.25px;">클래스</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a> <a href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/" style="font-size: 10px;">타입_변환</a> <a href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/" style="font-size: 10px;">표현식</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/" style="font-size: 10px;">프로토타입_체인</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/" style="font-size: 11.25px;">프로퍼티</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 13.75px;">함수</a> <a href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 10px;">함수_리터럴</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/" style="font-size: 10px;">함수_정의</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/" style="font-size: 10px;">함수_종류</a> <a href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/" style="font-size: 10px;">함수_호출</a> <a href="/tags/%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98/" style="font-size: 10px;">화살표 함수</a>
+        <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Array-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">Array_메소드</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/ES6-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">ES6 문법</a> <a href="/tags/const/" style="font-size: 10px;">const</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/let/" style="font-size: 10px;">let</a> <a href="/tags/super/" style="font-size: 10px;">super</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/" style="font-size: 10px;">this_바인딩</a> <a href="/tags/var/" style="font-size: 10px;">var</a> <a href="/tags/%EA%B0%92/" style="font-size: 11.25px;">값</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 18.75px;">개념_정리</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 15px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" style="font-size: 10px;">객체_생성</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">내부_메소드</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/" style="font-size: 10px;">내부_슬롯</a> <a href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/" style="font-size: 10px;">단축평가</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 12.5px;">데이터_타입</a> <a href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">동적_타입_언어</a> <a href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">레퍼_객체</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/" style="font-size: 10px;">렉시컬_환경</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 11.25px;">리터럴</a> <a href="/tags/%EB%AC%B8/" style="font-size: 10px;">문</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">변수</a> <a href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/" style="font-size: 10px;">부수_효과</a> <a href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">블록_레벨_스코프</a> <a href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">빌트인_객체</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 10px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/" style="font-size: 10px;">생성자_함수</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 11.25px;">스코프</a> <a href="/tags/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">스프레드 문법</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 11.25px;">실행_컨텍스트</a> <a href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" style="font-size: 10px;">어트리뷰트</a> <a href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/" style="font-size: 10px;">엄격_모드</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/" style="font-size: 10px;">원시_값</a> <a href="/tags/%EC%9D%B8%EC%88%98/" style="font-size: 10px;">인수</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">일급객체</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">전역_객체</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">전역_변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">전역_스코프</a> <a href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">정적_타입_언어</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">지역_변수</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">지역_스코프</a> <a href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">캡슐화</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 17.5px;">컴퓨터_기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/" style="font-size: 16.25px;">컴퓨터_심화</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 11.25px;">클래스</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a> <a href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/" style="font-size: 10px;">타입_변환</a> <a href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/" style="font-size: 10px;">표현식</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/" style="font-size: 10px;">프로토타입_체인</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/" style="font-size: 11.25px;">프로퍼티</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 13.75px;">함수</a> <a href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 10px;">함수_리터럴</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/" style="font-size: 10px;">함수_정의</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/" style="font-size: 10px;">함수_종류</a> <a href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/" style="font-size: 10px;">함수_호출</a> <a href="/tags/%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98/" style="font-size: 10px;">화살표 함수</a>
     </div>
 </div>
     
@@ -1326,8 +1323,27 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/23/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="디스트럭처링 할당">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T10:12:49.000Z">2020-03-23</time></div>
+                    <a href="/2020/03/23/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/" class="title has-link-black-ter is-size-6 has-text-weight-normal">디스트럭처링 할당</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1405,25 +1421,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="클로저">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T00:51:52.000Z">2020-03-17</time></div>
-                    <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">클로저</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1431,7 +1428,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -1441,7 +1438,7 @@
                     <span class="level-item">3월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1492,6 +1489,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6-%EB%AC%B8%EB%B2%95/">
+                        <span class="tag">ES6 문법</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/const/">
                         <span class="tag">const</span>
                         <span class="tag is-grey">1</span>
@@ -1501,7 +1505,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">24</span>
+                        <span class="tag is-grey">25</span>
                     </a>
                 </div>
                 
@@ -1550,7 +1554,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">개념_정리</span>
-                        <span class="tag is-grey">23</span>
+                        <span class="tag is-grey">24</span>
                     </a>
                 </div>
                 
@@ -1851,7 +1855,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
                         <span class="tag">컴퓨터_심화</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
@@ -1965,8 +1969,27 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/23/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="디스트럭처링 할당">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T10:12:49.000Z">2020-03-23</time></div>
+                    <a href="/2020/03/23/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81-%ED%95%A0%EB%8B%B9/" class="title has-link-black-ter is-size-6 has-text-weight-normal">디스트럭처링 할당</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -2044,25 +2067,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="클로저">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T00:51:52.000Z">2020-03-17</time></div>
-                    <a href="/2020/03/17/%ED%81%B4%EB%A1%9C%EC%A0%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">클로저</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -2070,7 +2074,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -2080,7 +2084,7 @@
                     <span class="level-item">3월 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -2131,6 +2135,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6-%EB%AC%B8%EB%B2%95/">
+                        <span class="tag">ES6 문법</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/const/">
                         <span class="tag">const</span>
                         <span class="tag is-grey">1</span>
@@ -2140,7 +2151,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">24</span>
+                        <span class="tag is-grey">25</span>
                     </a>
                 </div>
                 
@@ -2189,7 +2200,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">개념_정리</span>
-                        <span class="tag is-grey">23</span>
+                        <span class="tag is-grey">24</span>
                     </a>
                 </div>
                 
@@ -2490,7 +2501,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
                         <span class="tag">컴퓨터_심화</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
@@ -2725,7 +2736,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -2749,7 +2760,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -2762,10 +2773,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
