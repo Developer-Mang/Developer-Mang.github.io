@@ -7,13 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: 함수_호출 - Dev.Mang&#39;s Odd and Ends</title>
+<title>Tag: HTML - Dev.Mang&#39;s Odd and Ends</title>
 
 
     <meta name="description" content="Every things Mang want to do">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:url" content="https://developer-mang.github.io/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/index.html">
+<meta property="og:url" content="https://developer-mang.github.io/tags/HTML/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
 <meta property="og:description" content="Every things Mang want to do">
 <meta property="og:locale" content="ko_KR">
@@ -134,7 +134,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Tag</a></li>
-            <li class="is-active"><a href="#" aria-current="page">함수_호출</a></li>
+            <li class="is-active"><a href="#" aria-current="page">HTML</a></li>
         </ul>
         </nav>
     </div>
@@ -147,13 +147,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-10T06:49:19.000Z">2020-03-10</time>
+                <time class="level-item has-text-grey" datetime="2020-03-26T10:09:07.000Z">2020-03-26</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2분 membaca (Sekitar 355 kata)
+                    21분 membaca (Sekitar 3202 kata)
                 </span>
                 
                 
@@ -162,22 +162,155 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/03/10/this/">this</a>
+                <a class="has-link-black-ter" href="/2020/03/26/DOM/">DOM</a>
             
         </h1>
         <div class="content">
-            <h2 id="this-키워드"><a href="#this-키워드" class="headerlink" title="this 키워드"></a>this 키워드</h2><p>자신이 속한 객체 또는 생성할 인스턴스를 가르키는 자기 참조 변수이다.<br>this는 <strong>함수 호출 방식</strong>에 따라 가르키는 것이 동적으로 결정된다.</p>
-<h2 id="함수-호출-방식과-this-바인딩"><a href="#함수-호출-방식과-this-바인딩" class="headerlink" title="함수 호출 방식과 this 바인딩"></a>함수 호출 방식과 this 바인딩</h2><p>함수를 호출하는 방식에 따라 this가 바인딩되는 것이 달라짐으로 함수를 호출하는 방법부터 알아보자</p>
-<ul>
-<li><p>일반 함수 호출<br>선언된 함수를 호출 연산자로 호출한다.<br>이때, this는 <u>전역 객체가 바인딩</u>된다. 중첩함수든 콜백함수든 일반 함수로 호출하면 this에는 전역 객체가 바인딩된다.</p>
+            <h2 id="DOM이란"><a href="#DOM이란" class="headerlink" title="DOM이란?"></a>DOM이란?</h2><p>HTML 문서의 계층적 구조와 정보를 표현한 트리 자료 구조. 브라우저 사이드 API 를 제공하여 프로퍼티와 메소드를 사용하여 제어할 수 있다.</p>
+<h2 id="노드란"><a href="#노드란" class="headerlink" title="노드란?"></a>노드란?</h2><p>노드는 HTML 요소들이 랜더링 엔진에 의해 파싱되어 DOM을 구성하는 요소가 되는데 이를 노드라고 한다.</p>
+<h3 id="노드의-객체-타입"><a href="#노드의-객체-타입" class="headerlink" title="노드의 객체 타입"></a>노드의 객체 타입</h3><ul>
+<li><p>문서 노드<br>DOM 트리 최상위에 존재하는 루트 노드. document 객체를 말한다.<br>전역 객체 window의 document 프로퍼티에 바인딩 되어 있다.</p>
 </li>
-<li><p>메소드 호출<br>‘호출하는 객체’.’메소드 이름’ 형식으로 호출한다.<br>이때, this는 <u>호출 하는 객체가 바인딩</u>된다.</p>
+<li><p>요소 노드<br>HTML 요소를 가르키는 객체이다. HTML 요소 간의 중첩 관계를 가지고 부자 관계를 가지며 정보를 구조화한다.</p>
 </li>
-<li><p>생성자 함수 호출<br>new 연산자를 사용해서 호출한다.<br>이때, this는 <u>생성되는 인스턴스에 바인딩</u>된다.</p>
+<li><p>어트리뷰트 노드<br>HTML 요소의 어트리뷰트를 가르키는 객체이다. 지정된 HTML 요소 노드와 형제 관계를 갖는다.</p>
 </li>
-<li><p>Function.prototype.apply/call/bind<br>apply와 call은 함수 호출을 하는 메소드이다. apply/call(this바인딩할 객체[, 인수들…]) 형식으로 사용하며,<br>전달한 this 객체를 this 바인딩하며, bind는 함수를 호출 하지 않고 전달한 this 객체를 바인딩만 시킴으로 호출할 시 해당 함수와 this 객체가 this 바인딩된다.</p>
+<li><p>텍스트 노드<br>HTML 요소의 텍스트를 가르키는 객체이다. 요소 노드의 자식 노드이며 DOM 트리의 최종단인 리프 노드이다.</p>
 </li>
 </ul>
+<h3 id="노드의-상속-구조"><a href="#노드의-상속-구조" class="headerlink" title="노드의 상속 구조"></a>노드의 상속 구조</h3><p>DOM을 구성하는 노드 객체는 프로토타입에 의한 상속 관계를 갖는다.<br>Object - EventTarget - Node 가 기본으로 갖는 프로토타입 체인이며 그 자식 관계로 노드에 따라<br>  문서 노드는 Document - HTMLDocument<br>  요소 노드는 Element - HTMLElement - HTML(태그 이름)Element<br>  어트리뷰트 노드는 Attr<br>  텍스트 노드는 CharacterData - Text/Conment<br>라는 노드 객체의 상속 구조를 갖는다.<br>이 상속관계에 따라 해당 노드 객체는 브라우저에서 필요한 기능을 제공하는 DOM API 를 사용할 수 있다.</p>
+<h2 id="요소-노드-취득"><a href="#요소-노드-취득" class="headerlink" title="요소 노드 취득"></a>요소 노드 취득</h2><p>HTML의 구조나 내용, 스타일을 조작하기 위해서는 해당 요소의 노드를 취득해야한다. </p>
+<ul>
+<li><p>id 요소로 취득<br>Document.prototype.getElementById 메소드를 사용하여 인수로 전달한 id 값을 갖는 <u>하나의 요소를 탐색</u>하여 반환한다.</p>
+<ul>
+<li>당연히 id는 중복되지 않는 값이기 때문에 1개만 있어야하지만 만약 동일한 id 값을 갖는 객체가 있다고 해도 에러 없이 해당 요소들 중 가장 첫번째 요소 객체를 반환한다.</li>
+<li>해당 id의 요소가 없을 경우, null값을 반환한다.</li>
+</ul>
+</li>
+<li><p>태그 이름으로 취득<br>Document.prototype.getElemenstByTagName/Element.prototype.getElemenstByTagName 메소드를 사용하여 인수로 전달한 태그 이름을 갖는 모든 요소를 탐색하여 반환된다.</p>
+<ul>
+<li>탐색된 값은 유사배열 객체인 HTMLCollection 객체로 반환된다.</li>
+</ul>
+</li>
+<li><p>class 요소로 취득<br>Document.prototype.getElemenstByClassName/Element.prototype.getElemenstByClassName 메소드를 사용하여 인수로 전달한 클래스 이름을 갖는 모든 요소를 탐색하여 반환한다.</p>
+<ul>
+<li>탐색된 값은 유사배열 객체인 HTMLCollection 객체로 반환된다.</li>
+</ul>
+</li>
+<li><p>css 선택자로 취득<br>Document.prototype.querySelecter/Element.prototype.querySelecter 메소드를 사용하여 인수에 전달한 css 선택자를 만족시키는 <u>하나의 요소를 탐색</u>하여 반환한다. 없으면 null 값을 반환<br>Document.prototype.querySelecterAll/Element.prototype.querySelecterAll 메소드를 사용하면 만족하는 모든 요소를 탐색하여 반환한다.</p>
+<p>css 선택자에는</p>
+<ul>
+<li><ul>
+<li>: 전체 선택자</li>
+</ul>
+</li>
+<li>(태그 이름) : 태그 선택자</li>
+<li>#(id 이름) : id 선택자</li>
+<li>.(클래스 이름) : 클래스 선택자</li>
+<li>(태그 이름)[속성 이름 = 값] : 어트리뷰트 선택자</li>
+<li>(부모 태그 이름) (자식 태그 이름) : 후손 선택자 : 부모 밑으로 상속되는 모든 자식</li>
+<li>(부모 태그 이름) &gt; (자식 태그 이름) : 자식 선택자 : 부모 바로 밑에 있는 자식</li>
+<li>(형제 태그 이름) + (찾을 형제 태그 이름) : 인접 형제 선택자 : 검색 기준인 형제 요소에서 바로 뒤에 위치하는 인접한 형제</li>
+<li>(형제 태그 이름) ~ (찾을 형제 태그 이름) : 일반 형제 선택자 : 검색 기준인 형제 요소 뒤에 오는 형제 태그들 모두</li>
+<li>(태그 이름):(가상 클래스 이름) : 가상 클래스 선택자 : 해당 상태인 태그</li>
+</ul>
+</li>
+</ul>
+<h2 id="HTMLCollection-객체와-NodeList-객체"><a href="#HTMLCollection-객체와-NodeList-객체" class="headerlink" title="HTMLCollection 객체와 NodeList 객체"></a>HTMLCollection 객체와 NodeList 객체</h2><p>DOM API가 검색한 여러개의 노드를 결과값으로 반환하기 위해 만드는 유사배열 객체이다.</p>
+<ul>
+<li><p>HTMLCollection 객체<br>태그 이름으로 취득하는 경우나 클래스로 취득하는 경우에 반환되는 값으로서 노드 객체의 변화를 실시간으로 반영한다.(살아있는 객체)<br><em>살아있는 객체 문제를 해결하기 위해서 배열로 변환하여 사용하는 것을 추천한다.</em></p>
+</li>
+<li><p>NodeList 객체<br>css 선택자로 취득하는 경우에 반환되는 값이나 자식 요소를 찾는 childNodes 프로퍼티가 반환한 값이다.<br>css 선택자로 취득하는 경우에는 노드 객체의 변화를 반영하지 않지만, childNode 프로퍼티로 반환되면 노드 객체의 변화를 반영하는 살아있는 객체가 된다.</p>
+</li>
+</ul>
+<h2 id="노드-탐색"><a href="#노드-탐색" class="headerlink" title="노드 탐색"></a>노드 탐색</h2><p>어떤 요소를 취득하면 그 요소를 통해 부모, 형제 자식 요소에 접근할 수 있다.<br>해당 노드는 노드 탐색을 위한 접근자 프로퍼티를 갖는다. 읽기 전용 값이다. 즉, 값을 할당하면 에러 없이 무시된다.</p>
+<ul>
+<li>parentNode : 부모 요소</li>
+<li>previousSibling/previousElementSibling : 바로 앞에 있는 형제 요소 (텍스트 노드 포함/미포함)</li>
+<li>nextSobling/nextElementSibling : 바로 뒤에 있는 형제 요소 (텍스트 노드 포함/미포함)</li>
+<li>firstChild/firstElementChild : 첫번째 자식 요소 (텍스트 노드 포함/미포함)</li>
+<li>lastChild/lastElementChild : 마지막 자식 요소 (텍스트 노드 포함/미포함)</li>
+<li>childNodes/children : 자식 요소들 (텍스트 노드 포함/미포함)</li>
+</ul>
+<h3 id="공백-텍스트-노드"><a href="#공백-텍스트-노드" class="headerlink" title="공백 텍스트 노드"></a>공백 텍스트 노드</h3><p>HTML 문서에서 태그 사이에 개행문자가 포함되있으면 그 공백을 의미하는 텍스트 노드를 생성한다. 따라서 검색시에 유의해야한다.</p>
+<h3 id="자식-노드-확인"><a href="#자식-노드-확인" class="headerlink" title="자식 노드 확인"></a>자식 노드 확인</h3><p>Node.prototype.hasChildNodes 메소드로 확인할 수 있다. 하지만 이 메소드는 텍스트 노드를 포함하여 자식 노드의 존재를 확인한다.<br>따라서 요소 노드만을 확인하고 싶은 경우에는 Node.prototype.children.length 또는 Node.prototype.childElementCount 프로퍼티로 확인하면 된다.</p>
+<h3 id="텍스트-노드-확인"><a href="#텍스트-노드-확인" class="headerlink" title="텍스트 노드 확인"></a>텍스트 노드 확인</h3><p>해당 노드에 자식으로 텍스트 노드가 연결되어 있기 때문에 firstChild나 childNodes로 접근할 수 있다.</p>
+<h3 id="탐색-가능-여부-확인"><a href="#탐색-가능-여부-확인" class="headerlink" title="탐색 가능 여부 확인"></a>탐색 가능 여부 확인</h3><p>Element.prototype.matches 메소드로 검색할 특정 노드를 선택자의 형태로 전달하면 확인 가능하다.</p>
+<h2 id="노드-정보-취득"><a href="#노드-정보-취득" class="headerlink" title="노드 정보 취득"></a>노드 정보 취득</h2><ul>
+<li><p>Node.prototype.nodeType<br>노드 객체의 종류를 나타내는 상수를 반환한다.</p>
+<ul>
+<li>요소 노드 : 1</li>
+<li>텍스트 노드 : 3</li>
+<li>문서 노드 : 9</li>
+</ul>
+</li>
+<li><p>Node.prototype.nodeName<br>노드 이름을 문자열로 반환한다.</p>
+<ul>
+<li>요소 노드 : 대문자 문자열로 태그 이름 반환</li>
+<li>텍스트 노드 : ‘#text’ 문자열 값을 반환</li>
+<li>문서 노드 : ‘#document’ 문자열 값을 반환</li>
+</ul>
+</li>
+</ul>
+<h2 id="요소-노드-텍스트-조작"><a href="#요소-노드-텍스트-조작" class="headerlink" title="요소 노드 텍스트 조작"></a>요소 노드 텍스트 조작</h2><ul>
+<li><p>nodeValue<br>텍스트 노드의 값을 반환한다. 이때 텍스트 노드가 아닌 경우 null을 반환한다.</p>
+</li>
+<li><p>textCotent<br>해당 요소의 모든 컨텐츠 영역 내에 텍스트를 전부 반환한다. 하위 요소에 텍스트 노드의 값을 전부 반환한다.</p>
+</li>
+</ul>
+<h2 id="DOM-조작"><a href="#DOM-조작" class="headerlink" title="DOM 조작"></a>DOM 조작</h2><ul>
+<li><p>innerHTML<br>Elemnet.prototype.innerHTML 프로퍼티는 요소 노드의 HTML 마크업을 취득하거나 변경한다.</p>
+</li>
+<li><p>insertAdjacentHTML<br>Elemnet.prototype.insertAdjacentHTML 프로퍼티는 기존 요소를 제거하지 않으면서 위치를 지정해 새로운 요소를 추가한다.<br>Elemnet.prototype.insertAdjacentHTML(position, DOM_String)의 형태로 사용한다.</p>
+<ul>
+<li>position<br>beforebegin, afterbegin, beforeend, afterend</li>
+</ul>
+</li>
+<li><p>createElement<br>Node.prototype.createElement 메소드는 요소 노드를 생성한다. 인자 값으로 준 문자열로 노드를 만든다.</p>
+</li>
+<li><p>createTextNode<br>Node.prototype.createTextNode 메소드는 텍스트 노드를 생성한다. 인자 값으로 준 문자열을 값으로 갖는 텍스트 노드를 만든다.</p>
+</li>
+<li><p>createDocumentFragment<br>Document.prototype.createDocumentFragment 메소드는 많은 형제 요소를 제어하기 위한 빈 노드를 생성한다.</p>
+</li>
+<li><p>appendChild<br>Node.prototype.appendChild 메소드는 인수로 전달한 노드를 해당 노드의 자식 노드로 추가한다. 전달하는 노드를 추가하고 원래 위치의 노드를 제거하면 이동하는 효과를 볼 수 있다.</p>
+</li>
+<li><p>insertBefore<br>Node.prototype.insertBefore 메소드는 첫번째 인수로 삽입할 노드를 두번째 인수로 받은 노드 앞에 삽입한다. appendChild와 마찬가지로 삽입할 노드 원본을 지우면 이동하는 효과를 볼 수 있다.</p>
+</li>
+<li><p>cloneNode<br>Node.prototype.cloneNode 메소드는 해당 노드의 사본을 만든다. 인수로 블리언 값을 받을 수 있는데 ‘true’일 경우 깊은 복사를, ‘false’일 경우에 얕은 복사를 한다.</p>
+</li>
+<li><p>replaceChild<br>Node.prototype.replaceChild 메소드는 호출한 노드의 자식을 다른 노드로 교체한다. 첫번째 인수로 교체할 새로운 노드를 두번째 인수로 교체 될 노드를 전달하면 된다.</p>
+</li>
+<li><p>removeChild<br>Node.prototype.removeChild 메소드는 호출한 노드의 자식 중 인수로 전달한 노드를 DOM에서 삭제한다.</p>
+</li>
+</ul>
+<h2 id="어트리뷰트"><a href="#어트리뷰트" class="headerlink" title="어트리뷰트"></a>어트리뷰트</h2><p>HTML 요소는 여러개의 어트리뷰트를 가질 수 있다. 이 어트리뷰트도 노드로 변환되어 추가가 된다. 그리고 이 어트리뷰트들은 유사 배열 객체인 NamedNodeMap 객체로 묶여지고 해당 요소 노드의 arrtibutes 프로퍼티에 저장된다. arrtibute 프로퍼티도 읽기 전용임으로 할당시 무시된다.</p>
+<h3 id="어트리뷰트의-의미"><a href="#어트리뷰트의-의미" class="headerlink" title="어트리뷰트의 의미"></a>어트리뷰트의 의미</h3><p>어트리뷰트 노드는 초기 상태를 관리한다. DOM 노드는 최신 상태를 관리한다.<br>또한 어트리뷰트 노드로 취득한 어트리뷰트 값은 언제나 문자열인 반면에 DOM 노드는 블리언 값을 반환하기도 한다.</p>
+<h2 id="어트리뷰트-조작"><a href="#어트리뷰트-조작" class="headerlink" title="어트리뷰트 조작"></a>어트리뷰트 조작</h2><ul>
+<li><p>getArrtibute<br>Element.prototype.getArrtibute 메소드는 해당 요소의 어트리뷰트 값을 취득 및 변경할 수 있다.<br>첫번째 인수로 해당 요소의 어트리뷰트를 두번째 인수로 변경할 어트리뷰트 값을 전달할 수 있으며 첫번째 인수만 전달할 시 해당 어트리뷰트 값을 반환한다.</p>
+</li>
+<li><p>hasAttribute<br>Element.prototype.hasAttribute 메소드는 인수로 전달한 어트리뷰트가 호출한 요소 안에 있는지 확인하여 블리언 값을 반환한다.</p>
+</li>
+<li><p>removeArrtibe<br>Element.prototype.removeArrtibe 메소드는 호출한 요소 안에 인수로 전달한 어트리뷰트를 삭제한다.</p>
+</li>
+</ul>
+<h2 id="스타일"><a href="#스타일" class="headerlink" title="스타일"></a>스타일</h2><ul>
+<li><p>style<br>HTMLElement.prototpye.style 프로퍼티는 접근자 프로퍼티로서 요소 노드의 <strong>인라인 스타일</strong>을 취득하거나 변경한다. 참조시 CSSStyleDeclaration 객체를 반환한다.<br><em>CSSStyleDeclaration 객체는 카멜 케이스로 프로퍼티를 갖는다. 케밥 케이스를 그대로 사용하려면 대괄호 표기법으로 참조해야한다.</em></p>
+</li>
+<li><p>className<br>Element.prototype.className 프로퍼티는 접근자 프로퍼티로서 호출한 요소의 class 값을 취득 및 변경한다.</p>
+</li>
+<li><p>classList<br>Element.prototype.classList 프로퍼티는 어트리뷰트 값을 모두 담은 DOMtokenList 객체를 반환한다.</p>
+<ul>
+<li>Element.prototype.classList.add<br>인수로 전달한 class를 추가한다.</li>
+<li>Element.prototype.classList.remove<br>인수로 전달한 class를 제거한다.</li>
+<li>Element.prototype.classList.index<br>인수로 전달한 인덱스에 해당하는 class 이름을 문자열로 반환한다.</li>
+<li>Element.prototype.classList.contains<br>인수로 전달한 문자열에 해당하는 class 이름이 있는지 확인한다.</li>
+<li>Element.prototype.classList.replace<br>첫번째로 전달한 문자열의 class 이름을 두번째 문자열의 class 이름으로 바꾼다.</li>
+</ul>
+</li>
+<li><p>getComputedStyle<br>인라인 스타일만 반환하는 style 프로퍼티와 다르게 window.getComputedStyle 메소드는 인수로 전달한 요소의 적용된 모든 스타일을 CSSStyleDeclaration 객체에 담아 반환한다.<br><em>모든 스타일이란 링크 스타일, 임베딩 스타일, 인라인 스타일, 외부에서 적용된 스타일, 상속된 스타일, 사용자 지정 스타일 등을 말한다.</em></p>
+</li>
+</ul>
+<h2 id="웹-표준"><a href="#웹-표준" class="headerlink" title="웹 표준"></a>웹 표준</h2><p>HTML과 DOM 표준은 W3C와 WHATWG, 이 두 단체가 협력하여 공통된 표준을 정의했다. 하지만 2018년을 기준으로 두 단체가 다른 표준을 내놓기 시작해서 주요 4개 브라우저 벤더사(MS, Google, Apple, Mozila)가 주도하는 WHATWG가 단일 표준을 내놓기로 합의가 되었다.</p>
 
         </div>
         
