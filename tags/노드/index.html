@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: 노드 - Dev.Mang&#39;s Odd and Ends</title>
+<title>Etiqueta: 노드 - Dev.Mang&#39;s Odd and Ends</title>
 
 
     <meta name="description" content="Every things Mang want to do">
@@ -117,7 +117,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Pencarian" href="javascript:;">
+                <a class="navbar-item search" title="Buscar" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -133,7 +133,7 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">Tag</a></li>
+            <li><a href="/tags">Etiquetas</a></li>
             <li class="is-active"><a href="#" aria-current="page">노드</a></li>
         </ul>
         </nav>
@@ -153,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    21분 membaca (Sekitar 3202 kata)
+                    22분 leer (Acerca de 3295 palabras)
                 </span>
                 
                 
@@ -214,6 +214,7 @@
 <li>(형제 태그 이름) ~ (찾을 형제 태그 이름) : 일반 형제 선택자 : 검색 기준인 형제 요소 뒤에 오는 형제 태그들 모두</li>
 <li>(태그 이름):(가상 클래스 이름) : 가상 클래스 선택자 : 해당 상태인 태그</li>
 </ul>
+<p>*id로 취득하는 경우를 제외하고 </p>
 </li>
 </ul>
 <h2 id="HTMLCollection-객체와-NodeList-객체"><a href="#HTMLCollection-객체와-NodeList-객체" class="headerlink" title="HTMLCollection 객체와 NodeList 객체"></a>HTMLCollection 객체와 NodeList 객체</h2><p>DOM API가 검색한 여러개의 노드를 결과값으로 반환하기 위해 만드는 유사배열 객체이다.</p>
@@ -223,7 +224,7 @@
 <li><p>NodeList 객체<br>css 선택자로 취득하는 경우에 반환되는 값이나 자식 요소를 찾는 childNodes 프로퍼티가 반환한 값이다.<br>css 선택자로 취득하는 경우에는 노드 객체의 변화를 반영하지 않지만, childNode 프로퍼티로 반환되면 노드 객체의 변화를 반영하는 살아있는 객체가 된다.</p>
 </li>
 </ul>
-<h2 id="노드-탐색"><a href="#노드-탐색" class="headerlink" title="노드 탐색"></a>노드 탐색</h2><p>어떤 요소를 취득하면 그 요소를 통해 부모, 형제 자식 요소에 접근할 수 있다.<br>해당 노드는 노드 탐색을 위한 접근자 프로퍼티를 갖는다. 읽기 전용 값이다. 즉, 값을 할당하면 에러 없이 무시된다.</p>
+<h2 id="노드-탐색"><a href="#노드-탐색" class="headerlink" title="노드 탐색"></a>노드 탐색</h2><p>어떤 요소를 취득하면 그 요소를 통해 부모, 형제 자식 요소에 접근할 수 있다. 이렇게<br>해당 노드는 노드 탐색을 위한 접근자 프로퍼티를 갖는다. 읽기 전용 값이다. 즉, 값을 할당하면 에러 없이 무시된다.</p>
 <ul>
 <li>parentNode : 부모 요소</li>
 <li>previousSibling/previousElementSibling : 바로 앞에 있는 형제 요소 (텍스트 노드 포함/미포함)</li>
@@ -253,24 +254,25 @@
 </li>
 </ul>
 <h2 id="요소-노드-텍스트-조작"><a href="#요소-노드-텍스트-조작" class="headerlink" title="요소 노드 텍스트 조작"></a>요소 노드 텍스트 조작</h2><ul>
-<li><p>nodeValue<br>텍스트 노드의 값을 반환한다. 이때 텍스트 노드가 아닌 경우 null을 반환한다.</p>
+<li><p>nodeValue<br>텍스트 노드의 값을 반환한다. 이때 호출하는 대상이 텍스트 노드가 아닌 경우 null을 반환한다.</p>
 </li>
-<li><p>textCotent<br>해당 요소의 모든 컨텐츠 영역 내에 텍스트를 전부 반환한다. 하위 요소에 텍스트 노드의 값을 전부 반환한다.</p>
+<li><p>textCotent<br>해당 요소의 모든 컨텐츠 영역 내에 텍스트를 전부 반환한다. <strong>하위 요소에 텍스트 노드의 값을 전부 반환한다.</strong></p>
 </li>
 </ul>
 <h2 id="DOM-조작"><a href="#DOM-조작" class="headerlink" title="DOM 조작"></a>DOM 조작</h2><ul>
-<li><p>innerHTML<br>Elemnet.prototype.innerHTML 프로퍼티는 요소 노드의 HTML 마크업을 취득하거나 변경한다.</p>
+<li><p>innerHTML<br>Elemnet.prototype.innerHTML 프로퍼티는 요소 노드의 HTML 마크업을 취득하거나 변경한다.<br><em>단점 : 보안 취약, 추가할 경우 요소 노드를 새로 만듬, 위치를 지정할 수 없음.</em></p>
 </li>
 <li><p>insertAdjacentHTML<br>Elemnet.prototype.insertAdjacentHTML 프로퍼티는 기존 요소를 제거하지 않으면서 위치를 지정해 새로운 요소를 추가한다.<br>Elemnet.prototype.insertAdjacentHTML(position, DOM_String)의 형태로 사용한다.</p>
 <ul>
 <li>position<br>beforebegin, afterbegin, beforeend, afterend</li>
 </ul>
+<p><em>단점 : 보안 취약, 불필요한 요소 노드를 다시 만듬</em></p>
 </li>
 <li><p>createElement<br>Node.prototype.createElement 메소드는 요소 노드를 생성한다. 인자 값으로 준 문자열로 노드를 만든다.</p>
 </li>
 <li><p>createTextNode<br>Node.prototype.createTextNode 메소드는 텍스트 노드를 생성한다. 인자 값으로 준 문자열을 값으로 갖는 텍스트 노드를 만든다.</p>
 </li>
-<li><p>createDocumentFragment<br>Document.prototype.createDocumentFragment 메소드는 많은 형제 요소를 제어하기 위한 빈 노드를 생성한다.</p>
+<li><p>createDocumentFragment<br>Document.prototype.createDocumentFragment 메소드는 많은 형제 요소를 제어하기 위한 빈 노드를 생성한다. Fragment 객체는 append할 때 사라지기 때문에 좋다. </p>
 </li>
 <li><p>appendChild<br>Node.prototype.appendChild 메소드는 인수로 전달한 노드를 해당 노드의 자식 노드로 추가한다. 전달하는 노드를 추가하고 원래 위치의 노드를 제거하면 이동하는 효과를 볼 수 있다.</p>
 </li>
@@ -284,7 +286,7 @@
 </li>
 </ul>
 <h2 id="어트리뷰트"><a href="#어트리뷰트" class="headerlink" title="어트리뷰트"></a>어트리뷰트</h2><p>HTML 요소는 여러개의 어트리뷰트를 가질 수 있다. 이 어트리뷰트도 노드로 변환되어 추가가 된다. 그리고 이 어트리뷰트들은 유사 배열 객체인 NamedNodeMap 객체로 묶여지고 해당 요소 노드의 arrtibutes 프로퍼티에 저장된다. arrtibute 프로퍼티도 읽기 전용임으로 할당시 무시된다.</p>
-<h3 id="어트리뷰트의-의미"><a href="#어트리뷰트의-의미" class="headerlink" title="어트리뷰트의 의미"></a>어트리뷰트의 의미</h3><p>어트리뷰트 노드는 초기 상태를 관리한다. DOM 노드는 최신 상태를 관리한다.<br>또한 어트리뷰트 노드로 취득한 어트리뷰트 값은 언제나 문자열인 반면에 DOM 노드는 블리언 값을 반환하기도 한다.</p>
+<h3 id="어트리뷰트의-의미"><a href="#어트리뷰트의-의미" class="headerlink" title="어트리뷰트의 의미"></a>어트리뷰트의 의미</h3><p>어트리뷰트 노드는 초기 상태를 관리한다. DOM 노드는 최신 상태를 관리한다.<br>또한 어트리뷰트 노드로 취득한 어트리뷰트 값은 언제나 문자열인 반면에 DOM 노드는 블리언 값을 반환하기도 한다.<br>즉, 입력한 값을 </p>
 <h2 id="어트리뷰트-조작"><a href="#어트리뷰트-조작" class="headerlink" title="어트리뷰트 조작"></a>어트리뷰트 조작</h2><ul>
 <li><p>getArrtibute<br>Element.prototype.getArrtibute 메소드는 해당 요소의 어트리뷰트 값을 취득 및 변경할 수 있다.<br>첫번째 인수로 해당 요소의 어트리뷰트를 두번째 인수로 변경할 어트리뷰트 값을 전달할 수 있으며 첫번째 인수만 전달할 시 해당 어트리뷰트 값을 반환한다.</p>
 </li>
@@ -367,7 +369,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Artikel
+                        Entradas
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
@@ -379,7 +381,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategori
+                        Categorías
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -391,11 +393,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tag
+                        Etiquetas
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            75
+                            77
                         </p>
                     </a>
                 </div>
@@ -404,7 +406,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                IKUTI</a>
+                SEGUIR</a>
         </div>
         
         
@@ -457,7 +459,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Tautan
+            Enlaces
         </h3>
         <ul class="menu-list">
         
@@ -494,7 +496,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategori
+                Categorías
             </h3>
             <ul class="menu-list">
             
@@ -506,9 +508,9 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Awan tag
+            Nube de etiquetas
         </h3>
-        <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Array-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">Array_메소드</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/ES6-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">ES6 문법</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/const/" style="font-size: 10px;">const</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/let/" style="font-size: 10px;">let</a> <a href="/tags/super/" style="font-size: 10px;">super</a> <a href="/tags/symbol/" style="font-size: 10px;">symbol</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/" style="font-size: 10px;">this_바인딩</a> <a href="/tags/var/" style="font-size: 10px;">var</a> <a href="/tags/%EA%B0%92/" style="font-size: 11.25px;">값</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 20px;">개념_정리</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 16.25px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" style="font-size: 10px;">객체_생성</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">내부_메소드</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/" style="font-size: 10px;">내부_슬롯</a> <a href="/tags/%EB%85%B8%EB%93%9C/" style="font-size: 10px;">노드</a> <a href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/" style="font-size: 10px;">단축평가</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 13.75px;">데이터_타입</a> <a href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">동적_타입_언어</a> <a href="/tags/%EB%9E%9C%EB%8D%94%EB%A7%81/" style="font-size: 10px;">랜더링</a> <a href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">레퍼_객체</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/" style="font-size: 10px;">렉시컬_환경</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 11.25px;">리터럴</a> <a href="/tags/%EB%AC%B8/" style="font-size: 10px;">문</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">변수</a> <a href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/" style="font-size: 10px;">부수_효과</a> <a href="/tags/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80/" style="font-size: 10px;">브라우저</a> <a href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">블록_레벨_스코프</a> <a href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">빌트인_객체</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 10px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/" style="font-size: 10px;">생성자_함수</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 11.25px;">스코프</a> <a href="/tags/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">스프레드 문법</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 11.25px;">실행_컨텍스트</a> <a href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" style="font-size: 10px;">어트리뷰트</a> <a href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/" style="font-size: 10px;">엄격_모드</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/" style="font-size: 10px;">원시_값</a> <a href="/tags/%EC%9D%B8%EC%88%98/" style="font-size: 10px;">인수</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">일급객체</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">전역_객체</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">전역_변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">전역_스코프</a> <a href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">정적_타입_언어</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">지역_변수</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">지역_스코프</a> <a href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">캡슐화</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 17.5px;">컴퓨터_기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/" style="font-size: 18.75px;">컴퓨터_심화</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 11.25px;">클래스</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a> <a href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/" style="font-size: 10px;">타입_변환</a> <a href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/" style="font-size: 10px;">표현식</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/" style="font-size: 10px;">프로토타입_체인</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/" style="font-size: 12.5px;">프로퍼티</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 15px;">함수</a> <a href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 10px;">함수_리터럴</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/" style="font-size: 10px;">함수_정의</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/" style="font-size: 10px;">함수_종류</a> <a href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/" style="font-size: 10px;">함수_호출</a> <a href="/tags/%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98/" style="font-size: 10px;">화살표 함수</a>
+        <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Array-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">Array_메소드</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/ES6-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">ES6 문법</a> <a href="/tags/HTML/" style="font-size: 11.25px;">HTML</a> <a href="/tags/const/" style="font-size: 10px;">const</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/let/" style="font-size: 10px;">let</a> <a href="/tags/super/" style="font-size: 10px;">super</a> <a href="/tags/symbol/" style="font-size: 10px;">symbol</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/this-%EB%B0%94%EC%9D%B8%EB%94%A9/" style="font-size: 10px;">this_바인딩</a> <a href="/tags/var/" style="font-size: 10px;">var</a> <a href="/tags/%EA%B0%92/" style="font-size: 11.25px;">값</a> <a href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/" style="font-size: 20px;">개념_정리</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 16.25px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1/" style="font-size: 10px;">객체_생성</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">내부_메소드</a> <a href="/tags/%EB%82%B4%EB%B6%80-%EC%8A%AC%EB%A1%AF/" style="font-size: 10px;">내부_슬롯</a> <a href="/tags/%EB%85%B8%EB%93%9C/" style="font-size: 10px;">노드</a> <a href="/tags/%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80/" style="font-size: 10px;">단축평가</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 13.75px;">데이터_타입</a> <a href="/tags/%EB%8F%99%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">동적_타입_언어</a> <a href="/tags/%EB%9E%9C%EB%8D%94%EB%A7%81/" style="font-size: 10px;">랜더링</a> <a href="/tags/%EB%A0%88%ED%8D%BC-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">레퍼_객체</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC-%ED%99%98%EA%B2%BD/" style="font-size: 10px;">렉시컬_환경</a> <a href="/tags/%EB%A0%89%EC%8B%9C%EC%BB%AC%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">렉시컬스코프</a> <a href="/tags/%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 11.25px;">리터럴</a> <a href="/tags/%EB%AC%B8/" style="font-size: 10px;">문</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">변수</a> <a href="/tags/%EB%B6%80%EC%88%98-%ED%9A%A8%EA%B3%BC/" style="font-size: 10px;">부수_효과</a> <a href="/tags/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80/" style="font-size: 10px;">브라우저</a> <a href="/tags/%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">블록_레벨_스코프</a> <a href="/tags/%EB%B9%8C%ED%8A%B8%EC%9D%B8-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">빌트인_객체</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 10px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98/" style="font-size: 10px;">생성자_함수</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 11.25px;">스코프</a> <a href="/tags/%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C-%EB%AC%B8%EB%B2%95/" style="font-size: 10px;">스프레드 문법</a> <a href="/tags/%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" style="font-size: 11.25px;">실행_컨텍스트</a> <a href="/tags/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" style="font-size: 10px;">어트리뷰트</a> <a href="/tags/%EC%97%84%EA%B2%A9-%EB%AA%A8%EB%93%9C/" style="font-size: 10px;">엄격_모드</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9B%90%EC%8B%9C-%EA%B0%92/" style="font-size: 10px;">원시_값</a> <a href="/tags/%EC%9D%B4%EB%B2%A4%ED%8A%B8/" style="font-size: 10px;">이벤트</a> <a href="/tags/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC/" style="font-size: 10px;">이벤트 핸들러</a> <a href="/tags/%EC%9D%B8%EC%88%98/" style="font-size: 10px;">인수</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">일급객체</a> <a href="/tags/%EC%9E%90%EC%9C%A0%EB%B3%80%EC%88%98/" style="font-size: 10px;">자유변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">전역_객체</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">전역_변수</a> <a href="/tags/%EC%A0%84%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">전역_스코프</a> <a href="/tags/%EC%A0%95%EC%A0%81-%ED%83%80%EC%9E%85-%EC%96%B8%EC%96%B4/" style="font-size: 10px;">정적_타입_언어</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98/" style="font-size: 11.25px;">지역_변수</a> <a href="/tags/%EC%A7%80%EC%97%AD-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">지역_스코프</a> <a href="/tags/%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">캡슐화</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/" style="font-size: 17.5px;">컴퓨터_기초</a> <a href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/" style="font-size: 18.75px;">컴퓨터_심화</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 11.25px;">클래스</a> <a href="/tags/%ED%81%B4%EB%A1%9C%EC%A0%80/" style="font-size: 10px;">클로저</a> <a href="/tags/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/" style="font-size: 10px;">타입_변환</a> <a href="/tags/%ED%91%9C%ED%98%84%EC%8B%9D/" style="font-size: 10px;">표현식</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B8/" style="font-size: 10px;">프로토타입_체인</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0/" style="font-size: 12.5px;">프로퍼티</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 15px;">함수</a> <a href="/tags/%ED%95%A8%EC%88%98-%EB%A6%AC%ED%84%B0%EB%9F%B4/" style="font-size: 10px;">함수_리터럴</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98/" style="font-size: 10px;">함수_정의</a> <a href="/tags/%ED%95%A8%EC%88%98-%EC%A2%85%EB%A5%98/" style="font-size: 10px;">함수_종류</a> <a href="/tags/%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C/" style="font-size: 10px;">함수_호출</a> <a href="/tags/%ED%99%94%EC%82%B4%ED%91%9C-%ED%95%A8%EC%88%98/" style="font-size: 10px;">화살표 함수</a>
     </div>
 </div>
     
@@ -518,7 +520,7 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Terbaru
+            Recientes
         </h3>
         
         <article class="media">
@@ -623,7 +625,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Arsip
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -658,7 +660,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tag
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -700,7 +702,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/HTML/">
                         <span class="tag">HTML</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -714,7 +716,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">27</span>
+                        <span class="tag is-grey">28</span>
                     </a>
                 </div>
                 
@@ -770,7 +772,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">개념_정리</span>
-                        <span class="tag is-grey">27</span>
+                        <span class="tag is-grey">28</span>
                     </a>
                 </div>
                 
@@ -992,6 +994,20 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B4%EB%B2%A4%ED%8A%B8/">
+                        <span class="tag">이벤트</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC/">
+                        <span class="tag">이벤트 핸들러</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%9D%B8%EC%88%98/">
                         <span class="tag">인수</span>
                         <span class="tag is-grey">1</span>
@@ -1092,7 +1108,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
                         <span class="tag">컴퓨터_심화</span>
-                        <span class="tag is-grey">15</span>
+                        <span class="tag is-grey">16</span>
                     </a>
                 </div>
                 
@@ -1206,7 +1222,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Terbaru
+            Recientes
         </h3>
         
         <article class="media">
@@ -1311,7 +1327,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Arsip
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -1346,7 +1362,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tag
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1388,7 +1404,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/HTML/">
                         <span class="tag">HTML</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1402,7 +1418,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">27</span>
+                        <span class="tag is-grey">28</span>
                     </a>
                 </div>
                 
@@ -1458,7 +1474,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">
                         <span class="tag">개념_정리</span>
-                        <span class="tag is-grey">27</span>
+                        <span class="tag is-grey">28</span>
                     </a>
                 </div>
                 
@@ -1680,6 +1696,20 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B4%EB%B2%A4%ED%8A%B8/">
+                        <span class="tag">이벤트</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC/">
+                        <span class="tag">이벤트 핸들러</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%9D%B8%EC%88%98/">
                         <span class="tag">인수</span>
                         <span class="tag is-grey">1</span>
@@ -1780,7 +1810,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/%EC%BB%B4%ED%93%A8%ED%84%B0-%EC%8B%AC%ED%99%94/">
                         <span class="tag">컴퓨터_심화</span>
-                        <span class="tag is-grey">15</span>
+                        <span class="tag is-grey">16</span>
                     </a>
                 </div>
                 
@@ -2015,7 +2045,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -2039,7 +2069,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tulis Sesuatu.." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Teclea algo..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -2051,11 +2081,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Artikel',
-                PAGES: 'Halaman',
-                CATEGORIES: 'Kategori',
-                TAGS: 'Tag',
-                UNTITLED: 'Tanpa Judul',
+                POSTS: 'Entradas',
+                PAGES: 'Páginas',
+                CATEGORIES: 'Categorías',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Sin título)',
             },
             CONTENT_URL: '/content.json',
         };

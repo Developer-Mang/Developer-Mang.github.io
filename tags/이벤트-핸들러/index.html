@@ -7,13 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Etiqueta: let - Dev.Mang&#39;s Odd and Ends</title>
+<title>Etiqueta: 이벤트 핸들러 - Dev.Mang&#39;s Odd and Ends</title>
 
 
     <meta name="description" content="Every things Mang want to do">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dev.Mang&#39;s Odd and Ends">
-<meta property="og:url" content="https://developer-mang.github.io/tags/let/index.html">
+<meta property="og:url" content="https://developer-mang.github.io/tags/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC/index.html">
 <meta property="og:site_name" content="Dev.Mang&#39;s Odd and Ends">
 <meta property="og:description" content="Every things Mang want to do">
 <meta property="og:locale" content="ko_KR">
@@ -134,7 +134,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Etiquetas</a></li>
-            <li class="is-active"><a href="#" aria-current="page">let</a></li>
+            <li class="is-active"><a href="#" aria-current="page">이벤트 핸들러</a></li>
         </ul>
         </nav>
     </div>
@@ -147,13 +147,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-27T12:16:36.000Z">2020-02-27</time>
+                <time class="level-item has-text-grey" datetime="2020-03-26T10:09:49.000Z">2020-03-26</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 leer (Acerca de 614 palabras)
+                    10분 leer (Acerca de 1483 palabras)
                 </span>
                 
                 
@@ -162,33 +162,128 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/02/27/let-const%EC%99%80-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84/">let, const와 블록 레벨 스코프</a>
+                <a class="has-link-black-ter" href="/2020/03/26/%EC%9D%B4%EB%B2%A4%ED%8A%B8/">이벤트</a>
             
         </h1>
         <div class="content">
-            <h2 id="var-키워드로-선언한-변수의-문제점"><a href="#var-키워드로-선언한-변수의-문제점" class="headerlink" title="var 키워드로 선언한 변수의 문제점"></a>var 키워드로 선언한 변수의 문제점</h2><p>자바스크립트의 변수 선언 키워드 var 를 사용하면 많은 문제점이 생긴다.</p>
+            <h2 id="이벤트-드리븐-프로그래밍이란"><a href="#이벤트-드리븐-프로그래밍이란" class="headerlink" title="이벤트 드리븐 프로그래밍이란?"></a>이벤트 드리븐 프로그래밍이란?</h2><p>이벤트가 발생할 때 호출되는 함수인 이벤트 핸들러를 이용하여 이벤트 중심으로 프로그램의 흐름을 제어하는 방식을 말한다.</p>
+<h2 id="이벤트-타입"><a href="#이벤트-타입" class="headerlink" title="이벤트 타입"></a>이벤트 타입</h2><ul>
+<li><p>마우스 이벤트</p>
 <ul>
-<li><p>변수의 중복 선언 허용<br>var 로 생성한 변수는 중복 선언을 허용한다. 이것은 먼저 선언된 변수 값이 의도치 않게 변경될 수 있는 가능성이 있다는 것이다.</p>
-</li>
-<li><p>함수 레벨 스코프<br>var 로 생성한 변수는 함수 블록 만을 지역 스코프로 인정한다. 따라서 함수 외부에서 var로 선언한 변수는 전역 변수가 된다.</p>
-</li>
-<li><p>변수 호이스팅<br>var 로 생성한 변수는 변수 호이스팅이 일어난다. 선언하는 코드 이전에 이미 선언되어 참조될 수 있고 이것으로 오류를 발생시킬 가능성이 높아진다.</p>
-</li>
-</ul>
-<h2 id="let-키워드와-const-키워드-ES6"><a href="#let-키워드와-const-키워드-ES6" class="headerlink" title="let 키워드와 const 키워드(ES6)"></a>let 키워드와 const 키워드(ES6)</h2><p>var로 선언한 변수는 위와 같은 문제를 갖고 있기 때문에 이를 해결하기 위해서 let과 const 키워드를 지원한다.</p>
-<ul>
-<li><p>let<br>let으로 선언한 변수는 다음과 같은 특징을 갖는다.</p>
-<ul>
-<li>변수의 중복 선언을 금지</li>
-<li>블록 레벨 스코프 지원</li>
-<li>변수 호이스팅에 대한 에러 코드 지원<br><em>변수 호이스팅이 안 일어나지는 않는다. 다만 초기화 단계와 선언단계가 분리되있고 초기화 전에 변수를 참조하려고 하면 참조 에러(ReferenceError)가 발생한다. 선언단계서 부터 초기화 단계가 되기 전까지를 <strong>일시적 사각지대</strong>라고 한다.</em></li>
-<li>브라우저 환경에서 전역 변수로 선언할 시 전역 객체인 window의 프로퍼티로 등록되지 않는다.</li>
+<li>click : 클릭할 때</li>
+<li>dbclick : 더블 클릭할 때</li>
+<li>mousedown : 마우스 버튼을 누를 때</li>
+<li>mouseup : 누르던 마우스 버튼을 놓았을 때</li>
+<li>mousemove : 마우스를 움직일 때</li>
+<li>mousenter : 마우스를 요소안에 이동했을 때</li>
+<li>mouseleave : 마우스가 요소 안에서 밖으로 이동했을 때</li>
 </ul>
 </li>
-<li><p>const<br>const로 선언한 변수는 상수를 선언하기 위해서 사용한다. <strong>const로 선언한 변수는 반드시 선언과 동시에 할당이 이루어져야 한다.</strong><br>또한, 그렇게 선언된 const로 선언한 변수는 <u>재할당이 시스템적으로 금지된다.</u></p>
+<li><p>키보드 이벤트</p>
+<ul>
+<li>keydown : 문자, 숫자, 특수 문자 키를 누를 때</li>
+<li>keyup : 눌렀던 키를 놓았을 때</li>
+<li>keypress : 모든 키를 눌렀을 때 한번만!</li>
+</ul>
+</li>
+<li><p>포커스 이벤트</p>
+<ul>
+<li>focus : tab으로 요소가 포커스를 받았을 때</li>
+<li>blur : 포커스 받은 요소가 포커스를 잃었을 때</li>
+</ul>
+</li>
+<li><p>폼 이벤트</p>
+<ul>
+<li>submit : submit 버튼을 눌렸을 때</li>
+<li>reset : reset 버튼을 눌렀을 때</li>
+</ul>
+</li>
+<li><p>값 변경 이벤트</p>
+<ul>
+<li>input : input, select, textarea 요소에 값이 입력되었을 때</li>
+<li>change : input 요소에 입력하지 않고 포커스가 나갔을 때</li>
+<li>readystatechange : HTML 문서의 로드와 파싱 상태를 나타내는 readyState 프로퍼티 값이 변경될 때</li>
+</ul>
+</li>
+<li><p>DOM 뮤테이션 이벤트</p>
+<ul>
+<li>DOMContentLoaded : HTML 문서의 로드와 파싱이 완료되어 DOM 및 CSSOM 생성이 완료 되었을 때</li>
+</ul>
+</li>
+<li><p>뷰 이벤트</p>
+<ul>
+<li>resize : 브라우저 윈도우의 크기가 변할 때</li>
+<li>scroll : 웹 페이지를 스크롤 할 때</li>
+</ul>
+</li>
+<li><p>리소스 이벤트</p>
+<ul>
+<li>load : DOM 이벤트 이후에 모든 리소스를 로딩 받았을 때</li>
+<li>unload : 리소스가 언로드 될 때</li>
+<li>abort : 리소스 로딩이 중단되었을 때</li>
+<li>error : 리소스 로딩을 실패하였을 때</li>
+</ul>
 </li>
 </ul>
-<p>ES6 이상의 버전을 사용한다면 변수 선언에 가급적 const를 사용하며, 변경할 필요가 있는 변수의 경우 let을 사용하는 것을 권장한다.<br>또한, let으로 선언한 변수의 스코프는 최대한 좁게 만드는 것을 권장한다.</p>
+<h2 id="이벤트-핸들러-등록"><a href="#이벤트-핸들러-등록" class="headerlink" title="이벤트 핸들러 등록"></a>이벤트 핸들러 등록</h2><p>이벤트 핸들러란? 이벤트가 발생하였을 때 브라우저에 의해 실행될 함수를 이벤트 핸들러라고 한다.<br>이벤트 핸들러를 이벤트에 매칭하여 등록하면 해당 이벤트 발생시 해당 함수를 실행한다.</p>
+<ul>
+<li><p>어트리뷰트 방식<br>HTML 요소의 이벤트에 해당하는 어트리뷰트에 이벤트 핸들러를 등록하는 방법.<br>접두사 on과 이벤트 타입으로 이루어져있다.</p>
+</li>
+<li><p>프로퍼티 방식<br>HTML 요소 이벤트에 해당하는 프로퍼티 키에 대해 이벤트 핸들러를 값으로 할당하는 방법.<br>접두사 on과 이벤트 타입으로 이루어져있다.</p>
+</li>
+<li><p>addEventListener 메소드 방식<br>EventTarget.prototype.addEventListener 메소드를 사용해서 첫번째 인수로 이벤트 타입을 두번쨰 인수로 이벤트 이벤트 핸들러를 전달하면 등록이 된다. 세번째는 옵션으로 caption 사용 여부를 묻는다.<br><em>동일한 이벤트 핸들러를 중복등록하면 하나만 등록된다.</em></p>
+</li>
+</ul>
+<h2 id="이벤트-핸들러-제거"><a href="#이벤트-핸들러-제거" class="headerlink" title="이벤트 핸들러 제거"></a>이벤트 핸들러 제거</h2><p>EventTarget.prototype.removeEventListener 메소드를 사용하면 addEventListener 메소드로 등록한 이벤트 핸들러를 삭제할 수 있다. 주의해야할 점은 addEventListener 메소드에 준 인수를 그대로 주어야한다.</p>
+<h2 id="이벤트-객체"><a href="#이벤트-객체" class="headerlink" title="이벤트 객체"></a>이벤트 객체</h2><p>이벤트가 발생하면 이벤트 정보를 담고 있는 객체가 만들어지는데 이를 이벤트 객체라고 한다. 이벤트 객체는 이벤트 타입에 따라 프로퍼티가 다른 객체를 만든다.</p>
+<ul>
+<li><p>이벤트 객체의 공통 프로퍼티</p>
+<ul>
+<li>type : 이벤트 타입</li>
+<li>target : 이벤트를 발생 시킨 DOM 요소</li>
+<li>currentTarget : 이벤트 핸들러가 바인딩 된 DOM 요소</li>
+<li>eventPhase : 이벤트 전파 단계 (0:이벤트 없음, 1: 캡처링 단계, 2: 타깃 단계, 3: 버블링 단계)</li>
+<li>bubbles : 이벤트를 버블링으로 전파하는지 여부</li>
+<li>cancelable : preventDefult 메소드를 호출하여 이벤트 기본 동작 취소 가능 여부</li>
+<li>defultPrevented : preventDefult 메소드를 호출하여 이벤트 취소 가능 여부</li>
+<li>isTrusted : 사용자가 발생시킨 이벤트인지 확인</li>
+<li>timeStemp : 이벤트가 발생한 시간</li>
+</ul>
+</li>
+<li><p>마우스 정보 취득</p>
+<ul>
+<li>마우스 포인터 좌표 정보 프로퍼티 : screenX/screenY, clientX/clientY, pageX,pageY, offsetX/offsetY</li>
+<li>버튼 정보 프로퍼티 : altKey, ctrlKey, shiftKey, button</li>
+</ul>
+</li>
+<li><p>키보드 정보 취득</p>
+<ul>
+<li>키보드 정보 프로퍼티 : altKey, ctrlKey, shiftKey, metaKey, Key, keyCode</li>
+</ul>
+</li>
+</ul>
+<h2 id="이벤트-전파"><a href="#이벤트-전파" class="headerlink" title="이벤트 전파"></a>이벤트 전파</h2><p>트리 상에서 존재하는 DOM 요소들에 이벤트가 발생하면 트리 구조에 따라 이벤트가 전파된다. 이를 이벤트 전파라고 한다.<br>전파과정에 따라</p>
+<ul>
+<li>캡처링 단계 : 이벤트가 상위 요소에서 하위 요소 방향으로 전파</li>
+<li>타깃 단계 : 이벤트가 이벤트 타겟에 도달</li>
+<li>버블링 단계 : 이벤트가 하위 요소에서 상위 요소 방향으로 전파</li>
+</ul>
+<h2 id="이벤트-위임"><a href="#이벤트-위임" class="headerlink" title="이벤트 위임"></a>이벤트 위임</h2><p>모든 요소에 동일한 이벤트 핸들러를 가지면 퍼포먼스가 나쁘기 때문에 <u>하나의 상위 요소</u>에 이벤트 핸들러를 등록하는 방법을 이벤트 위임이라고 한다.</p>
+<h2 id="기본-동작-변경"><a href="#기본-동작-변경" class="headerlink" title="기본 동작 변경"></a>기본 동작 변경</h2><p>HTML 요소들은 각각 저마다의 기본 동작을 갖는다. 이 기본 동작을 조작할 수 있다.</p>
+<ul>
+<li><p>기본 동작 중지 : 기본동작을 해제하기 위해 preventDefult 메소드를 사용하면 된다.</p>
+</li>
+<li><p>이벤트 전파 방지 : stopPropagation 메소드를 사용한다.</p>
+</li>
+</ul>
+<h2 id="이벤트-핸들러-내부에서의-this"><a href="#이벤트-핸들러-내부에서의-this" class="headerlink" title="이벤트 핸들러 내부에서의 this"></a>이벤트 핸들러 내부에서의 this</h2><ul>
+<li><p>어트리뷰트 방식 : 전역 객체 window</p>
+</li>
+<li><p>프로퍼티와 addEventListener 메소드 방식 : 이벤트를 바인딩한 DOM 요소</p>
+</li>
+</ul>
+<h2 id="이벤트-핸들러에-인수-전달"><a href="#이벤트-핸들러에-인수-전달" class="headerlink" title="이벤트 핸들러에 인수 전달"></a>이벤트 핸들러에 인수 전달</h2><p>이벤트 핸들어 안에서 즉시실행함수로 만들어 인수를 전달할 수 있다.</p>
+<h2 id="커스텀-이벤트"><a href="#커스텀-이벤트" class="headerlink" title="커스텀 이벤트"></a>커스텀 이벤트</h2><p>이벤트 객체는 Event, UIEvent, MouseEvent와 같은 생성자 함수로 만들 수 있다.</p>
 
         </div>
         
